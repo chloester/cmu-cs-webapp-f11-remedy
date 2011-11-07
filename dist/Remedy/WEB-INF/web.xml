@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	version="2.4">
 
-	<display-name>MDTrack</display-name>
+	<display-name>Remedy</display-name>
 	<description>
-      Chloe Fan and Yucheng's project
+      Chloe Fan and Yucheng Wang's project for F11 Web Application Development
     </description>
 
 	
