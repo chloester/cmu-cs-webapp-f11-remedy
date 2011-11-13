@@ -1,10 +1,19 @@
-<%
-    java.util.List<String> errors = (java.util.List) request.getAttribute("errors");
-	if (errors != null && errors.size() > 0) {
-		out.println("<p align=\"center\" style=\"font-size:large; color:red\">");
-		for (String error : errors) {
-			out.println(error+"<br/>");
-		}
-		out.println("</p>");
-	}
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:if test="${!(empty errors)}">
+	<p style="font-size:medium; color:red">
+		<c:forEach var="error" items="${errors}">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			${error}
+			<br/>
+		</c:forEach>
+	</p>
+</c:if>
+
+<c:if test="${!(empty message)}">
+	<p style="font-size:medium; color:red">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		${message}
+	</p>
+</c:if>
+<h3>error list</h3>

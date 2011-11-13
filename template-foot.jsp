@@ -1,8 +1,7 @@
-
-	
-	<div id="Footer">
-	Copyright &copy; 2011 Hua Liang@Carnegie Mellon University
-	</div>
-</div> <!-- container's div -->
+<html>
+<head>
+<!-- Hi Chloe, You can insert footer jsp file here.-->
+</head>
+<body>
+<h3>footer</h3>
 </body>
-</html>
