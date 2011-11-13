@@ -8,5 +8,6 @@
 </head>
 <body>
 <h3>welcome!</h3>
+<a href="logout.do">log out</a>
 </body>
 </html>
