@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Successful Login</title>
+<title>Insert title here</title>
 </head>
 <body>
- 	<h1>hello world!</h1>
+<h1>you have already successful logged in.</h1>
 </body>
 </html>
