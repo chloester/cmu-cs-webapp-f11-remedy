@@ -1,0 +1,68 @@
+Coding Document:
+11/Nov/2011
+1)Establish the Error-list jsp file:
+Specification: (using EL expression)
+Errors: arraylist containing the errors in when user use login page and register page.
+Messages: messages containing the messages from exception.
+___we could expand the errors and messages when we expand our website application.
+////////////////////////////////////////////////////////////////////////////////////
+2)Establish the Home page for MD Tracker website, which includes:
+1>template-head jsp(we could use it in all the pages, or just serveral pages you 
+want, if you want to use it in part of our pages, you could rename it.)
+
+2>error-list jsp(show errors and messages from actions, we could use css to decorate it)
+
+3>login jsp(show login frame for user to login, specification showed below)
+
+4>register jsp(show regsiter fram for user to register, specificaiton showed below)
+
+5>photo page(we could talk about it, and apply it in the future)
+
+6>template-foot jsp(same for template-headjsp)
+/////////////////////////////////////////////////////////////////////////////////////
+3)Establish the login jsp for homepage(you could modify the id and class tag as you wishe, if you modified them please let mek know)
+1>Two inputs: email address and password.
+2>Two buttons: login button and register button, I will use loginAction to identify them.
+////////////////////////////////////////////////////////////////////////////////////
+4)Establish the register jsp for homepage
+1>include template-head jsp file
+2>error-list jsp
+3>Foundamental information:
+1.email address;
+2.password;
+3.first name;
+4.last name;
+5.comfirm password;
+4>more information:( will include in the data table )
+1.gender;
+2.country;
+3.state;
+5>template-foot jsp file
+////////////////////////////////////////////////////////////////////
+5)establish login form bean:
+1>define variables; I used regular expression to identify the eamil address format.
+2>define corresponding functions.
+////////////////////////////////////////////////////////////////////
+6)establish register form bean:
+!!!I haven't use hidden field for register form, for I think it is not secure.
+1>define variables, which includes foundamental variables(5) and extra variables(3)
+2>define corresponding function.(I haved used hash function to has password.)
+/////////////////////////////////////////////////////////////////////
+7)establish login action:
+Hi Chloe, I have put nessary information in action java code, you could check it out.
+8)establish registeration action:
+Hi Chloe, I ahve put nessary information in action java code.
+9)establish logout action
+/////////////////////////////////////////////////////////////////////
+10) create userbean for data access.(use emailaddress as primary key)
+////////////////////////////////////////////////////////////////////
+11)create userDAO for database accessing.
+1> I have defined interface for userDAO. you could know the functionality of each function.
+/////////////////////////////////////////////////////////////////////
+12)create Controller for actions
+
+////////////////////////////////////////////////////////////////////
+13)Make our website as https
+////////////////////////////////////////////////////////////////////
+
+
