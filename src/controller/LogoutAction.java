@@ -18,7 +18,7 @@ public class LogoutAction extends Action {
 	public String perform(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         session.setAttribute("user",null);
-		request.setAttribute("message","You have logged out, dude");
+		request.setAttribute("message","You have logged out");
         return "homepage.jsp";
     }
 }
