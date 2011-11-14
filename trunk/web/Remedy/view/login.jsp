@@ -1,5 +1,5 @@
 <div id="loginbody">
-	<div id="" class=""><!-- Hi Chole, you could define id and class as you wish for css -->
+	<div id="" class=""><!-- Hi Chloe, you could define id and class as you wish for css -->
 		<form id="loginform" method="post" action="login.do">
 			<div id="">welcome to MDTracker</div><!-- just for fun -->
 			<div id="loginemail">
