@@ -1,0 +1,18 @@
+input {
+	height: 28px;
+}
+
+@font-face {
+	font-family: Frankfurter;
+	src: url('Frankfurter.ttf');
+}
+
+.brand {
+	font-family: Frankfurter;
+}
+
+sup {
+	font-family:Arial;
+	font-weight:bold;
+	color: #cc0000;
+}

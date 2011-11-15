@@ -4,7 +4,7 @@
 
 <div id="registerPageBody">
 		<form method="post" action="register.do">
-		<div id="userregister">User Register Here</div>
+		<div id="userregister">New user register here</div>
 		<table>
 			<tr><td>Email Address:</td><td><div id="email">
 				 <input type="text" name="userName" value="${registerform.userName}"/>

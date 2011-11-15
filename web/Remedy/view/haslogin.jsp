@@ -1,13 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Insert title here</title>
-</head>
-<body>
-	<h3>welcome!</h3>
-	<a href="logout.do">log out</a>
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:include page="template-head.jsp" />
+<jsp:include page="error-list.jsp"/>
+
+<jsp:include page="template-foot.jsp" />
