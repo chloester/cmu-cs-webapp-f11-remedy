@@ -1,2 +1,4 @@
 ///////////////////////////////////15637 webapplication////////////////////////////////////////////////
 1> debugging the duplicated registration and user session problems in registration action. 
+
+[ ] When log in and go back to home page, it asks to log in again

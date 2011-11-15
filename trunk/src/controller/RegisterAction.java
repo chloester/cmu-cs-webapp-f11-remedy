@@ -57,7 +57,7 @@ public class RegisterAction extends Action {
 	        //check duplicated registration.
 	        User checkuser = userDAO.lookup(form.getUserName());
 	        if( checkuser != null){
-	        	errors.add("Please change another emailadress, we are sorry.");
+	        	errors.add("User with that email already exists.");
 	        	return "register.jsp";
 	        }
 	        // Create the user bean

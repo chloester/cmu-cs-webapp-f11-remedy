@@ -65,7 +65,7 @@ public class LoginAction extends Action {
         		// Look up the user login in.
         		User user = userDAO.lookup(form.getEmailaddress());   
         		if (user == null) {
-        			errors.add("The user does not exsist!");
+        			errors.add("The user does not exist!");
         			return "homepage.jsp";
         		}else if (!user.checkPassword(form.getPassword())) {
         			errors.add("Incorrect password");
@@ -81,6 +81,7 @@ public class LoginAction extends Action {
 	        // After successful login send to the page user wanted to.
 	        String redirectTo = (String) session.getAttribute("redirectTo");
 	        if (redirectTo != null) return redirectTo;   
+	
 			return "haslogin.jsp";
         } catch (DAOException e) {
         	errors.add(e.getMessage());
