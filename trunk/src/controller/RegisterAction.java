@@ -31,7 +31,14 @@ public class RegisterAction extends Action {
     public String perform(HttpServletRequest request) {
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
-        try {
+        //check session attribution.
+        User registeruser = (User) request.getSession(true).getAttribute("user");
+    	if (registeruser != null) {
+    		//errors.add("You are already logged in.");
+    		return "haslogin.jsp";
+    	}
+        
+    	try {
 	        RegisterForm form = formBeanFactory.create(request);
 	        request.setAttribute("registerform",form);
 	        if (!form.isPresent()) {
@@ -42,10 +49,16 @@ public class RegisterAction extends Action {
 	         * e.g. no password, fail to repeat password , 
 	         * 
 	         */
-	        System.out.println("the eamil address is " + form.getUserName());
+	        //System.out.println("the eamil address is " + form.getUserName());
 	        errors.addAll(form.registerCheckErrors());
 	        if (errors.size()!= 0) {
 	            return "register.jsp";
+	        }
+	        //check duplicated registration.
+	        User checkuser = userDAO.lookup(form.getUserName());
+	        if( checkuser != null){
+	        	errors.add("Please change another emailadress, we are sorry.");
+	        	return "register.jsp";
 	        }
 	        // Create the user bean
 	        User user = new User(form.getUserName());
