@@ -22,24 +22,12 @@ public interface userInterface {
       * Update the user's information in the user table for particular user 
      * @throws DAOException 
       */    
-     public void updataUser(User user) throws DAOException;
+     public void updateUser(User user) throws DAOException;
      /**
-      * Gets the rows of user  from user table with particular Country.
+      * Gets the rows of user from user table with particular Country.
       * @return the list of users in the table
       * @throws DAOException 
-      */  
-     public User[] getCountry(String countryname) throws DAOException;
-     /**
-      * Gets the rows of user  from user table with particular State.
-      * @return the list of users in the table
-      * @throws DAOException 
-      */  
-     public User[] getState(String statename) throws DAOException;
-     /**
-      * Gets the rows of user  from user table with particular Gender.
-      * @return the list of users in the table
-      * @throws DAOException 
-      */  
+      */ 
      public User[] getGender(String gendertype) throws DAOException;
      /**
       * Gets the rows of user  from user table with particular FirstName,maybe less used.

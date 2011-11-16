@@ -2,44 +2,74 @@
 
 <jsp:include page="error-list.jsp" />
 
-<div id="registerPageBody">
-		<form method="post" action="register.do">
-		<div id="userregister">New user register here</div>
-		<table>
-			<tr><td>Email Address:</td><td><div id="email">
-				 <input type="text" name="userName" value="${registerform.userName}"/>
-			</div></td></tr>
-			<tr><td>Password:</td><td><div id="password">
-				 <input type="password" name="password" value="${registerform.password}"/>
-			</div></td></tr>
-			<tr><td>Confirm password: </td><td><div id="confirmpassword">
-				<input type="password" name="confirmpassword" value="${registerform.confirmpassword}"/>
-			</div></td></tr>
-			<tr><td>First Name: </td><td><div id="firstName">
-				<input type="text" name="firstName" value="${registerform.firstName}"/>
-			</div></td></tr>
-			<tr><td>Last Name:</td><td><div id="lastName">
-				 <input type="text" name="lastName" value="${registerform.lastName}"/>
-			</div></td></tr></table>
-			<!-- add more information below -->
-			<table id="moreinfo">
-					<tr><td>Gender:</td><td><div id="gender">
-						 <select name="gender" style="height: 25px; width: 149px">
-							<option>Male</option>
-							<option>Female</option>
-						</select>
-					</div></td></tr>
-					<tr><td>Country:</td><td><div id="country">
-						 <input type="text" name="country" value="${registerform.country}"/>
-					</div></td></tr>
-					<tr><td>State:</td><td><div id="state">
-						 <input type="text" name="state" value="${registerform.state}"/>
-					</div></td></tr>
-			</table>
-			<div id="RegisterButton">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="submit" name="button" value="register" />
+<div class="container" style="width:820px;">
+	
+	<div class="content">
+		<div class="page-header">
+			<h1>Register</h1>
+		</div>
+		<div class="row">
+			<div class="span14">
+				<form method="post" action="register.do">
+					<fieldset>
+						<legend>Fill out the information below to create a new account</legend>
+						
+						<div class="clearfix">
+							<label for="userName">Email</label>
+							<div class="input">
+								<input class="large" id="userName" name="userName" type="text" value="${registerform.userName}" />
+							</div>
+						</div>
+						
+						<div class="clearfix">
+							<label for="password">Password</label>
+							<div class="input">
+								<input class="large" id="password" name="password" type="password" value="${registerform.password}" />
+							</div>
+						</div>
+						
+						<!-- TODO: Use AJAX to check password, highlight text input if do not match -->
+						<div class="clearfix">
+							<label for="confirmpassword">Confirm password</label>
+							<div class="input">
+								<input class="large" id="confirmpassword" name="confirmpassword" type="password" value="${registerform.confirmpassword}" />
+							</div>
+						</div>
+						
+						<div class="clearfix">
+							<label for="firstName">First name</label>
+							<div class="input">
+								<input class="medium" id="firstName" name="firstName" type="text" value="${registerform.firstName}" />
+							</div>
+						</div>
+						
+						<div class="clearfix">
+							<label for="lastName">Last name</label>
+							<div class="input">
+								<input class="medium" id="lastName" name="lastName" type="text" value="${registerform.lastName}" />
+							</div>
+						</div>
+						
+						<div class="clearfix">
+							<label for="gender">Gender</label>
+							<div class="input">
+								<select class="medium" id="gender" name="gender" value="${registerform.gender}">
+									<option>Male</option>
+									<option>Female</option>
+									<option>Prefer not to say</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="actions">
+							<input type="submit" class="btn primary" name="button" value="Register" />
+						</div>
+						
+					</fieldset>
+				</form>
 			</div>
-		</form>
-</div>
+		</div>
+		
+	</div>
+
 <jsp:include page="template-foot.jsp" />

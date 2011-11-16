@@ -7,21 +7,17 @@ import java.util.regex.Pattern;
 import org.mybeans.form.FormBean;
 
 public class RegisterForm extends FormBean {
-	//define variables.
-	/*basic information*/
 	private String userName;
 	private String password;
 	private String confirmpassword;
-   	private String firstName;
+	private String firstName;
 	private String lastName; 
-	/*advanced information */
 	private String gender;
-	private String country;
-	private String state;
+	
 	private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	private Pattern pattern;
 	private Matcher matcher;
-	
+
 	//getters and setters.
 	public String getUserName() {
 		return userName;
@@ -41,12 +37,7 @@ public class RegisterForm extends FormBean {
 	public String getGender() {
 		return gender;
 	}
-	public String getCountry() {
-		return country;
-	}
-	public String getState() {
-		return state;
-	}
+	
 	public void setUserName(String emailaddress) {
 		this.userName = trimAndConvert(emailaddress,"<>\"");
 	}
@@ -65,22 +56,17 @@ public class RegisterForm extends FormBean {
 	public void setGender(String gender) {
 		this.gender = trimAndConvert(gender,"<>\"");
 	}
-	public void setCountry(String country) {
-		this.country = trimAndConvert(country,"<>\"");
-	}
-	public void setState(String state) {
-		this.state = trimAndConvert(state,"<>\"");
-	}
+
 	//register check errors function
 	public List<String> registerCheckErrors() {
 		List<String> errors = new ArrayList<String>();
-		
+
 		if( userName==null|| userName.length()==0){
 			errors.add("User Email is required");
 		}else if(!emailValidator(userName)){
 			errors.add("Invalid format for email address");
 		}else if (userName.length() >= 255) {
-			errors.add("Email address is too long.");
+			errors.add("Email address is too long");
 		}else if(password==null||password.length()==0){
 			errors.add("Password is required");
 		}else if (password.length() >= 20) {
@@ -93,9 +79,9 @@ public class RegisterForm extends FormBean {
 			errors.add("LastName is required");
 		}
 		if (!password.equals(confirmpassword)) {
-			errors.add("Password confirm failed, please do it again.");
+			errors.add("Passwords do not match, please try again");
 		}
-		
+
 		/*if (emailAddress.length() >= 50) {
 			errors.add("emailaddress's length is 3-50, please re-enter.");
 		}
@@ -110,14 +96,14 @@ public class RegisterForm extends FormBean {
 		}
 		if (lastName.length() >= 20) {
 			errors.add("Last Name's length is 3-20, please re-enter.");
-		}*/	
-		//if there was no error, it should be null.
-		return errors;
+			}*/	
+				//if there was no error, it should be null.
+			return errors;
+		}
+		//using regular expression to identify email address.
+		private boolean emailValidator(String EmailAddress){
+			pattern = Pattern.compile(EMAIL_PATTERN);
+			matcher = pattern.matcher(EmailAddress);
+			return matcher.matches();
+		}
 	}
-	//using regular expression to identify email address.
-	private boolean emailValidator(String EmailAddress){
-		  pattern = Pattern.compile(EMAIL_PATTERN);
-		  matcher = pattern.matcher(EmailAddress);
-		  return matcher.matches();
-	 }
-}
