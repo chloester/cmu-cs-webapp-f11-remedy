@@ -23,13 +23,11 @@ public class Controller extends HttpServlet {
 
 	public void init() throws ServletException {
         Model model = new Model(getServletConfig());
-        /*
-         * Three actions for user to login,
-         * register and logout.
-         */
+
         Action.add(new LoginAction(model));
         Action.add(new LogoutAction(model));
         Action.add(new RegisterAction(model));
+		Action.add(new AddMedAction(model));
   
         /* Hi chloe, you could define action here,
          *  please indenify them separately according 
@@ -67,27 +65,25 @@ public class Controller extends HttpServlet {
         HttpSession session     = request.getSession(true);
         String      servletPath = request.getServletPath();
         String      action = getActionName(servletPath);
-        User  user = (User) session.getAttribute("user");
-        /*When the user does not log in, he can only choose to 
-         * log in or register.
-         */
-         if (action.equals("register.do")) {
- 			return Action.perform(action,request);
-         }
-        //no session exists or one session exists.
-        if (user == null) {
-        	if( action.equals("welcome")) return Action.perform("login.do",request);
-        	if( action.equals("login.do")) return Action.perform("login.do",request);
-        //user session exists.
-         }else{
-        	 if (action.equals("welcome")){
-            	 return Action.perform("login.do", request);
-             }
-         }
-     	// Let the local or logged-in user run his chosen action
-         return Action.perform(action,request);
-    }
-    /*
+		User  user = (User) session.getAttribute("user");
+
+		if (action.equals("register.do") || action.equals("login.do")) {
+			// Allow these actions without logging in
+			return Action.perform(action,request);
+		}
+		//no session exists or one session exists.
+		if (user == null) {
+			// If the user hasn't logged in, direct him to the login page
+			return Action.perform("login.do",request);
+		}
+
+		if (action.equals("welcome")){
+			return Action.perform("login.do", request);
+		}
+		// Let the local or logged-in user run his chosen action
+		return Action.perform(action,request);
+	}
+	/*
      * If nextPage is null, send back 404
      * If nextPage starts with a '/', redirect to this page.
      *    In this case, the page must be the whole servlet path including the webapp name

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:include page="template-head.jsp" />
-<jsp:include page="error-list.jsp"/>
 
 <%@ page import="databeans.User" %>
 <%
@@ -8,6 +7,8 @@
 %>
 
 <div class="container">
+	
+	<jsp:include page="error-list.jsp"/>
 	
 	<div class="content">
 		<div class="page-header">
@@ -21,7 +22,7 @@
 			<div class="span6">
 				<h3>What would you like to do?</h3>
 				<ul class="unstyled">
-					<li><a href="#">Add a new medication</a></li>
+					<li><a href="addMed.do">Add a new medication</a></li>
 					<li><a href="#">Log a medication</a></li>
 					<li><a href="#">Add a new side effect</a></li>
 					<li><a href="#">Log a side effect</a></li>

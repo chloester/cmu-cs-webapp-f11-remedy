@@ -1,8 +1,8 @@
 <jsp:include page="template-head.jsp" />
 
-<jsp:include page="error-list.jsp" />
-
 <div class="container" style="width:820px;">
+	
+	<jsp:include page="error-list.jsp" />
 	
 	<div class="content">
 		<div class="page-header">
