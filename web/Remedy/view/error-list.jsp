@@ -16,4 +16,3 @@
 		${message}
 	</p>
 </c:if>
-[Error list here]

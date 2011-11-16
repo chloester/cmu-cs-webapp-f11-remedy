@@ -7,7 +7,7 @@
 
 </head>
 <body>
-	<!-- TODO: If no user is logged in, show homepage header-->
+
 <%@ page import="databeans.User" %>
 <%
 	User user = (User) session.getAttribute("user");
@@ -16,10 +16,10 @@
 	<div class="topbar">
 		<div class="fill">
 			<div class="container">
-				<a class="brand" href="#">Remedy<sup>+</sup></a>
+				<a class="brand" href="/Remedy/">Remedy<sup>+</sup></a>
 				<ul class="nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">Learn more</a></li>
+					<li class="active"><a href="/Remedy/">Home</a></li>
+					<li><a href="#">Learn more</a></li>
 				</ul>
 				<form class="pull-right" id="loginform" method="post" action="login.do">
 					<input class="small" type="text" name="emailaddress" placeholder="Email" value="${loginform.emailaddress}">
@@ -39,14 +39,11 @@
 				<a class="brand" href="#">Remedy<sup>+</sup></a>
 				<ul class="nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">Medications</a></li>
-					<li><a href="#about">Side Effects</a></li>
 				</ul>
-				<p class="pull-right">Logged in as <a href="#">${email}</a>
-				<form class="pull=right" method="post" action="logout.do">
+				<form class="pull-right" method="post" action="logout.do">
+					Logged in as <a href="#"><%=user.getFirstName()%> <%=user.getLastName()%></a> 
 					<button class="btn" type="submit" name="button" value="logout">Logout</button>	
 				</form>
-				</p>
 			</div>
 		</div>
 	</div>

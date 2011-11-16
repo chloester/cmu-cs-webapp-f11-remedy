@@ -31,8 +31,8 @@ public class Model {
 			} else {
 				jdbcDriver = config.getInitParameter("jdbcDriver");
 				jdbcURL    = config.getInitParameter("jdbcURL");
-				requireSSL     = new Boolean(config.getInitParameter("requireSSL")); 
-				jdbcUser     = config.getInitParameter("jdbcUser");
+				requireSSL = new Boolean(config.getInitParameter("requireSSL")); 
+				jdbcUser   = config.getInitParameter("jdbcUser");
 				jdbcPassword = config.getInitParameter("jdbcPassword");
 				//connecting to database
 				BeanTable.useJDBC(jdbcDriver, jdbcURL, jdbcUser, jdbcPassword);

@@ -65,9 +65,7 @@ public class RegisterAction extends Action {
 	        user.setPassword(form.getPassword());
 			user.setFirstName(form.getFirstName());
 			user.setLastName(form.getLastName());
-			user.setGender(form.getGender());
-			user.setState(form.getState());
-			user.setCountry(form.getCountry());
+			//user.setGender(form.getGender());
         	userDAO.create(user);   
 			/*
 			 * After successful registration, redirectTo personal page.
