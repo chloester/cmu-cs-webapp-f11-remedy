@@ -5,6 +5,8 @@
 	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
 	<link rel="stylesheet" href="css/web.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script src="js/bootstrap-dropdown.js"></script>
 </head>
 <body>
 
@@ -33,17 +35,21 @@
 <%
 	} else {
 %>
-	<div class="topbar">
+	<div class="topbar" data-dropdown="dropdown">
 		<div class="fill">
 			<div class="container">
 				<a class="brand" href="#">Remedy<sup>+</sup></a>
 				<ul class="nav">
 					<li class="active"><a href="#">Home</a></li>
 				</ul>
-				<form class="pull-right" method="post" action="logout.do">
-					Logged in as <a href="#"><%=user.getFirstName()%> <%=user.getLastName()%></a> 
-					<button class="btn" type="submit" name="button" value="logout">Logout</button>	
-				</form>
+				<ul class="nav secondary-nav">
+					<li class="menu">
+						<a href="#" class="menu"><%=user.getFirstName()%> <%=user.getLastName()%></a>
+						<ul class="dropdown-menu menu-dropdown">
+							<li><a href="logout.do">Logout</a></li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
