@@ -101,7 +101,7 @@
 						<div class="clearfix">
 							<label for="startTime">Starting at</label>
 							<div class="input">
-								<select class="mini" name="startTime" id="startTime">
+								<select class="mini" name="startTimeHour" id="startTimeHour">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
@@ -114,6 +114,12 @@
 									<option>10</option>
 									<option>11</option>
 									<option>12</option>
+								</select> :
+								<select class="mini" name="startTimeMin" id="startTimeMin">
+									<option>00</option>
+									<option>15</option>
+									<option>30</option>
+									<option>45</option>
 								</select>
 								<select class="mini" name="startAMPM" id="startAMPM">
 									<option>a.m.</option>
@@ -126,12 +132,13 @@
 							<label for="dosage">Dosage</label>
 							<div class="input">
 								<input class="mini" id="dosage" name="dosage" type="text" value="${addmedform.dosage}" />
-								<select class="mini" name="dosageUnit" id="dosageUnit">
+								<select class="small" name="dosageUnit" id="dosageUnit">
+									<option>tablet</option>
+									<option>pill</option>
 									<option>oz</option>
 									<option>fl.oz</option>
 									<option>tsp</option>
 									<option>tbsp</option>
-									<option>tablet</option>
 									<option>g</option>
 									<option>mg</option>
 									<option>mcg</option>
