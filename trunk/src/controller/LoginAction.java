@@ -80,8 +80,7 @@ public class LoginAction extends Action {
 	        
 	        // After successful login send to the page user wanted to.
 	        String redirectTo = (String) session.getAttribute("redirectTo");
-	        if (redirectTo != null) return redirectTo;   
-	
+	        if (redirectTo != null) return redirectTo;
 			return "haslogin.jsp";
         } catch (DAOException e) {
         	errors.add(e.getMessage());

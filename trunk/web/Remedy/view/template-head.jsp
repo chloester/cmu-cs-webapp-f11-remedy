@@ -38,9 +38,9 @@
 	<div class="topbar" data-dropdown="dropdown">
 		<div class="fill">
 			<div class="container">
-				<a class="brand" href="#">Remedy<sup>+</sup></a>
+				<a class="brand" href="/Remedy/">Remedy<sup>+</sup></a>
 				<ul class="nav">
-					<li class="active"><a href="#">Home</a></li>
+					<li class="active"><a href="/Remedy/">Home</a></li>
 				</ul>
 				<ul class="nav secondary-nav">
 					<li class="menu">

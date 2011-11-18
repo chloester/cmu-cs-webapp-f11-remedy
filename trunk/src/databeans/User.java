@@ -1,6 +1,5 @@
 package databeans;
 
-
 public class User {
 	private String emailaddress;
 	private String password;

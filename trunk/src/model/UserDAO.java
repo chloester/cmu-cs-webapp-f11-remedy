@@ -1,6 +1,5 @@
 package model;
 
-
 import org.mybeans.dao.DAOException;
 import org.mybeans.factory.BeanFactory;
 import org.mybeans.factory.BeanFactoryException;
