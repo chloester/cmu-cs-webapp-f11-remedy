@@ -28,6 +28,9 @@ public class Controller extends HttpServlet {
         Action.add(new LogoutAction(model));
         Action.add(new RegisterAction(model));
 		Action.add(new AddMedAction(model));
+		Action.add(new LogMedAction(model));
+		Action.add(new AddSideAction(model));
+		Action.add(new LogSideAction(model));
   
         /* Hi chloe, you could define action here,
          *  please indenify them separately according 
@@ -78,7 +81,7 @@ public class Controller extends HttpServlet {
 		}
 
 		if (action.equals("welcome")){
-			return Action.perform("login.do", request);
+			return "haslogin.jsp";
 		}
 		// Let the local or logged-in user run his chosen action
 		return Action.perform(action,request);

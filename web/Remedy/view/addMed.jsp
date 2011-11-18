@@ -63,7 +63,7 @@
 						</div>
 
 						<div class="clearfix">
-							<label for="days">Days</label>
+							<label for="dayChecks">Days</label>
 							<div class="input">
 								<ul class="inputs-list">
 									<li><label>
@@ -139,7 +139,7 @@
 									<option>ml</option>
 									<option>drop</option>
 								</select>
-								<span class="help-block">Enter whole number for dosage, e.g., 5 mg, 2 tbps</span>
+								<span class="help-block">Enter whole number for dosage, e.g., 5 oz, 2 tbsp</span>
 							</div>
 						</div>
 						
