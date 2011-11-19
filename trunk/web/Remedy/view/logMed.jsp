@@ -67,29 +67,7 @@
 								</select>
 							</div>
 						</div>
-						
-						<div class="clearfix">
-							<label for="dosage">Dosage</label>
-							<div class="input">
-								<input class="mini" id="dosage" name="dosage" type="text" value="${addmedform.dosage}" />
-								<select class="small" name="dosageUnit" id="dosageUnit">
-									<option>tablet</option>
-									<option>pill</option>
-									<option>oz</option>
-									<option>fl.oz</option>
-									<option>tsp</option>
-									<option>tbsp</option>
-									<option>g</option>
-									<option>mg</option>
-									<option>mcg</option>
-									<option>cl</option>
-									<option>ml</option>
-									<option>drop</option>
-								</select>
-								<span class="help-block">Enter whole number for dosage, e.g., 5 oz, 2 tbsp</span>
-							</div>
-						</div>
-						
+												
 						<div class="actions">
 							<input type="submit" class="btn primary" name="button" value="Add medication" />
 							<button type="reset" class="btn">Clear form</button>
