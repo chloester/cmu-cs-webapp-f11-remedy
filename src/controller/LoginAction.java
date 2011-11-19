@@ -41,10 +41,6 @@ public class LoginAction extends Action {
         		LoginForm form = formBeanFactory.create(request);
         		request.setAttribute("loginform",form);
         		
-        		/*Hi Chloe, I just create an error jsp for correcting, 
-        		  you could modify it  or simply replace it with other 
-        		  jsp page for server errors.
-        		*/
         		if (!form.isPresent()) {
         			return "error.jsp";
         		}

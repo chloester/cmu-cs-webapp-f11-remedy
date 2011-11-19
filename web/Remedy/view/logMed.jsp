@@ -14,7 +14,7 @@
 			<h1>Log Medication</h1>
 		</div>
 		<div class="row">
-			<div class="span14">
+			<div class="span16">
 				<form method="post" action="logMed.do">
 					<fieldset>
 						<legend>Log a medication intake</legend>
@@ -35,7 +35,6 @@
 							<label for="datepicker">When did you take it?</label>
 							<div class="input">
 								<input class="small" id="datepicker" name="date" type="text" value="${logmedform.date}" />
-								<span class="help-block">What date did you take this medication?</span>
 							</div>
 						</div>
 						
@@ -55,7 +54,7 @@
 									<option>10</option>
 									<option>11</option>
 									<option>12</option>
-								</select>
+								</select> : 
 								<select class="mini" name="startTimeMin" id="startTimeMin">
 									<option>00</option>
 									<option>15</option>

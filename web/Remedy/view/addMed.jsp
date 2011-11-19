@@ -14,7 +14,7 @@
 			<h1>Add Medication</h1>
 		</div>
 		<div class="row">
-			<div class="span14">
+			<div class="span16">
 				<form method="post" action="addMed.do">
 					<fieldset>
 						<legend>Add a new medication or supplement</legend>

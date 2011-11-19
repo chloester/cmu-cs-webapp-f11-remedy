@@ -16,6 +16,6 @@ public class AddSideAction extends Action {
 	public String getName() { return "addSide.do"; }
 
 	public String perform(HttpServletRequest request) {
-        return "addSide.jsp";
+        return "logSide.jsp";
     }
 }

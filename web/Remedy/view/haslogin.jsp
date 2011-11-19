@@ -24,14 +24,10 @@
 				<ul class="unstyled">
 					<li><a href="addMed.do">Add a new medication</a></li>
 					<li><a href="logMed.do">Log a medication</a></li>
-					<li><a href="#" data-controls-modal="modal-from-dom-addSide" data-backdrop="true" data-keyboard="true" >Add a new side effect</a></li>
 					<li><a href="logSide.do">Log a side effect</a></li>
 					<li><a href="#">Visualize interactions</a></li>
 				</ul>
 				
-				<button data-controls-modal="modal-from-dom-addSide" data-backdrop="true" data-keyboard="true" class="btn danger">Add side effect</button>
-				
-				<jsp:include page="addSideModal.jsp"/>
 			</div>
 		</div>
 	</div>
