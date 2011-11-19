@@ -73,7 +73,7 @@
 							<label for="dosage">Dosage</label>
 							<div class="input">
 								<input class="mini" id="dosage" name="dosage" type="text" value="${addmedform.dosage}" />
-								<select class="mini" name="dosageUnit" id="dosageUnit">
+								<select class="small" name="dosageUnit" id="dosageUnit">
 									<option>tablet</option>
 									<option>pill</option>
 									<option>oz</option>
