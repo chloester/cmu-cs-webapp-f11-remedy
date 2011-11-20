@@ -18,7 +18,7 @@ public class Medication {
 		this.medid = id;
 	}
 	//getters and setters.
-	public int getId() {
+	public int getMedid() {
 		return medid;
 	}
 	public String getName() {

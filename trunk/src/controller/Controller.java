@@ -2,7 +2,7 @@ package controller;
 
 import java.io.IOException;
 
-import controller.Action;
+import controller.Action1;
 
 import databeans.User;
 
@@ -23,16 +23,18 @@ public class Controller extends HttpServlet {
 
 	public void init() throws ServletException {
         Model model = new Model(getServletConfig());
-
-        Action.add(new LoginAction(model));
-        Action.add(new LogoutAction(model));
-        Action.add(new RegisterAction(model));
-		Action.add(new ViewMedsAction(model));
-		Action.add(new AddMedAction(model));
-		Action.add(new LogMedAction(model));
-		Action.add(new AddSideAction(model));
-		Action.add(new LogSideAction(model));
-  
+        //user identification. 
+        Action1.add(new LoginAction(model));
+        Action1.add(new LogoutAction(model));
+        Action1.add(new RegisterAction(model));
+        //user medication management.
+		Action1.add(new AddMedAction(model));
+		Action1.add(new LogMedAction(model));
+	    //user side affect log.
+		Action1.add(new AddSideAction(model));
+		Action1.add(new LogSideAction(model));
+        //show user information. 
+		Action1.add(new showAddMedAction(model));
         /* Hi chloe, you could define action here,
          *  please indenify them separately according 
          *  to functionality.
@@ -73,19 +75,19 @@ public class Controller extends HttpServlet {
 
 		if (action.equals("register.do") || action.equals("login.do")) {
 			// Allow these actions without logging in
-			return Action.perform(action,request);
+			return Action1.perform(action,request);
 		}
 		//no session exists or one session exists.
 		if (user == null) {
 			// If the user hasn't logged in, direct him to the login page
-			return Action.perform("login.do",request);
+			return Action1.perform("login.do",request);
 		}
 
 		if (action.equals("welcome")){
 			return "haslogin.jsp";
 		}
 		// Let the local or logged-in user run his chosen action
-		return Action.perform(action,request);
+		return Action1.perform(action,request);
 	}
 	/*
      * If nextPage is null, send back 404
