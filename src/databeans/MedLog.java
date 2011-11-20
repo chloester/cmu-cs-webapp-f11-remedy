@@ -1,6 +1,6 @@
 package databeans;
 
-public class Log {
+public class MedLog {
 	private int    medId;
 	private String owner;
 	private String date;
@@ -16,7 +16,7 @@ public class Log {
 	public String getTimeAMPM() { return timeAMPM; }
 	
 	public void setMedId(int i)			{ medId = i;    }
-	public void setOwner(int o)			{ owner = o; 	}
+	public void setOwner(String o)		{ owner = o; 	}
 	public void setDate(String d)		{ date = d;     }
 	public void setTimeHr(int t)		{ timeHr = t;   }
 	public void setTimeMin(int t)		{ timeMin = t;  }
