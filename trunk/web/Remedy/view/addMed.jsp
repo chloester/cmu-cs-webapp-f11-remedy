@@ -31,7 +31,7 @@
 							<label for="purpose">Purpose</label>
 							<div class="input">
 								<input class="large" id="purpose" name="purpose" type="text" value="${addmedform.purpose}" />
-								<span class="help-block">e.g. for headaches</span>
+								<span class="help-block"><em>e.g.,</em> for headaches</span>
 							</div>
 						</div>
 						
@@ -146,7 +146,7 @@
 									<option>ml</option>
 									<option>drop</option>
 								</select>
-								<span class="help-block">Enter whole number for dosage, e.g., 5 oz, 2 tbsp</span>
+								<span class="help-block">Enter whole number for dosage, <em>e.g.,</em> 5 oz, 2 tbsp</span>
 							</div>
 						</div>
 						

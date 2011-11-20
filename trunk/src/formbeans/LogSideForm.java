@@ -1,6 +1,11 @@
-package databeans;
+package formbeans;
 
-public class SideEffectLog {
+import java.util.ArrayList;
+import java.util.List;
+
+import org.mybeans.form.FormBean;
+
+public class LogSideForm extends FormBean {
 	private String owner;
 	private String name;
 	private String date;
@@ -21,4 +26,22 @@ public class SideEffectLog {
 	public void setTimeHr(int t)	{ timeHr = t;  }
 	public void setTimeMin(int t)	{ timeMin = t; }
 	public void setValue(int v)		{ value = v;   }
+	
+	public List<String> getValidationErrors() {
+		List<String> errors = new ArrayList<String>();
+		
+		if (name == null) {
+			errors.add("Please select a side effect from the dropdown list, or add a new side effect.");
+		}
+		
+		if (date == null) {
+			errors.add("Please select the date when you experienced the side effect.");
+		}
+		
+		if (errors.size() > 0) {
+			return errors;
+		}
+		
+		return errors;
+	}
 }
