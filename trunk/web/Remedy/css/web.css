@@ -7,8 +7,8 @@ input {
 	height: 28px;
 }
 
-form, fieldset, div.actions {
-	margin-bottom:0px;
+form, fieldset, .actions {
+	margin-bottom:0px !important;
 }
 
 footer {
@@ -33,5 +33,16 @@ sup {
 .content .span6 {
 	margin-left: 0;
 	padding-left: 19px;
+	border-left: 1px solid #eee;
+}
+
+.span1 {
+	text-align:right;
+	padding-right:10px;
+}
+
+.span8 {
+	padding-left:10px;
+	margin-left:0px !important;
 	border-left: 1px solid #eee;
 }
