@@ -14,54 +14,94 @@
 			<h1>Log Side Effect</h1>
 		</div>
 		<div class="row">
-			<div class="span16">
+			<div class="span14">
 				<form method="post" action="logSide.do">
 					<fieldset>
 						<legend>Log a side effect</legend>
 						
 						<div class="clearfix">
-							<label for="name">Side effect</label>
+							<label for="name">Name</label>
 							<div class="input">
-								<select class="medium" id="name" name="name">
-									<option></option>
-								</select>
-								<span class="help-inline">
-									<a href="#" data-controls-modal="modal-from-dom-addSide" data-backdrop="true" data-keyboard="true" >Add a new side effect</a>
-								</span>
+								<input class="large" id="name" name="name" type="text" value="${addmedform.name}" />
+								<span class="help-block">Name of your medication</span>
 							</div>
 						</div>
 						
 						<div class="clearfix">
-							<label for="value">Rating</label>
+							<label for="purpose">Purpose</label>
 							<div class="input">
-								<select class="mini" id="value" name="value">
-									<option>0</option>
+								<input class="large" id="purpose" name="purpose" type="text" value="${addmedform.purpose}" />
+								<span class="help-block">e.g. for headaches</span>
+							</div>
+						</div>
+						
+						<div class="clearfix">
+							<label for="frequency">Frequency</label>
+							<div class="input">
+								<select class="small" name="freqSelect1" id="freqSelect1">
+									<option>Once</option>
+									<option>Twice</option>
+									<option>3 times</option>
+									<option>4 times</option>
+									<option>6 times</option>
+									<option>8 times</option>
+									<option>12 times</option>
+								</select>
+								a day, every 
+								<select class="mini" name="freqSelect2" id="freqSelect2">
+									<option></option>
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
 									<option>4</option>
-									<option>5</option>
 									<option>6</option>
-									<option>7</option>
 									<option>8</option>
-									<option>9</option>
-									<option>10</option>
+									<option>12</option>
 								</select>
-								<span class="help-block">How strong is the side effect? 0 = none, 10 = highest</span>
+								 hour(s)
+							</div>
+						</div>
+
+						<div class="clearfix">
+							<label for="dayChecks">Days</label>
+							<div class="input">
+								<ul class="inputs-list">
+									<li><label>
+										<input type="checkbox" name="dayChecks" value="Monday">
+										<span>Monday</span>
+									</label></li>
+									<li><label>
+										<input type="checkbox" name="dayChecks" value="Tuesday">
+										<span>Tuesday</span>
+									</label></li>
+									<li><label>
+										<input type="checkbox" name="dayChecks" value="Wednesday">
+										<span>Wednesday</span>
+									</label></li>
+									<li><label>
+										<input type="checkbox" name="dayChecks" value="Thursday">
+										<span>Thursday</span>
+									</label></li>
+									<li><label>
+										<input type="checkbox" name="dayChecks" value="Friday">
+										<span>Friday</span>
+									</label></li>
+									<li><label>
+										<input type="checkbox" name="dayChecks" value="Saturday">
+										<span>Saturday</span>
+									</label></li>
+									<li><label>
+										<input type="checkbox" name="dayChecks" value="Sunday">
+										<span>Sunday</span>
+									</label></li>
+								</ul>
 							</div>
 						</div>
 						
 						<div class="clearfix">
-							<label for="datepicker">Date</label>
+							<label for="startTime">Starting at</label>
 							<div class="input">
-								<input class="small" id="datepicker" name="date" type="text" value="${logsideform.date}" />
-							</div>
-						</div>
-						
-						<div class="clearfix">
-							<label for="startTime">Time</label>
-							<div class="input">
-								<select class="mini" name="timeHr" id="timeHr">
+								<select class="mini" name="startTime" id="startTime">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
@@ -74,17 +114,32 @@
 									<option>10</option>
 									<option>11</option>
 									<option>12</option>
-								</select> : 
-								<select class="mini" name="timeMin" id="timeMin">
-									<option>00</option>
-									<option>15</option>
-									<option>30</option>
-									<option>45</option>
 								</select>
-								<select class="mini" name="timeAMPM" id="timeAMPM">
+								<select class="mini" name="startAMPM" id="startAMPM">
 									<option>a.m.</option>
 									<option>p.m.</option>
 								</select>
+							</div>
+						</div>
+						
+						<div class="clearfix">
+							<label for="dosage">Dosage</label>
+							<div class="input">
+								<input class="mini" id="dosage" name="dosage" type="text" value="${addmedform.dosage}" />
+								<select class="mini" name="dosageUnit" id="dosageUnit">
+									<option>oz</option>
+									<option>fl.oz</option>
+									<option>tsp</option>
+									<option>tbsp</option>
+									<option>tablet</option>
+									<option>g</option>
+									<option>mg</option>
+									<option>mcg</option>
+									<option>cl</option>
+									<option>ml</option>
+									<option>drop</option>
+								</select>
+								<span class="help-block">Enter whole number for dosage, e.g., 5 oz, 2 tbsp</span>
 							</div>
 						</div>
 						
@@ -96,9 +151,6 @@
 					</fieldset>
 				</form>
 			</div>
-			
-			<jsp:include page="addSideModal.jsp"/>
-			
 		</div>
 		
 	</div>

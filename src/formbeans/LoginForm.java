@@ -11,21 +11,28 @@ public class LoginForm extends FormBean {
 	//login form input variables.
 	private String emailaddress;
 	private String password;
+	private String redirect;
 	private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	private Pattern pattern;
 	private Matcher matcher;
 	
 	//getter and setter.
+	public String getRedirect(){
+		return redirect;
+	}
 	public String getEmailaddress() {
 		return emailaddress;
 	}
+	public String getPassword(){ 
+		return password; 
+    }
 	//trimAndConvert trim email, preventing html injection.
 	public void setEmailaddress(String emailaddress) {
 		this.emailaddress = trimAndConvert(emailaddress,"<>\"");
 	}	
-	public String getPassword(){ 
-		return password; 
-    }
+	public void setRedirect(String redirect){
+		this.redirect = trimAndConvert(redirect,"<>\"");
+	}
 	public void setPassword(String password) {	
 		this.password = trimAndConvert(password,"<>\"");
 	}

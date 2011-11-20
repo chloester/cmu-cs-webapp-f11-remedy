@@ -18,7 +18,7 @@ import org.mybeans.dao.DAOException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
-public class LoginAction extends Action {
+public class LoginAction extends Action1 {
 	private FormBeanFactory<LoginForm> formBeanFactory = FormBeanFactory.getInstance(LoginForm.class);
 	private UserDAO userDAO;
 	private String button;
@@ -41,6 +41,10 @@ public class LoginAction extends Action {
         		LoginForm form = formBeanFactory.create(request);
         		request.setAttribute("loginform",form);
         		
+        		/*Hi Chloe, I just create an error jsp for correcting, 
+        		  you could modify it  or simply replace it with other 
+        		  jsp page for server errors.
+        		*/
         		if (!form.isPresent()) {
         			return "error.jsp";
         		}
@@ -71,9 +75,14 @@ public class LoginAction extends Action {
         	/*
 	         * After successful login, set the session.
 	         */
-	        HttpSession session = request.getSession();
+	        HttpSession session = request.getSession(false);
+	        if( session.isNew()){
+        		request.setAttribute("message","Hi,Long time no see.");
+        	}else{
+        		//we could skip it out.
+        		request.setAttribute("message","Hi, Welcome Back.");
+        	}
 	        session.setAttribute("user",user);
-	        
 	        // After successful login send to the page user wanted to.
 	        String redirectTo = (String) session.getAttribute("redirectTo");
 	        if (redirectTo != null) return redirectTo;

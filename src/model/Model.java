@@ -11,6 +11,8 @@ import org.mybeans.factory.BeanTable;
 public class Model {
 	//DAO object instances. 
 	private UserDAO userDAO;
+	private MedDAO  medDAO;
+	private SideDAO sideDAO;
 	
 	private String jdbcDriver;
 	private String jdbcURL;
@@ -38,11 +40,15 @@ public class Model {
 				BeanTable.useJDBC(jdbcDriver, jdbcURL, jdbcUser, jdbcPassword);
 			}
 	    userDAO = new UserDAO();
-		} catch (DAOException e) {
+	    medDAO = new MedDAO();
+		}catch (DAOException e) {
 			throw new ServletException(e);
 		}
 	}
 	public boolean getRequireSSL(){return requireSSL;}
 	//Hi Chloe, you could expand your DAO here.
-	public UserDAO getUserDAO() {return userDAO; }
+	public UserDAO getUserDAO()    {return userDAO; }
+	public MedDAO  getMedDAO()     {return medDAO;  }
+	public SideDAO getSideDAO()    {return sideDAO; }
+    public boolean getRequireSSl() {return requireSSL;}
 }

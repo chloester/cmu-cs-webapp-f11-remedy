@@ -9,7 +9,7 @@ import model.Model;
  * Logs out by setting the "user" session attribute to null.
  * (Actions don't be much simpler than this.)
  */
-public class LogoutAction extends Action {
+public class LogoutAction extends Action1 {
 
 	public LogoutAction(Model model) { }
 
@@ -18,6 +18,7 @@ public class LogoutAction extends Action {
 	public String perform(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         session.setAttribute("user",null);
+        session.setAttribute("errors",null);
 		request.setAttribute("message","You have logged out");
         return "homepage.jsp";
     }

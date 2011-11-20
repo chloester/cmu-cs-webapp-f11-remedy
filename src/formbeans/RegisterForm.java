@@ -97,7 +97,7 @@ public class RegisterForm extends FormBean {
 		if (lastName.length() >= 20) {
 			errors.add("Last Name's length is 3-20, please re-enter.");
 			}*/	
-				//if there was no error, it should be null.
+		//if there was no error, it should be null.
 			return errors;
 		}
 		//using regular expression to identify email address.

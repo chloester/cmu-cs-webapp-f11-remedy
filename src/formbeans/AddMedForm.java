@@ -94,27 +94,31 @@ public class AddMedForm extends FormBean{
 	private String dosageUnit;
 	
 	//adding medication form for checking errors.
-	public List<String> registerCheckErrors() {
+	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
-
 		if( name==null|| name.length()==0){
-			errors.add("Please enter medicaion Number");
+			errors.add("Please enter medicaion Name");
 		}else if (name.length() >= 255) {
 			errors.add("Medication Name is too long");
 		}else if(purpose==null||purpose.length()==0){
-			errors.add("For better MDTracking, Please enter your is required");
-		}else if (purpose.length() >= 20) {
+			errors.add("For better MDTracking, Purpose is required");
+		}else if(purpose.length() >= 20) {
 			errors.add("Purpose's length is 1-20, please re-enter.");
+		}else if(dayChecks==null||dayChecks.length()==0){
+			errors.add("Please select fill up the dayChecks");
+		}else if(freqSelect2==null||freqSelect2.length()==0){
+			errors.add("Please fill up the hours.");
 		}else if (dosage == null || dosage.length() == 0) {
 			errors.add("dosage is required");
 		}else if (!dosageValidator(dosage)){
-			errors.add("Please enter one interger.");
+			errors.add("Please enter intergers.");
 		}
 			return errors;
 		}
+	
 		private boolean dosageValidator(String dosage){
-		pattern = Pattern.compile(DOSAGE_PATTERN);
-		matcher = pattern.matcher(dosage);
+			pattern = Pattern.compile(DOSAGE_PATTERN);
+			matcher = pattern.matcher(dosage);
 		return matcher.matches();
 		}
 }

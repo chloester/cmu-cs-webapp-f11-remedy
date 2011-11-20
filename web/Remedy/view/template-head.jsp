@@ -5,7 +5,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 	<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
 	<script src="js/bootstrap-dropdown.js"></script>
-	<script src="js/bootstrap-modal.js"></script>
 	<script>
 		$(function() {
 			var d = new Date();
@@ -56,7 +55,6 @@
 				<a class="brand" href="/Remedy/">Remedy<sup>+</sup></a>
 				<ul class="nav">
 					<li class="active"><a href="/Remedy/">Home</a></li>
-					<li><a href="viewMeds.do">My Medications</a></li>
 				</ul>
 				<ul class="nav secondary-nav">
 					<li class="menu">

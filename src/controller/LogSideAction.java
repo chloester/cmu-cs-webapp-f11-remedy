@@ -9,7 +9,7 @@ import model.Model;
  * Logs out by setting the "user" session attribute to null.
  * (Actions don't be much simpler than this.)
  */
-public class LogSideAction extends Action {
+public class LogSideAction extends Action1 {
 
 	public LogSideAction(Model model) { }
 
