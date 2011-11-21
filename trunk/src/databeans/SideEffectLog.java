@@ -1,6 +1,7 @@
 package databeans;
 
 public class SideEffectLog {
+	private int    sideId;
 	private String owner;
 	private String name;
 	private String date;
@@ -8,7 +9,11 @@ public class SideEffectLog {
 	private int    timeMin;
 	private String timeAMPM;
 	private int    value;
-	
+
+	public SideEffectLog(int id) {
+		this.sideId = id;
+	}
+	public int    getSideId()   { return sideId; }
 	public String getOwner()	{ return owner;  }
 	public String getName()		{ return name;   }
 	public String getDate()		{ return date;   }
