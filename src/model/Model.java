@@ -13,6 +13,8 @@ public class Model {
 	private UserDAO userDAO;
 	private MedDAO  medDAO;
 	private SideDAO sideDAO;
+	private LogMedDAO logmedDAO;
+	private LogSideDAO logsideDAO;
 	
 	private String jdbcDriver;
 	private String jdbcURL;
@@ -41,14 +43,20 @@ public class Model {
 			}
 	    userDAO = new UserDAO();
 	    medDAO = new MedDAO();
+	    sideDAO = new SideDAO();
+	    logmedDAO = new LogMedDAO();
+	    logsideDAO = new LogSideDAO();
+	    
 		}catch (DAOException e) {
 			throw new ServletException(e);
 		}
 	}
 	public boolean getRequireSSL(){return requireSSL;}
 	//Hi Chloe, you could expand your DAO here.
-	public UserDAO getUserDAO()    {return userDAO; }
-	public MedDAO  getMedDAO()     {return medDAO;  }
-	public SideDAO getSideDAO()    {return sideDAO; }
+	public UserDAO getUserDAO()       {return userDAO; }
+	public MedDAO  getMedDAO()        {return medDAO;  }
+	public LogMedDAO getLogMedDAO()   {return logmedDAO;} 
+	public SideDAO getSideDAO()       {return sideDAO; }
+	public LogSideDAO getLogSideDAO() {return logsideDAO; }
     public boolean getRequireSSl() {return requireSSL;}
 }

@@ -9,38 +9,39 @@ import org.mybeans.factory.MatchArg;
 import org.mybeans.factory.RollbackException;
 import org.mybeans.factory.Transaction;
 
-import databeans.Medication;
+import databeans.SideEffectLog;
 
-public class MedDAO implements medInterface {
-	private BeanFactory<Medication> factory;
+public class LogSideDAO implements logsideInterface {
+	private BeanFactory<SideEffectLog> factory;
 	//construtor for initialization.
-	public MedDAO() throws DAOException{
+	public LogSideDAO() throws DAOException{
 		try{
-			BeanTable<Medication> MedTable = BeanTable.getInstance(Medication.class, "medication_table");
-			if(!MedTable.exists()) MedTable.create("medid");
+			BeanTable<SideEffectLog> MedTable = BeanTable.getInstance(SideEffectLog.class, "Logsideeffect_table");
+			if(!MedTable.exists()) MedTable.create("sideId");
 			MedTable.setIdleConnectionCleanup(true);
 			factory = MedTable.getFactory();
 		}catch(BeanFactoryException e){
 			throw new DAOException(e);
 		}
 	}
-	public void create(Medication med) throws DAOException {
+	public void create(SideEffectLog side) throws DAOException {
 		try{
 			Transaction.begin();
-			Medication dbMed = factory.create(med.getMedid());
-			factory.copyInto(med,dbMed);
+			SideEffectLog dbMed = factory.create(side.getSideId());
+			factory.copyInto(side,dbMed);
 			Transaction.commit();
 		}catch(DuplicateKeyException e){
-			throw new DAOException("A medication named " + med.getName() + "has already existed.");
+			throw new DAOException("A log medication belongs to " + side.getOwner() + "has already existed.");
 		}catch(RollbackException e){
 			throw new DAOException(e);
 		}finally{
 			if(Transaction.isActive()) Transaction.rollback();
 		}
 	}
-	public Medication lookup(String MedName){
+	public SideEffectLog[] getLogSideList(String UserName){
 		try{
-			return factory.lookup(MedName);
+			SideEffectLog[] sides = factory.match(MatchArg.equals("owner",UserName));
+			return sides;
 		}catch(RollbackException e){
 			try {
 				throw new DAOException(e);
@@ -51,23 +52,9 @@ public class MedDAO implements medInterface {
 		}
 		return null;
 	}
-	public Medication[] getMedicationList(String UserName){
+	public int getLogSideNum(String UserName) throws DAOException{
 		try{
-			Medication[] meds = factory.match(MatchArg.equals("username",UserName));
-			return meds;
-		}catch(RollbackException e){
-			try {
-				throw new DAOException(e);
-			} catch (DAOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		}
-		return null;
-	}
-	public int getMedNum(String UserName) throws DAOException{
-		try{
-			return factory.match(MatchArg.equals("username",UserName)).length;
+			return factory.match(MatchArg.equals("owner",UserName)).length;
 		}catch(RollbackException e){
 			throw new DAOException(e);
 		}
@@ -84,15 +71,15 @@ public class MedDAO implements medInterface {
 			int Large;
 			Transaction.begin();
 		    //MyBookbean dbbookmark = getFactory().lookup(bookid);
-		    Medication[] sortedArray = factory.match();
+		    SideEffectLog[] sortedArray = factory.match();
 		    /*for ( MyBookbean check : sortedArray){
 		    	System.out.println("The sorted Array is sorted by count as " + check.getCount());
 		    }*/
 		    if(sortedArray != null){
 		    	int len = sortedArray.length;
-		    	Large = sortedArray[0].getMedid();
+		    	Large = sortedArray[0].getSideId();
 		    	for(int i = 0; i < len ; i++){
-		    		int temp = sortedArray[i].getMedid();
+		    		int temp = sortedArray[i].getSideId();
 		    		if(temp>Large) Large = temp;
 		    	}
 		    }else{
