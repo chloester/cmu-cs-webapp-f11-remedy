@@ -22,7 +22,7 @@ import org.mybeans.form.FormBeanFactory;
  * Logs out by setting the "user" session attribute to null.
  * (Actions don't be much simpler than this.)
  */
-public class AddMedAction extends Action1 {
+public class AddMedAction extends Action {
 	private MedDAO medDAO;
 	//create medication bean;
 	private Medication AddMed;
@@ -31,14 +31,14 @@ public class AddMedAction extends Action1 {
 	public AddMedAction(Model model) {
 		medDAO = model.getMedDAO();
 	}
-	public String getName() { return "addmed.do"; }
+	public String getName() { return "addMed.do"; }
 
 	public String perform(HttpServletRequest request) {
 	    //must be logged in for this one.
     	User user = (User) request.getSession().getAttribute("user");
     	if(user == null){
     		LoginForm form = new LoginForm();
-    		form.setRedirect("/addmed.do");
+    		form.setRedirect("/addMed.do");
     		request.setAttribute("loginform", form);
     		return "homePage.jsp";
     	}
@@ -55,7 +55,7 @@ public class AddMedAction extends Action1 {
 		if(button.equals("Add medication")){
 		try{
 			AddMedForm form = formBeanFactory.create(request);
-        	request.setAttribute("addmedform", form);
+        	request.setAttribute("addMedform", form);
         	if(!form.isPresent()){
         		return "homepage.jsp";
         	}

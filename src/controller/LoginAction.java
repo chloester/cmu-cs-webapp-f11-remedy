@@ -18,7 +18,7 @@ import org.mybeans.dao.DAOException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
-public class LoginAction extends Action1 {
+public class LoginAction extends Action {
 	private FormBeanFactory<LoginForm> formBeanFactory = FormBeanFactory.getInstance(LoginForm.class);
 	private UserDAO userDAO;
 	private String button;
@@ -76,12 +76,6 @@ public class LoginAction extends Action1 {
 	         * After successful login, set the session.
 	         */
 	        HttpSession session = request.getSession(false);
-	        if( session.isNew()){
-        		request.setAttribute("message","Hi,Long time no see.");
-        	}else{
-        		//we could skip it out.
-        		request.setAttribute("message","Hi, Welcome Back.");
-        	}
 	        session.setAttribute("user",user);
 	        // After successful login send to the page user wanted to.
 	        String redirectTo = (String) session.getAttribute("redirectTo");

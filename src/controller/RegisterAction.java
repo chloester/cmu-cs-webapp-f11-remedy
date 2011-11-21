@@ -18,7 +18,7 @@ import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
 
-public class RegisterAction extends Action1 {
+public class RegisterAction extends Action {
 	private FormBeanFactory<RegisterForm> formBeanFactory = FormBeanFactory.getInstance(RegisterForm.class);
 	private UserDAO userDAO;
 	//instantiation.
@@ -71,12 +71,6 @@ public class RegisterAction extends Action1 {
 			 * After successful registration, redirectTo personal page.
 			 */
 	        HttpSession session = request.getSession(false);
-	        if( session.isNew()){
-        		request.setAttribute("message","Hi,Long time no see.");
-        	}else{
-        		//we could skip it out.
-        		request.setAttribute("message","Hi, Welcome Back.");
-        	}
 	        session.setAttribute("user",user);
 	        String redirectTo = (String) session.getAttribute("redirectTo");
 	        if (redirectTo != null) return redirectTo;            
