@@ -21,7 +21,7 @@ public class AddSideForm extends FormBean {
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
 		
-		if (name == null) {
+		if (name == null || name.length() == 0) {
 			errors.add("Please enter a name for the side effect.");
 		}
 		

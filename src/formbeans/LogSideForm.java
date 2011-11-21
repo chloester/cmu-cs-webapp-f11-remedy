@@ -9,35 +9,38 @@ public class LogSideForm extends FormBean {
 	private String owner;
 	private String name;
 	private String date;
-	private int    timeHr;
-	private int    timeMin;
+	private String timeHr;
+	private String timeMin;
 	private String timeAMPM;
-	private int    value;
+	private String value;
 	
 	public String getOwner()	{ return owner;    }
 	public String getName()		{ return name;     }
 	public String getDate()		{ return date;     }
-	public int 	  getTimeHr()	{ return timeHr;   }
-	public int 	  getTimeMin()	{ return timeMin;  }
+	public String getTimeHr()	{ return timeHr;   }
+	public String getTimeMin()	{ return timeMin;  }
 	public String getTimeAMPM() { return timeAMPM; }
-	public int 	  getValue()	{ return value;    }
+	public String getValue()	{ return value;    }
 	
-	public void setOwner(String o)	{ owner = o;   }
-	public void setName(String n)	{ name = n;    }
-	public void setDate(String d)	{ date = d;    }
-	public void setTimeHr(int t)	{ timeHr = t;  }
-	public void setTimeMin(int t)	{ timeMin = t; }
+	public void setOwner(String o)	{ owner =trimAndConvert(o,"<>\"");}
+	public void setName(String n)	{ name = trimAndConvert(n,"<>\"");}
+	public void setDate(String d)	{ date = trimAndConvert(d,"<>\"");}
+	public void setTimeHr(String t)	{ timeHr = t;}
+	public void setTimeMin(String t)	{ timeMin = t; }
 	public void setTimeAMPM(String t) 	{ timeAMPM = t; }
-	public void setValue(int v)		{ value = v;   }
+	public void setValue(String v)		{ value = v;   }
 	
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
 		
-		if (name == null) {
+		/*if (name == null|| name.length()==0) {
 			errors.add("Please select a side effect from the dropdown list, or add a new side effect.");
-		}
+		}*/
+		/*
+		I just comment this line of code to test my code.
+		*/
 		
-		if (date == null) {
+		if (date == null|| date.length()==0) {
 			errors.add("Please select the date when you experienced the side effect.");
 		}
 		
