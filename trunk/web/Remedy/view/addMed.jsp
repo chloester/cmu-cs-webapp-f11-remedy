@@ -14,10 +14,11 @@
 			<h1>Add Medication</h1>
 		</div>
 		<div class="row">
-			<div class="span14">
-				<form method="post" action="addmed.do">
+			<div class="span16">
+				<form method="post" action="addMed.do">
 					<fieldset>
-						<legend>Add a new medication or supplement</legend>												
+						<legend>Add a new medication or supplement</legend>
+						
 						<div class="clearfix">
 							<label for="name">Name</label>
 							<div class="input">
@@ -30,14 +31,14 @@
 							<label for="purpose">Purpose</label>
 							<div class="input">
 								<input class="large" id="purpose" name="purpose" type="text" value="${addmedform.purpose}" />
-								<span class="help-block">e.g. for headaches</span>
+								<span class="help-block"><em>e.g.,</em> for headaches</span>
 							</div>
 						</div>
 						
 						<div class="clearfix">
-							<label for="frequency">Frequency</label>
+							<label for="freq1">Frequency</label>
 							<div class="input">
-								<select class="small" name="freqSelect1" id="freqSelect1">
+								<select class="small" name="freq1" id="freq1">
 									<option>Once</option>
 									<option>Twice</option>
 									<option>3 times</option>
@@ -47,7 +48,7 @@
 									<option>12 times</option>
 								</select>
 								a day, every 
-								<select class="mini" name="freqSelect2" id="freqSelect2">
+								<select class="mini" name="freq2" id="freq2">
 									<option></option>
 									<option>1</option>
 									<option>2</option>
@@ -62,35 +63,35 @@
 						</div>
 
 						<div class="clearfix">
-							<label for="dayChecks">Days</label>
+							<label for="days">Days</label>
 							<div class="input">
 								<ul class="inputs-list">
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Monday">
+										<input type="checkbox" name="days" value="Monday">
 										<span>Monday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Tuesday">
+										<input type="checkbox" name="days" value="Tuesday">
 										<span>Tuesday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Wednesday">
+										<input type="checkbox" name="days" value="Wednesday">
 										<span>Wednesday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Thursday">
+										<input type="checkbox" name="days" value="Thursday">
 										<span>Thursday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Friday">
+										<input type="checkbox" name="days" value="Friday">
 										<span>Friday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Saturday">
+										<input type="checkbox" name="days" value="Saturday">
 										<span>Saturday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Sunday">
+										<input type="checkbox" name="days" value="Sunday">
 										<span>Sunday</span>
 									</label></li>
 								</ul>
@@ -100,7 +101,7 @@
 						<div class="clearfix">
 							<label for="startTime">Starting at</label>
 							<div class="input">
-								<select class="mini" name="startTimeHour" id="startTimeHour">
+								<select class="mini" name="startHr" id="startTimeHour">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
@@ -114,7 +115,7 @@
 									<option>11</option>
 									<option>12</option>
 								</select> :
-								<select class="mini" name="startTimeMin" id="startTimeMin">
+								<select class="mini" name="startMin" id="startTimeMin">
 									<option>00</option>
 									<option>15</option>
 									<option>30</option>
@@ -145,11 +146,11 @@
 									<option>ml</option>
 									<option>drop</option>
 								</select>
-								<span class="help-block">Enter whole number for dosage, e.g., 5 oz, 2 tbsp</span>
+								<span class="help-block">Enter whole number for dosage, <em>e.g.,</em> 5 oz, 2 tbsp</span>
 							</div>
 						</div>
 						
-						<div class="actions" >
+						<div class="actions">
 							<input type="submit" class="btn primary" name="button" value="Add medication" />
 							<button type="reset" class="btn">Clear form</button>
 						</div>

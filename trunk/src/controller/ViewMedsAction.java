@@ -9,13 +9,13 @@ import model.Model;
  * Logs out by setting the "user" session attribute to null.
  * (Actions don't be much simpler than this.)
  */
-public class LogSideAction extends Action {
+public class ViewMedsAction extends Action {
 
-	public LogSideAction(Model model) { }
+	public ViewMedsAction(Model model) { }
 
-	public String getName() { return "logSide.do"; }
+	public String getName() { return "viewMeds.do"; }
 
 	public String perform(HttpServletRequest request) {
-        return "logSide.jsp";
+        return "viewMeds.jsp";
     }
 }
