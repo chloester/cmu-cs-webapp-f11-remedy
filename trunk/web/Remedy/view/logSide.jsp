@@ -89,7 +89,7 @@
 						</div>
 						
 						<div class="actions">
-							<input type="submit" class="btn primary" name="button" value="Add medication" />
+							<input type="submit" class="btn primary" name="button" value="Log Side Effects" />
 							<button type="reset" class="btn">Clear form</button>
 						</div>
 						
