@@ -16,7 +16,8 @@ public class AddMedForm extends FormBean{
 	private String startTimeMin;
 	private String startAMPM;
 	private String dosage;
-    
+	private String dosageUnit;
+	
 	private static final String DOSAGE_PATTERN = "^[0-9]*$";
 	private Pattern pattern;
 	private Matcher matcher;
@@ -91,8 +92,6 @@ public class AddMedForm extends FormBean{
 	public void setDosageUnit(String dosageUnit) {
 		this.dosageUnit =trimAndConvert(dosageUnit,"<>\"");
 	}
-	private String dosageUnit;
-	
 	//adding medication form for checking errors.
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
