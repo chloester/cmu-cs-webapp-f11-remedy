@@ -23,7 +23,7 @@
 						<div class="clearfix">
 							<label for="med">Which medication did you take?</label>
 							<div class="input">
-								<select class="large" id="med" name="med">
+								<select class="large" id="med" name="name">
 								
 									<c:forEach var="medication" items="${medicationlist}">
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -47,7 +47,7 @@
 						<div class="clearfix">
 							<label for="startTime">What time did you take it?</label>
 							<div class="input">
-								<select class="mini" name="startTime" id="startTime">
+								<select class="mini" name="timeHr" id="startTime">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
@@ -61,13 +61,13 @@
 									<option>11</option>
 									<option>12</option>
 								</select> : 
-								<select class="mini" name="startTimeMin" id="startTimeMin">
+								<select class="mini" name="timeMin" id="startTimeMin">
 									<option>00</option>
 									<option>15</option>
 									<option>30</option>
 									<option>45</option>
 								</select>
-								<select class="mini" name="startAMPM" id="startAMPM">
+								<select class="mini" name="timeAMPM" id="startAMPM">
 									<option>a.m.</option>
 									<option>p.m.</option>
 								</select>
@@ -75,7 +75,7 @@
 						</div>
 												
 						<div class="actions">
-							<input type="submit" class="btn primary" name="button" value="Add medication" />
+							<input type="submit" class="btn primary" name="button" value="Log medication" />
 							<button type="reset" class="btn">Clear form</button>
 						</div>
 						

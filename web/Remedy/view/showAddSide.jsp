@@ -5,7 +5,7 @@
 	<p style="font-size:medium; color:red">
 		<c:forEach var="sideeffects" items="${sideeffectslist}">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			${sideeffects.username}
+			${sideeffects.owner}
 			<br/>
 			${sideeffects.name}
 			<br/>
