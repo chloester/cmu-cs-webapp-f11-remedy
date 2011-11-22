@@ -38,7 +38,7 @@ public class AddMedAction extends Action {
     	User user = (User) request.getSession().getAttribute("user");
     	if(user == null){
     		LoginForm form = new LoginForm();
-    		form.setRedirect("/addMed.do");
+    		form.setRedirect("/addmed.do");
     		request.setAttribute("loginform", form);
     		return "homePage.jsp";
     	}
@@ -55,7 +55,7 @@ public class AddMedAction extends Action {
 		if(button.equals("Add medication")){
 		try{
 			AddMedForm form = formBeanFactory.create(request);
-        	request.setAttribute("addMedform", form);
+        	request.setAttribute("addmedform", form);
         	if(!form.isPresent()){
         		return "homepage.jsp";
         	}
@@ -140,9 +140,11 @@ public class AddMedAction extends Action {
             Medicationlist_1 = medDAO.getMedicationList(user.getEmailAddress());
             if(RedirectTo != null){
             	request.setAttribute("medicationlist",Medicationlist_1);
+            	session.setAttribute("medicationlist", Medicationlist_1);
             	return RedirectTo;
             }
     		request.setAttribute("medicationlist", Medicationlist_1);
+        	session.setAttribute("medicationlist", Medicationlist_1);
     		return "addMed.jsp";
 	}catch(DAOException e1){
 		e1.printStackTrace();
