@@ -42,6 +42,9 @@ public class Medication {
 	public String getStartTimeHour() {
 		return startTimeHour;
 	}
+	public String getStartTimeMin() {
+		return startTimeMin;
+	}
 	public String getStartAMPM() {
 		return startAMPM;
 	}
@@ -50,9 +53,6 @@ public class Medication {
 	}
 	public String getDosageUnit() {
 		return dosageUnit;
-	}
-	public String getStartTimeMin() {
-		return startTimeMin;
 	}
 	public void setName(String name) {
 		this.name = name;

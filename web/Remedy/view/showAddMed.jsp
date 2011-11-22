@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="error-list.jsp" />
-<h2>hi you are in the medicaiton schedule page!</h2>
+<h2>hi you are in the medication schedule page!</h2>
 <c:if test="${!(empty medicationlist)}">
 	<p style="font-size:medium; color:red">
 		<c:forEach var="medication" items="${medicationlist}">

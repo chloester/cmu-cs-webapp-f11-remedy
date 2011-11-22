@@ -72,12 +72,12 @@ public class LogMedAction extends Action {
         	/*
         	 * For Multiple Selection options.
         	 * */
-        	/*String[] DayCheckList = request.getParameterValues("dayChecks");
-        	String DayCheckDL = null;
-        	for(String daychecks : DayCheckList){
-        		       DayCheckDL = DayCheckDL + daychecks;
+        	/*String[] DayList = request.getParameterValues("dayChecks");
+        	String DayDL = null;
+        	for(String daychecks : DayList){
+        		       DayDL = DayDL + daychecks;
         	}
-        	DayCheckDL = DayCheckDL.substring(4,DayCheckDL.length());*/
+        	DayDL = DayDL.substring(4,DayDL.length());*/
         	//if user want some medication schedule be deleted.
         	if(DelMed != null){
         		NewMed = DelMed;

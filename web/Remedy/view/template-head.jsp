@@ -17,6 +17,9 @@
 			$("#datepicker").datepicker({maxDate:"+0D"});	
 		});
 	</script>
+	<script>
+		console.log(${medication.name});
+	</script>
 	
 	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
 	<link rel="stylesheet" href="css/web.css">

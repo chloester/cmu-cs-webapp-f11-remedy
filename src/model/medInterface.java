@@ -19,13 +19,13 @@ public interface medInterface {
     public abstract  Medication lookup(String MedName) throws DAOException;    
      /**
       * Gets the rows of medications from table using particular userName(emailaddress).
-      * @return the corresponding list of Medicaitons in the table
+      * @return the corresponding list of Medications in the table
       * @throws DAOException 
       */ 
      public Medication[] getMedicationList(String userName) throws DAOException;
      /**
       * Gets the number of rows of medications from table using particular userName(emailaddress).
-      * @return the number of Medicaitons with particular user in the table
+      * @return the number of Medications with particular user in the table
       * @throws DAOException 
       */ 
      public int getMedNum(String userName) throws DAOException;/**

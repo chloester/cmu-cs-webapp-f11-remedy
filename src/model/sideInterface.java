@@ -19,7 +19,7 @@ public interface sideInterface {
     public abstract  SideEffect lookup(int SideId) throws DAOException;    
      /**
       * Gets the rows of side effects from table using particular userName(emailaddress).
-      * @return the corresponding list of Medicaitons in the table
+      * @return the corresponding list of Medications in the table
       * @throws DAOException 
       */ 
      public SideEffect[] getSideEffectsList(String userName) throws DAOException;
