@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Integer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -80,12 +81,12 @@ public class LogMedAction extends Action {
         	//if user want some medication schedule be deleted.
         	if(DelMed != null){
         		NewMed = DelMed;
-        		AddLogMed = new MedLog(Integer.parseInt(NewMed));
+        		MedLog AddLogMed = new MedLog(Integer.parseInt(NewMed));
         		AddLogMed.setOwner(user.getEmailAddress());
         		AddLogMed.setName(form.getName());
         		AddLogMed.setDate(form.getDate());
-        		AddLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
-        		AddLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+        		AddLogMed.setTimeHr(form.getTimeHr());
+        		AddLogMed.setTimeMin(form.getTimeMin());
         		AddLogMed.setTimeAMPM(form.getTimeAMPM());   
         		//create a new user.
         		logmedDAO.create(AddLogMed);
@@ -95,23 +96,23 @@ public class LogMedAction extends Action {
         		//initialization situation.
         		if(AllSize == 0){
         			NewMed = Integer.toString(AllSize);
-        			AddLogMed = new MedLog(Integer.parseInt(NewMed));
+        			MedLog AddLogMed = new MedLog(Integer.parseInt(NewMed));
         			AddLogMed.setOwner(user.getEmailAddress());
             		AddLogMed.setName(form.getName());
             		AddLogMed.setDate(form.getDate());
-            		AddLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
-            		AddLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+            		AddLogMed.setTimeHr(form.getTimeHr());
+            		AddLogMed.setTimeMin(form.getTimeMin());
             		AddLogMed.setTimeAMPM(form.getTimeAMPM());  
             		logmedDAO.create(AddLogMed);
         		}else{
         			AllSize = logmedDAO.getLastId();
         			NewMed = Integer.toString(AllSize);
-        			AddLogMed = new MedLog(Integer.parseInt(NewMed) + 1);
+        			MedLog AddLogMed = new MedLog(Integer.parseInt(NewMed) + 1);
         			AddLogMed.setOwner(user.getEmailAddress());
             		AddLogMed.setName(form.getName());
             		AddLogMed.setDate(form.getDate());
-            		AddLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
-            		AddLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+            		AddLogMed.setTimeHr(form.getTimeHr());
+            		AddLogMed.setTimeMin(form.getTimeMin());
             		AddLogMed.setTimeAMPM(form.getTimeAMPM());  
             		logmedDAO.create(AddLogMed);
         		}
