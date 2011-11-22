@@ -19,7 +19,7 @@ import org.mybeans.dao.DAOException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
-public class LoginAction extends Action1 {
+public class LoginAction extends Action {
 	private FormBeanFactory<LoginForm> formBeanFactory = FormBeanFactory.getInstance(LoginForm.class);
 	private UserDAO userDAO;
 	private String button;

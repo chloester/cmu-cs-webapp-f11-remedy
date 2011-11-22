@@ -19,7 +19,7 @@ import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
 
-public class RegisterAction extends Action1 {
+public class RegisterAction extends Action {
 	private FormBeanFactory<RegisterForm> formBeanFactory = FormBeanFactory.getInstance(RegisterForm.class);
 	private UserDAO userDAO;
 	//instantiation.

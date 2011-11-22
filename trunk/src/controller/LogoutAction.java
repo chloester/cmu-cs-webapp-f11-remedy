@@ -10,7 +10,7 @@ import model.Model;
  * Logs out by setting the "user" session attribute to null.
  * (Actions don't be much simpler than this.)
  */
-public class LogoutAction extends Action1 {
+public class LogoutAction extends Action {
 
 	public LogoutAction(Model model) { }
 
