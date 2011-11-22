@@ -14,7 +14,7 @@ public class MedLog {
 	}
 	public int    getMedId()	{ return medId;    }
 	public String getOwner()    { return owner;    }
-	public String getName() 	{return name;      }
+	public String getName() 	{ return name;      }
 	public String getDate()		{ return date;     }
 	public int    getTimeHr()	{ return timeHr;   }
 	public int    getTimeMin()	{ return timeMin;  }

@@ -16,7 +16,7 @@ public class AddLogForm extends FormBean {
 	
 	public int    getMedId()	{ return medId;    }
 	public String getOwner()    { return owner;    }
-	public String getName()     { return name;}
+	public String getName()     { return name;	   }
 	public String getDate()		{ return date;     }
 	public String getTimeHr()	{ return timeHr;   }
 	public String getTimeMin()	{ return timeMin;  }
@@ -25,9 +25,9 @@ public class AddLogForm extends FormBean {
 	public void setMedId(int i)			{ medId = i;    }
 	public void setOwner(String o)		{ owner = o; 	}
 	public void setDate(String d)		{ date = trimAndConvert(d,"<>\"");     }
-	public void setName(String name1)    { name = name1; }
+	public void setName(String name1)   { name = name1; }
 	public void setTimeHr(String t)		{ timeHr = t;   }
-	public void setTimeMin(String t)		{ timeMin = t;  }
+	public void setTimeMin(String t)	{ timeMin = t;  }
 	public void setTimeAMPM(String t) 	{ timeAMPM = t; }
 	
 	public List<String> getValidationErrors() {
