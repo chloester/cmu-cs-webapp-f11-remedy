@@ -21,11 +21,11 @@ import java.util.List;
  * Logs out by setting the "user" session attribute to null.
  * (Actions don't be much simpler than this.)
  */
-public class viewSidesAction extends Action {
+public class ViewSidesAction extends Action {
     private SideDAO sideDAO;
     private String redirectTo = "showAddSide.jsp";
 	
-    public viewSidesAction(Model model) {
+    public ViewSidesAction(Model model) {
 		sideDAO = model.getSideDAO();
 	}
 
