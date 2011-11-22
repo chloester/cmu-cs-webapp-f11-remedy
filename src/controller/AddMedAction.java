@@ -23,7 +23,7 @@ import org.mybeans.form.FormBeanFactory;
  * Logs out by setting the "user" session attribute to null.
  * (Actions don't be much simpler than this.)
  */
-public class AddMedAction extends Action1 {
+public class AddMedAction extends Action {
 	private MedDAO medDAO;
 	//create medication bean;
 	private Medication AddMed;
