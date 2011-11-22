@@ -24,7 +24,7 @@ import model.Model;
  */
 public class LogSideAction extends Action {
 	private LogSideDAO logsideDAO;
-	private SideEffectLog LogSideMed;
+	private SideEffectLog SideLog;
 	private FormBeanFactory<LogSideForm> formBeanFactory = FormBeanFactory.getInstance(LogSideForm.class);
 
 	public LogSideAction(Model model) {
@@ -70,45 +70,45 @@ public class LogSideAction extends Action {
         	//if user want some medication schedule be deleted.
         	if(DelMed != null){
         		NewMed = DelMed;
-        		SideEffectLog LogSideMed = new SideEffectLog(Integer.parseInt(NewMed));
-        		LogSideMed.setOwner(user.getEmailAddress());
-        		LogSideMed.setName(form.getName());
-        		LogSideMed.setDate(form.getDate());
-        		LogSideMed.setTimeHr(form.getTimeHr());
-        		LogSideMed.setTimeMin(form.getTimeMin());
-        		LogSideMed.setTimeAMPM(form.getTimeAMPM());   
-        		LogSideMed.setValue(form.getValue());
+        		SideEffectLog SideLog = new SideEffectLog(Integer.parseInt(NewMed));
+        		SideLog.setOwner(user.getEmailAddress());
+        		SideLog.setName(form.getName());
+        		SideLog.setDate(form.getDate());
+        		SideLog.setTimeHr(Integer.parseInt(form.getTimeHr()));
+        		SideLog.setTimeMin(Integer.parseInt(form.getTimeMin()));
+        		SideLog.setTimeAMPM(form.getTimeAMPM());   
+        		SideLog.setValue(Integer.parseInt(form.getValue()));
         		//create a new user.
-        		logsideDAO.create(LogSideMed);
+        		logsideDAO.create(SideLog);
         	//if no scheduled medication be deleted.
         	}else{
         		int AllSize = logsideDAO.size();
         		//initialization situation.
         		if(AllSize == 0){
         			NewMed = Integer.toString(AllSize);
-        			SideEffectLog LogSideMed = new SideEffectLog(Integer.parseInt(NewMed));
-            		LogSideMed.setOwner(user.getEmailAddress());
-            		LogSideMed.setName(form.getName());
-            		LogSideMed.setDate(form.getDate());
-            		LogSideMed.setTimeHr(form.getTimeHr());
-            		LogSideMed.setTimeMin(form.getTimeMin());
-            		LogSideMed.setTimeAMPM(form.getTimeAMPM());   
-            		LogSideMed.setValue(form.getValue());
+        			SideEffectLog SideLog = new SideEffectLog(Integer.parseInt(NewMed));
+            		SideLog.setOwner(user.getEmailAddress());
+            		SideLog.setName(form.getName());
+            		SideLog.setDate(form.getDate());
+            		SideLog.setTimeHr(Integer.parseInt(form.getTimeHr()));
+            		SideLog.setTimeMin(Integer.parseInt(form.getTimeMin()));
+            		SideLog.setTimeAMPM(form.getTimeAMPM());   
+            		SideLog.setValue(Integer.parseInt(form.getValue()));
             		//create a new user.
-            		logsideDAO.create(LogSideMed);
+            		logsideDAO.create(SideLog);
         		}else{
         			AllSize = logsideDAO.getLastId();
         			NewMed = Integer.toString(AllSize);
-        			SideEffectLog LogSideMed = new SideEffectLog(Integer.parseInt(NewMed) + 1);
-            		LogSideMed.setOwner(user.getEmailAddress());
-            		LogSideMed.setName(form.getName());
-            		LogSideMed.setDate(form.getDate());
-            		LogSideMed.setTimeHr(form.getTimeHr());
-            		LogSideMed.setTimeMin(form.getTimeMin());
-            		LogSideMed.setTimeAMPM(form.getTimeAMPM());   
-            		LogSideMed.setValue(form.getValue());
+        			SideEffectLog SideLog = new SideEffectLog(Integer.parseInt(NewMed) + 1);
+            		SideLog.setOwner(user.getEmailAddress());
+            		SideLog.setName(form.getName());
+            		SideLog.setDate(form.getDate());
+            		SideLog.setTimeHr(Integer.parseInt(form.getTimeHr()));
+            		SideLog.setTimeMin(Integer.parseInt(form.getTimeMin()));
+            		SideLog.setTimeAMPM(form.getTimeAMPM());   
+            		SideLog.setValue(Integer.parseInt(form.getValue()));
             		//create a new user.
-            		logsideDAO.create(LogSideMed);
+            		logsideDAO.create(SideLog);
         		}
         	}
         	

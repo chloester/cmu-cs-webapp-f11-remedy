@@ -85,8 +85,8 @@ public class LogMedAction extends Action {
         		AddLogMed.setOwner(user.getEmailAddress());
         		AddLogMed.setName(form.getName());
         		AddLogMed.setDate(form.getDate());
-        		AddLogMed.setTimeHr(form.getTimeHr());
-        		AddLogMed.setTimeMin(form.getTimeMin());
+        		AddLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
+        		AddLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
         		AddLogMed.setTimeAMPM(form.getTimeAMPM());   
         		//create a new user.
         		logmedDAO.create(AddLogMed);
@@ -100,8 +100,8 @@ public class LogMedAction extends Action {
         			AddLogMed.setOwner(user.getEmailAddress());
             		AddLogMed.setName(form.getName());
             		AddLogMed.setDate(form.getDate());
-            		AddLogMed.setTimeHr(form.getTimeHr());
-            		AddLogMed.setTimeMin(form.getTimeMin());
+            		AddLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
+            		AddLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
             		AddLogMed.setTimeAMPM(form.getTimeAMPM());  
             		logmedDAO.create(AddLogMed);
         		}else{
@@ -111,8 +111,8 @@ public class LogMedAction extends Action {
         			AddLogMed.setOwner(user.getEmailAddress());
             		AddLogMed.setName(form.getName());
             		AddLogMed.setDate(form.getDate());
-            		AddLogMed.setTimeHr(form.getTimeHr());
-            		AddLogMed.setTimeMin(form.getTimeMin());
+            		AddLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
+            		AddLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
             		AddLogMed.setTimeAMPM(form.getTimeAMPM());  
             		logmedDAO.create(AddLogMed);
         		}
