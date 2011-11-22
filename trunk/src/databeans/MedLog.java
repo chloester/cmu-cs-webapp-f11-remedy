@@ -6,7 +6,7 @@ public class MedLog {
 	private String name;
 	private String date;
 	private int    timeHr;
-	private int timeMin;
+	private int    timeMin;
 	private String timeAMPM;
 	
 	public MedLog(int id) {

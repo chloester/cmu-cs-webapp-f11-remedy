@@ -90,7 +90,7 @@ Coding Document:
 
 ////////////////////////////////////////////////////////////////////
 2) create databean for adding medication action, which includes:
-owner,name,purpose,freqSelect1,freSelect2,dayChecks,startTimeHour,startTimeMin,startAMPM,
+owner,name,purpose,freqSelect1,freSelect2,days,startTimeHour,startTimeMin,startAMPM,
 dosage,dosageUnit.
 /////////////////////////////////////////////////////////////////////
 3)create the formbean for adding medication information.
@@ -108,7 +108,7 @@ Coding Document:
 
 //////////////////////////////////////////////////////////////////////
 2) create databean for adding side effects action, which includes:
-sideid,username,name,purpose,freqSelect1,freSelect2,dayChecks,startTime,startAMPM,dosage,
+sideid,username,name,purpose,freqSelect1,freSelect2,days,startTime,startAMPM,dosage,
 dosageUnit.
 //////////////////////////////////////////////////////////////////////
 3)create the formbean for adding side effects information.

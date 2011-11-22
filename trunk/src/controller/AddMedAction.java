@@ -46,7 +46,7 @@ public class AddMedAction extends Action {
     	 * if the user has already logged in.
     	 * */
 	
-		Medication[] Medicationlist_1;
+		Medication[] MedicationList;
 		//error list for error mention function.
 		List<String> errors = new ArrayList<String>();
 		String button;
@@ -72,12 +72,11 @@ public class AddMedAction extends Action {
         	 * For Multiple Selection options.
         	 * */
         	String[] DayCheckList = request.getParameterValues("dayChecks");
-        	String DayCheckDL = null;
+        	String DayCheckDL = "";
         	for(String daychecks : DayCheckList){
-        		       DayCheckDL = DayCheckDL + daychecks;
+        		       DayCheckDL = DayCheckDL + daychecks + " ";
         	}
-        	DayCheckDL = DayCheckDL.substring(4,DayCheckDL.length());
-        	//if user want some medication schedule be deleted.
+        	//if user want some medication to be deleted.
         	if(DelMed != null){
         		NewMed = DelMed;
         		AddMed = new Medication(Integer.parseInt(NewMed));
@@ -137,14 +136,14 @@ public class AddMedAction extends Action {
     		session.setAttribute("deleteid", null);
             session.setAttribute("user", user);
             String RedirectTo = (String) session.getAttribute("redirectto");
-            Medicationlist_1 = medDAO.getMedicationList(user.getEmailAddress());
+            MedicationList = medDAO.getMedicationList(user.getEmailAddress());
             if(RedirectTo != null){
-            	request.setAttribute("medicationlist",Medicationlist_1);
-            	session.setAttribute("medicationlist", Medicationlist_1);
+            	request.setAttribute("medicationlist", MedicationList);
+            	session.setAttribute("medicationlist", MedicationList);
             	return RedirectTo;
             }
-    		request.setAttribute("medicationlist", Medicationlist_1);
-        	session.setAttribute("medicationlist", Medicationlist_1);
+    		request.setAttribute("medicationlist", MedicationList);
+        	session.setAttribute("medicationlist", MedicationList);
     		return "addMed.jsp";
 	}catch(DAOException e1){
 		e1.printStackTrace();
