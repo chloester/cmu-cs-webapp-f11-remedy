@@ -21,7 +21,7 @@ import java.util.List;
  * Logs out by setting the "user" session attribute to null.
  * (Actions don't be much simpler than this.)
  */
-public class viewMedsAction extends Action1 {
+public class viewMedsAction extends Action {
     private MedDAO medDAO;
     private String redirectTo = "showAddMed.jsp";
 	
