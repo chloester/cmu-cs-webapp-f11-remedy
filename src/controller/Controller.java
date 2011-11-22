@@ -34,8 +34,8 @@ public class Controller extends HttpServlet {
 		Action.add(new AddSideAction(model));
 		Action.add(new LogSideAction(model));
         //show user information. 
-		Action.add(new viewMedsAction(model));
-		Action.add(new viewSidesAction(model));
+		Action.add(new ViewMedsAction(model));
+		Action.add(new ViewSidesAction(model));
         /* Hi chloe, you could define action here,
          *  please indenify them separately according 
          *  to functionality.

@@ -70,14 +70,14 @@ public class LogSideAction extends Action {
         	//if user want some medication schedule be deleted.
         	if(DelMed != null){
         		NewMed = DelMed;
-        		LogSideMed = new SideEffectLog(Integer.parseInt(NewMed));
+        		SideEffectLog LogSideMed = new SideEffectLog(Integer.parseInt(NewMed));
         		LogSideMed.setOwner(user.getEmailAddress());
         		LogSideMed.setName(form.getName());
         		LogSideMed.setDate(form.getDate());
-        		LogSideMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
-        		LogSideMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+        		LogSideMed.setTimeHr(form.getTimeHr());
+        		LogSideMed.setTimeMin(form.getTimeMin());
         		LogSideMed.setTimeAMPM(form.getTimeAMPM());   
-        		LogSideMed.setValue(Integer.parseInt(form.getValue()));
+        		LogSideMed.setValue(form.getValue());
         		//create a new user.
         		logsideDAO.create(LogSideMed);
         	//if no scheduled medication be deleted.
@@ -86,27 +86,27 @@ public class LogSideAction extends Action {
         		//initialization situation.
         		if(AllSize == 0){
         			NewMed = Integer.toString(AllSize);
-        			LogSideMed = new SideEffectLog(Integer.parseInt(NewMed));
+        			SideEffectLog LogSideMed = new SideEffectLog(Integer.parseInt(NewMed));
             		LogSideMed.setOwner(user.getEmailAddress());
             		LogSideMed.setName(form.getName());
             		LogSideMed.setDate(form.getDate());
-            		LogSideMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
-            		LogSideMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+            		LogSideMed.setTimeHr(form.getTimeHr());
+            		LogSideMed.setTimeMin(form.getTimeMin());
             		LogSideMed.setTimeAMPM(form.getTimeAMPM());   
-            		LogSideMed.setValue(Integer.parseInt(form.getValue()));
+            		LogSideMed.setValue(form.getValue());
             		//create a new user.
             		logsideDAO.create(LogSideMed);
         		}else{
         			AllSize = logsideDAO.getLastId();
         			NewMed = Integer.toString(AllSize);
-        			LogSideMed = new SideEffectLog(Integer.parseInt(NewMed) + 1);
+        			SideEffectLog LogSideMed = new SideEffectLog(Integer.parseInt(NewMed) + 1);
             		LogSideMed.setOwner(user.getEmailAddress());
             		LogSideMed.setName(form.getName());
             		LogSideMed.setDate(form.getDate());
-            		LogSideMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
-            		LogSideMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+            		LogSideMed.setTimeHr(form.getTimeHr());
+            		LogSideMed.setTimeMin(form.getTimeMin());
             		LogSideMed.setTimeAMPM(form.getTimeAMPM());   
-            		LogSideMed.setValue(Integer.parseInt(form.getValue()));
+            		LogSideMed.setValue(form.getValue());
             		//create a new user.
             		logsideDAO.create(LogSideMed);
         		}

@@ -20,6 +20,7 @@ public class MedLog {
 	public int    getTimeMin()	{ return timeMin;  }
 	public String getTimeAMPM() { return timeAMPM; }
 	
+	public void setMedId(int i)			{ medId = i;	}
 	public void setOwner(String o)		{ owner = o; 	}
 	public void setName(String name1)   { name = name1; }
 	public void setDate(String d)		{ date = d;     }
