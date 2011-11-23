@@ -38,7 +38,7 @@
 						<div class="clearfix">
 							<label for="freq1">Frequency</label>
 							<div class="input">
-								<select class="small" name="freqSelect1" id="freqSelect1">
+								<select class="small" name="freqSelect1" id="freq1">
 									<option>Once</option>
 									<option>Twice</option>
 									<option>3 times</option>
@@ -48,7 +48,7 @@
 									<option>12 times</option>
 								</select>
 								a day, every 
-								<select class="mini" name="freqSelect2" id="freqSelect2">
+								<select class="mini" name="freqSelect2" id="freq2">
 									<option></option>
 									<option>1</option>
 									<option>2</option>
@@ -63,36 +63,36 @@
 						</div>
 
 						<div class="clearfix">
-							<label for="dayChecks">Days</label>
+							<label for="days">Days</label>
 							<div class="input">
 								<ul class="inputs-list">
 									<li><label>
 										<input type="checkbox" name="dayChecks" value="Monday">
-										<span>Monday</span>                     
-									</label></li>                               
-									<li><label>                                 
+										<span>Monday</span>
+									</label></li>
+									<li><label>
 										<input type="checkbox" name="dayChecks" value="Tuesday">
-										<span>Tuesday</span>                    
-									</label></li>                               
-									<li><label>                                 
+										<span>Tuesday</span>
+									</label></li>
+									<li><label>
 										<input type="checkbox" name="dayChecks" value="Wednesday">
-										<span>Wednesday</span>                  
-									</label></li>                               
-									<li><label>                                 
+										<span>Wednesday</span>
+									</label></li>
+									<li><label>
 										<input type="checkbox" name="dayChecks" value="Thursday">
-										<span>Thursday</span>                   
-									</label></li>                               
-									<li><label>                                 
+										<span>Thursday</span>
+									</label></li>
+									<li><label>
 										<input type="checkbox" name="dayChecks" value="Friday">
-										<span>Friday</span>                     
-									</label></li>                               
-									<li><label>                                 
+										<span>Friday</span>
+									</label></li>
+									<li><label>
 										<input type="checkbox" name="dayChecks" value="Saturday">
-										<span>Saturday</span>                   
-									</label></li>                               
-									<li><label>                                 
+										<span>Saturday</span>
+									</label></li>
+									<li><label>
 										<input type="checkbox" name="dayChecks" value="Sunday">
-										<span>Sunday</span>                     
+										<span>Sunday</span>
 									</label></li>
 								</ul>
 							</div>
@@ -101,7 +101,7 @@
 						<div class="clearfix">
 							<label for="startTime">Starting at</label>
 							<div class="input">
-								<select class="mini" name="startTimeHour" id="startTimeHour">
+								<select class="mini" name="startHr" id="startTimeHour">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
@@ -115,7 +115,7 @@
 									<option>11</option>
 									<option>12</option>
 								</select> :
-								<select class="mini" name="startTimeMin" id="startTimeMin">
+								<select class="mini" name="startMin" id="startTimeMin">
 									<option>00</option>
 									<option>15</option>
 									<option>30</option>
