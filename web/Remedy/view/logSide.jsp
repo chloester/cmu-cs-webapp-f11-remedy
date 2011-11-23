@@ -1,4 +1,5 @@
 <jsp:include page="template-head.jsp" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page import="databeans.User" %>
 <%
@@ -22,8 +23,13 @@
 						<div class="clearfix">
 							<label for="name">Side effect</label>
 							<div class="input">
-								<select class="medium" id="name" name="name">
-									<option></option>
+								<select class="medium" id="side" name="name" onclick="showSideEffect()">
+							
+									<c:forEach var="sideeffect" items="${sideeffectslist}">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<option>${sideeffect.name}</option>
+									</c:forEach>
+							
 								</select>
 								<span class="help-inline">
 									<a href="#" data-controls-modal="modal-from-dom-addSide" data-backdrop="true" data-keyboard="true" >Add a new side effect</a>

@@ -1,9 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="error-list.jsp" />
-<h2>hi you are in the medication schedule page!</h2>
+<h2>hi you are in the medicaiton schedule page!</h2>
 <c:if test="${!(empty medicationlist)}">
 	<p style="font-size:medium; color:red">
 		<c:forEach var="medication" items="${medicationlist}">
+			<form id="delmed" action="delMed.do">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			${medication.username}
 			<br/>
@@ -27,6 +28,8 @@
 			<br/>
 			${medication.dosageUnit}
 			<br/>
+			<input type="submit" class="btn primary" name="button" value="Delete Medication" />
+			</form>
 		</c:forEach>
 	</p>
 </c:if>

@@ -1,10 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="template-head.jsp" />
 
-<%@ page import="databeans.User, databeans.Medication" %>
+<%@ page import="databeans.User" %>
 <%
 	User user = (User) session.getAttribute("user");
-	Medication[] medicationList = (Medication[]) session.getAttribute("logmedicationlist");
 %>
 
 <div class="container">
@@ -24,9 +23,10 @@
 						<div class="clearfix">
 							<label for="med">Which medication did you take?</label>
 							<div class="input">
-								<select class="large" id="med" name="name">
-									<option></option>
+								<select class="large" id="med" name="name" onclick="showMedication()">
+								
 									<c:forEach var="medication" items="${medicationlist}">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<option>${medication.name}</option>
 									</c:forEach>
 								
@@ -85,5 +85,5 @@
 		</div>
 		
 	</div>
-
+</div>
 <jsp:include page="template-foot.jsp" />
