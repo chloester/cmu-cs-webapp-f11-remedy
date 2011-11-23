@@ -6,6 +6,7 @@
 	<script src="js/jquery-ui-1.8.16.custom.min.js"></script>
 	<script src="js/bootstrap-dropdown.js"></script>
 	<script src="js/bootstrap-modal.js"></script>
+	<script src="js/bootstrap-alerts.js"></script>
 	<script>
 		$(function() {
 			var d = new Date();
@@ -16,9 +17,6 @@
 			$("#datepicker").value = (month<10?"0"+month:month) + "/" + (date<10?"0"+date:date) + "/" + year;
 			$("#datepicker").datepicker({maxDate:"+0D"});	
 		});
-	</script>
-	<script>
-		console.log(${medication.name});
 	</script>
 	
 	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
