@@ -46,7 +46,7 @@ public class AddMedAction extends Action {
     	 * if the user has already logged in.
     	 * */
 	
-		Medication[] MedicationList;
+		Medication[] Medicationlist_1;
 		//error list for error mention function.
 		List<String> errors = new ArrayList<String>();
 		String button;
@@ -72,11 +72,12 @@ public class AddMedAction extends Action {
         	 * For Multiple Selection options.
         	 * */
         	String[] DayCheckList = request.getParameterValues("dayChecks");
-        	String DayCheckDL = "";
+        	String DayCheckDL = null;
         	for(String daychecks : DayCheckList){
-        		       DayCheckDL = DayCheckDL + daychecks + " ";
+        		       DayCheckDL = DayCheckDL + daychecks;
         	}
-        	//if user want some medication to be deleted.
+        	DayCheckDL = DayCheckDL.substring(4,DayCheckDL.length());
+        	//if user want some medication schedule be deleted.
         	if(DelMed != null){
         		NewMed = DelMed;
         		AddMed = new Medication(Integer.parseInt(NewMed));
@@ -136,14 +137,12 @@ public class AddMedAction extends Action {
     		session.setAttribute("deleteid", null);
             session.setAttribute("user", user);
             String RedirectTo = (String) session.getAttribute("redirectto");
-            MedicationList = medDAO.getMedicationList(user.getEmailAddress());
+            Medicationlist_1 = medDAO.getMedicationList(user.getEmailAddress());
             if(RedirectTo != null){
-            	request.setAttribute("medicationlist", MedicationList);
-            	session.setAttribute("medicationlist", MedicationList);
+            	request.setAttribute("medicationlist",Medicationlist_1);
             	return RedirectTo;
             }
-    		request.setAttribute("medicationlist", MedicationList);
-        	session.setAttribute("medicationlist", MedicationList);
+    		request.setAttribute("medicationlist", Medicationlist_1);
     		return "addMed.jsp";
 	}catch(DAOException e1){
 		e1.printStackTrace();
@@ -152,8 +151,12 @@ public class AddMedAction extends Action {
 		e.printStackTrace();
 	}
 	}//if user did not add any new medication.
+		Medicationlist_1 = medDAO.getMedicationList(user.getEmailAddress());
+ 		request.setAttribute("medicationlist", Medicationlist_1);
 		return "addMed.jsp";
 	}else{
+		Medicationlist_1 = medDAO.getMedicationList(user.getEmailAddress());
+		request.setAttribute("medicationlist", Medicationlist_1);
 		return "addMed.jsp";
 	}
 }

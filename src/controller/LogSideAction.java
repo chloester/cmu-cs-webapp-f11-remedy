@@ -11,11 +11,13 @@ import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
 import databeans.SideEffectLog;
+import databeans.SideEffect;
 import databeans.User;
 import formbeans.LogSideForm;
 import formbeans.LoginForm;
 
 import model.LogSideDAO;
+import model.SideDAO;
 import model.Model;
 
 /*
@@ -24,11 +26,13 @@ import model.Model;
  */
 public class LogSideAction extends Action {
 	private LogSideDAO logsideDAO;
-	private SideEffectLog SideLog;
+	private SideEffectLog LogSideMed;
+	private SideDAO sideDAO;
 	private FormBeanFactory<LogSideForm> formBeanFactory = FormBeanFactory.getInstance(LogSideForm.class);
 
 	public LogSideAction(Model model) {
 		logsideDAO = model.getLogSideDAO();
+		sideDAO = model.getSideDAO();
 	}
 	public String getName() { return "logSide.do"; }
 
@@ -45,7 +49,8 @@ public class LogSideAction extends Action {
     	 * if the user has already logged in.
     	 * */
 	
-		SideEffectLog[] LogSidelist;
+		//SideEffectLog[] LogSidelist;
+		SideEffect[] Sidelist;
 		//error list for error mention function.
 		List<String> errors = new ArrayList<String>();
 		String button;
@@ -62,53 +67,56 @@ public class LogSideAction extends Action {
         	//check the errors.
         	errors.addAll(form.getValidationErrors());
         	if (errors.size()!= 0) {
+        		Sidelist = sideDAO.getSideEffectsList(user.getEmailAddress());
+            	request.setAttribute("sideeffectslist",Sidelist);
 		        request.setAttribute("errors",errors);
 		        return "logSide.jsp";
 		    }    
+        	System.out.println("the loged sideeffect name is " + form.getName());
         	String DelMed = (String) session.getAttribute("deletid");
         	String NewMed;
         	//if user want some medication schedule be deleted.
         	if(DelMed != null){
         		NewMed = DelMed;
-        		SideEffectLog SideLog = new SideEffectLog(Integer.parseInt(NewMed));
-        		SideLog.setOwner(user.getEmailAddress());
-        		SideLog.setName(form.getName());
-        		SideLog.setDate(form.getDate());
-        		SideLog.setTimeHr(Integer.parseInt(form.getTimeHr()));
-        		SideLog.setTimeMin(Integer.parseInt(form.getTimeMin()));
-        		SideLog.setTimeAMPM(form.getTimeAMPM());   
-        		SideLog.setValue(Integer.parseInt(form.getValue()));
+        		LogSideMed = new SideEffectLog(Integer.parseInt(NewMed));
+        		LogSideMed.setOwner(user.getEmailAddress());
+        		LogSideMed.setName(form.getName());
+        		LogSideMed.setDate(form.getDate());
+        		LogSideMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
+        		LogSideMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+        		LogSideMed.setTimeAMPM(form.getTimeAMPM());   
+        		LogSideMed.setValue(Integer.parseInt(form.getValue()));
         		//create a new user.
-        		logsideDAO.create(SideLog);
+        		logsideDAO.create(LogSideMed);
         	//if no scheduled medication be deleted.
         	}else{
         		int AllSize = logsideDAO.size();
         		//initialization situation.
         		if(AllSize == 0){
         			NewMed = Integer.toString(AllSize);
-        			SideEffectLog SideLog = new SideEffectLog(Integer.parseInt(NewMed));
-            		SideLog.setOwner(user.getEmailAddress());
-            		SideLog.setName(form.getName());
-            		SideLog.setDate(form.getDate());
-            		SideLog.setTimeHr(Integer.parseInt(form.getTimeHr()));
-            		SideLog.setTimeMin(Integer.parseInt(form.getTimeMin()));
-            		SideLog.setTimeAMPM(form.getTimeAMPM());   
-            		SideLog.setValue(Integer.parseInt(form.getValue()));
+        			LogSideMed = new SideEffectLog(Integer.parseInt(NewMed));
+            		LogSideMed.setOwner(user.getEmailAddress());
+            		LogSideMed.setName(form.getName());
+            		LogSideMed.setDate(form.getDate());
+            		LogSideMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
+            		LogSideMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+            		LogSideMed.setTimeAMPM(form.getTimeAMPM());   
+            		LogSideMed.setValue(Integer.parseInt(form.getValue()));
             		//create a new user.
-            		logsideDAO.create(SideLog);
+            		logsideDAO.create(LogSideMed);
         		}else{
         			AllSize = logsideDAO.getLastId();
         			NewMed = Integer.toString(AllSize);
-        			SideEffectLog SideLog = new SideEffectLog(Integer.parseInt(NewMed) + 1);
-            		SideLog.setOwner(user.getEmailAddress());
-            		SideLog.setName(form.getName());
-            		SideLog.setDate(form.getDate());
-            		SideLog.setTimeHr(Integer.parseInt(form.getTimeHr()));
-            		SideLog.setTimeMin(Integer.parseInt(form.getTimeMin()));
-            		SideLog.setTimeAMPM(form.getTimeAMPM());   
-            		SideLog.setValue(Integer.parseInt(form.getValue()));
+        			LogSideMed = new SideEffectLog(Integer.parseInt(NewMed) + 1);
+            		LogSideMed.setOwner(user.getEmailAddress());
+            		LogSideMed.setName(form.getName());
+            		LogSideMed.setDate(form.getDate());
+            		LogSideMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
+            		LogSideMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+            		LogSideMed.setTimeAMPM(form.getTimeAMPM());   
+            		LogSideMed.setValue(Integer.parseInt(form.getValue()));
             		//create a new user.
-            		logsideDAO.create(SideLog);
+            		logsideDAO.create(LogSideMed);
         		}
         	}
         	
@@ -116,14 +124,13 @@ public class LogSideAction extends Action {
     		session.setAttribute("deleteid", null);
             session.setAttribute("user", user);
             String RedirectTo = (String) session.getAttribute("redirectto");
-            LogSidelist = logsideDAO.getLogSideList(user.getEmailAddress());
+            //LogSidelist = logsideDAO.getLogSideList(user.getEmailAddress());
+            Sidelist = sideDAO.getSideEffectsList(user.getEmailAddress());
             if(RedirectTo != null){
-            	request.setAttribute("logsidelist",LogSidelist);
-            	session.setAttribute("logsidelist",LogSidelist);
+            	request.setAttribute("sideeffectslist",Sidelist);
             	return RedirectTo;
             }
-    		request.setAttribute("logsidelist", LogSidelist);
-        	session.setAttribute("logsidelist", LogSidelist);
+    		request.setAttribute("sideeffectslist", Sidelist);
     		return "logSide.jsp";
 	}catch(DAOException e1){
 		e1.printStackTrace();
@@ -132,8 +139,12 @@ public class LogSideAction extends Action {
 		e.printStackTrace();
 	}
 	}//if user did not add any new side effect.
+        Sidelist = sideDAO.getSideEffectsList(user.getEmailAddress());
+		request.setAttribute("sideeffectslist", Sidelist);
 		return "logSide.jsp";
 	}else{
+		Sidelist = sideDAO.getSideEffectsList(user.getEmailAddress());
+	    request.setAttribute("sideeffectslist", Sidelist);
 		return "logSide.jsp";
 	}
 }

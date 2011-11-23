@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import databeans.SideEffectLog;
 import databeans.User;
 
 import formbeans.LoginForm;
@@ -76,6 +77,12 @@ public class LoginAction extends Action {
 	         * After successful login, set the session.
 	         */
 	        HttpSession session = request.getSession(false);
+	        /*if( session.isNew()){
+        		request.setAttribute("message","Hi,Long time no see.");
+        	}else{
+        		//we could skip it out.
+        		request.setAttribute("message","Hi, Welcome Back.");
+        	}*/
 	        session.setAttribute("user",user);
 	        // After successful login send to the page user wanted to.
 	        String redirectTo = (String) session.getAttribute("redirectTo");
