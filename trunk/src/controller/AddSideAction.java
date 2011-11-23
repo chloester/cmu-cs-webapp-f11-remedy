@@ -104,12 +104,9 @@ public class AddSideAction extends Action {
             SideEffectslist = sideDAO.getSideEffectsList(user.getEmailAddress());
             if(RedirectTo != null){
             	request.setAttribute("sideeffectslist",SideEffectslist);
-            	session.setAttribute("sideeffectslist", SideEffectslist);
             	return RedirectTo;
             }
     		request.setAttribute("sideeffectslist", SideEffectslist);
-        	session.setAttribute("sideeffectslist", SideEffectslist);
-
     		return "logSide.jsp";
 	}catch(DAOException e1){
 		e1.printStackTrace();

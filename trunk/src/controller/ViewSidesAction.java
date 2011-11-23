@@ -53,6 +53,7 @@ public class ViewSidesAction extends Action {
 			return "showAddSide.jsp";
 		}else{
 			session.setAttribute("user",user);
+			request.setAttribute("sideeffectslist", SideEffectsList);
 			return "showAddSide.jsp";
 		}
 		

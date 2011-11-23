@@ -53,6 +53,7 @@ public class ViewMedsAction extends Action {
 			return "showAddMed.jsp";
 		}else{
 			session.setAttribute("user",user);
+			request.setAttribute("medicationlist", MedicationList);
 			return "showAddMed.jsp";
 		}
 		

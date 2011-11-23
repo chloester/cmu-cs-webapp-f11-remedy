@@ -2,7 +2,6 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.Integer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,10 +12,12 @@ import org.mybeans.form.FormBeanFactory;
 
 import databeans.MedLog;
 import databeans.User;
+import databeans.Medication;
 import formbeans.AddLogForm;
 import formbeans.LoginForm;
 
 import model.LogMedDAO;
+import model.MedDAO;
 import model.Model;
 
 /*
@@ -25,12 +26,14 @@ import model.Model;
  */
 public class LogMedAction extends Action {
 	private LogMedDAO logmedDAO;
+	private MedDAO medDAO;
 	//create medication bean;
 	private MedLog AddLogMed;
 	private FormBeanFactory<AddLogForm> formBeanFactory = FormBeanFactory.getInstance(AddLogForm.class);
 
 	public LogMedAction(Model model) {
 		logmedDAO = model.getLogMedDAO();
+		medDAO = model.getMedDAO();
 	}
 	public String getName() { return "logMed.do"; }
 
@@ -47,7 +50,8 @@ public class LogMedAction extends Action {
     	 * if the user has already logged in.
     	 * */
 	
-		MedLog[] LogMedicationlist;
+		//MedLog[] LogMedicationlist;
+		Medication[] Medicationlist;
 		//error list for error mention function.
 		List<String> errors = new ArrayList<String>();
 		String button;
@@ -65,6 +69,8 @@ public class LogMedAction extends Action {
         	errors.addAll(form.getValidationErrors());
         	if (errors.size()!= 0) {
 		        request.setAttribute("errors",errors);
+	            Medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+            	request.setAttribute("medicationlist", Medicationlist);
 		        return "logMed.jsp";
 		    }    
         	String DelMed = (String) session.getAttribute("deletid");
@@ -72,16 +78,16 @@ public class LogMedAction extends Action {
         	/*
         	 * For Multiple Selection options.
         	 * */
-        	/*String[] DayList = request.getParameterValues("dayChecks");
-        	String DayDL = null;
-        	for(String daychecks : DayList){
-        		       DayDL = DayDL + daychecks;
+        	/*String[] DayCheckList = request.getParameterValues("dayChecks");
+        	String DayCheckDL = null;
+        	for(String daychecks : DayCheckList){
+        		       DayCheckDL = DayCheckDL + daychecks;
         	}
-        	DayDL = DayDL.substring(4,DayDL.length());*/
+        	DayCheckDL = DayCheckDL.substring(4,DayCheckDL.length());*/
         	//if user want some medication schedule be deleted.
         	if(DelMed != null){
         		NewMed = DelMed;
-        		MedLog AddLogMed = new MedLog(Integer.parseInt(NewMed));
+        		AddLogMed = new MedLog(Integer.parseInt(NewMed));
         		AddLogMed.setOwner(user.getEmailAddress());
         		AddLogMed.setName(form.getName());
         		AddLogMed.setDate(form.getDate());
@@ -96,7 +102,7 @@ public class LogMedAction extends Action {
         		//initialization situation.
         		if(AllSize == 0){
         			NewMed = Integer.toString(AllSize);
-        			MedLog AddLogMed = new MedLog(Integer.parseInt(NewMed));
+        			AddLogMed = new MedLog(Integer.parseInt(NewMed));
         			AddLogMed.setOwner(user.getEmailAddress());
             		AddLogMed.setName(form.getName());
             		AddLogMed.setDate(form.getDate());
@@ -107,7 +113,7 @@ public class LogMedAction extends Action {
         		}else{
         			AllSize = logmedDAO.getLastId();
         			NewMed = Integer.toString(AllSize);
-        			MedLog AddLogMed = new MedLog(Integer.parseInt(NewMed) + 1);
+        			AddLogMed = new MedLog(Integer.parseInt(NewMed) + 1);
         			AddLogMed.setOwner(user.getEmailAddress());
             		AddLogMed.setName(form.getName());
             		AddLogMed.setDate(form.getDate());
@@ -122,14 +128,15 @@ public class LogMedAction extends Action {
     		session.setAttribute("deleteid", null);
             session.setAttribute("user", user);
             String RedirectTo = (String) session.getAttribute("redirectto");
-            LogMedicationlist = logmedDAO.getLogMedicationList(user.getEmailAddress());
+            //LogMedicationlist = logmedDAO.getLogMedicationList(user.getEmailAddress());
+            Medicationlist = medDAO.getMedicationList(user.getEmailAddress());
             if(RedirectTo != null){
-            	request.setAttribute("logmedicationlist",LogMedicationlist);
-            	session.setAttribute("logmedicationlist",LogMedicationlist);
+            	//request.setAttribute("logmedicationlist",LogMedicationlist);
+            	request.setAttribute("medicationlist", Medicationlist);
             	return RedirectTo;
             }
-    		request.setAttribute("logmedicationlist", LogMedicationlist);
-        	session.setAttribute("logmedicationlist", LogMedicationlist);
+    		//request.setAttribute("logmedicationlist", LogMedicationlist);
+        	request.setAttribute("medicationlist", Medicationlist);
     		return "logMed.jsp";
 	}catch(DAOException e1){
 		e1.printStackTrace();
@@ -137,9 +144,13 @@ public class LogMedAction extends Action {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	}//if user did not add any new medication.
+	}//if user did not log any new medication.
+        Medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+		request.setAttribute("medicationlist", Medicationlist);
 		return "logMed.jsp";
 	}else{
+		Medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+		request.setAttribute("medicationlist", Medicationlist);
 		return "logMed.jsp";
 	}
 }
