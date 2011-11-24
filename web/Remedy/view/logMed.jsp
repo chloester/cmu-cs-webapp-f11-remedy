@@ -3,33 +3,32 @@
 
 <%@ page import="databeans.User" %>
 <%
-	User user = (User) session.getAttribute("user");
+User user = (User) session.getAttribute("user");
 %>
 
 <div class="container">
-	
+
 	<jsp:include page="error-list.jsp"/>
-	
+
 	<div class="content">
 		<div class="page-header">
 			<h1>Log Medication</h1>
 		</div>
 		<div class="row">
-			<div class="span16">
+			<div class="span11">
 				<form method="post" action="logMed.do">
 					<fieldset>
 						<legend>Log a medication intake</legend>
-						
+
 						<div class="clearfix">
 							<label for="med">Which medication did you take?</label>
 							<div class="input">
 								<select class="large" id="med" name="name" onclick="showMedication()">
-								
+
 									<c:forEach var="medication" items="${medicationlist}">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<option>${medication.name}</option>
 									</c:forEach>
-								
+
 								</select>
 								<span class="help-inline">
 									<a href="addMed.do">Add a new medication</a>
@@ -43,7 +42,7 @@
 								<input class="small" id="datepicker" name="date" type="text" value="${logmedform.date}" />
 							</div>
 						</div>
-						
+
 						<div class="clearfix">
 							<label for="startTime">What time did you take it?</label>
 							<div class="input">
@@ -73,17 +72,20 @@
 								</select>
 							</div>
 						</div>
-												
+
 						<div class="actions">
 							<input type="submit" class="btn primary" name="button" value="Log medication" />
 							<button type="reset" class="btn">Clear form</button>
 						</div>
-						
+
 					</fieldset>
 				</form>
 			</div>
+
+<jsp:include page="sidemenu.jsp" />
+
 		</div>
-		
+
 	</div>
-</div>
+	
 <jsp:include page="template-foot.jsp" />

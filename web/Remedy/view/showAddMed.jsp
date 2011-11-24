@@ -1,41 +1,59 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="error-list.jsp" />
-<h2>hi you are in the medicaiton schedule page!</h2>
-<c:if test="${!(empty medicationlist)}">
-	<p style="font-size:medium; color:red">
-		<c:forEach var="medication" items="${medicationlist}">
-			<form id="delmed" action="delMed.do">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			${medication.username}
-			<br/>
-			${medication.name}
-			<br/>
-			${medication.purpose}
-			<br/>
-			${medication.freqSelect1}
-			<br/>
-			${medication.freqSelect2}
-			<br/>
-			${medication.dayChecks}
-			<br/>
-			${medication.startTimeHour}
-			<br/>
-			${medication.startTimeMin}
-			<br/>
-			${medication.startAMPM}
-			<br/>
-			${medication.dosage}
-			<br/>
-			${medication.dosageUnit}
-			<br/>
-			<input type="submit" class="btn primary" name="button" value="Delete Medication" />
-			</form>
-		</c:forEach>
-	</p>
-</c:if>
-<c:if test="${!(empty message)}">
-	<p style="font-size:medium; color:red">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		${message}
-	</p>
-</c:if>
+
+<jsp:include page="template-head.jsp" />
+
+<div class="container">
+
+	<jsp:include page="error-list.jsp" />
+
+	<div class="content">
+		<div class="page-header">
+			<h1>My Medications</h1>
+		</div>
+
+		<div class="row">
+			<div class="span11">
+
+				<c:if test="${!(empty message)}">
+					<p style="font-size:medium; color:red">
+						${message}
+					</p>
+				</c:if>
+				<c:if test="${!(empty medicationlist)}">
+
+					<c:forEach var="medication" items="${medicationlist}">
+						<form id="delmed" action="delMed.do">
+							<div class="clearfix">
+								<h3>${medication.name} (${medication.purpose})</h3>
+								<p>
+									Take ${medication.freqSelect1} a day
+									<c:if test="${medication.freqSelect2==''}">
+										at any time
+									</c:if>
+									<c:if test="${medication.freqSelect2!=''}">
+										, every ${medication.freqSelect2} hour(s).
+									</c:if>
+
+									<br />
+									On ${medication.dayChecks}
+									<br />
+									starting at ${medication.startTimeHour}:${medication.startTimeMin}${medication.startAMPM}
+									<br />
+									${medication.dosage} ${medication.dosageUnit}
+								</p>
+								<input type="submit" class="btn small danger" name="button" value="Delete" />
+							</div>
+						</form>
+					</c:forEach>
+
+				</c:if>
+				<c:if test="${(empty medicationlist)}">
+					You currently don't have any medications. How about adding one to the right?
+				</c:if>
+
+			</div>
+
+			<jsp:include page="sidemenu.jsp" />
+		</div>
+
+		<jsp:include page="template-foot.jsp" />

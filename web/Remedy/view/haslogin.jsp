@@ -15,11 +15,11 @@
 			<h1>Welcome, <%=user.getFirstName()%>!</h1>
 		</div>
 		<div class="row">
-			<div class="span10">
+			<div class="span11">
 				<h2>Your schedule</h2>
-				You currently don't have any medications. How about adding one to the right?
+				
 				<div class="row">
-					<div class="span10"><h3>Monday</h3></div>
+					<div class="span11"><h3>Monday</h3></div>
 				</div>
 				<div class="row">
 					<div class="span1">
@@ -57,7 +57,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="span10"><h3>Tuesday</h3></div>
+					<div class="span11"><h3>Tuesday</h3></div>
 				</div>
 				<div class="row">
 					<div class="span1">
@@ -71,7 +71,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="span10"><h3>Wednesday</h3></div>
+					<div class="span11"><h3>Wednesday</h3></div>
 				</div>
 				<div class="row">
 					<div class="span1">
@@ -85,7 +85,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="span10"><h3>Thursday</h3></div>
+					<div class="span11"><h3>Thursday</h3></div>
 				</div>
 				<div class="row">
 					<div class="span1">
@@ -99,15 +99,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="span6">
-				<h3>What would you like to do?</h3>
-				<ul class="unstyled">
-					<li><a href="addMed.do">Add a new medication</a></li>
-					<li><a href="logMed.do">Log a medication</a></li>
-					<li><a href="logSide.do">Log a side effect</a></li>
-					<li><a href="#">Visualize interactions</a></li>
-				</ul>
-			</div>
+
+<jsp:include page="sidemenu.jsp" />
+
 		</div>
 		
 		<div class="row" style="margin-bottom:18px"></div>

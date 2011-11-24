@@ -14,7 +14,7 @@
 			<h1>Add Medication</h1>
 		</div>
 		<div class="row">
-			<div class="span16">
+			<div class="span11">
 				<form method="post" action="addMed.do">
 					<fieldset>
 						<legend>Add a new medication or supplement</legend>
@@ -158,6 +158,9 @@
 					</fieldset>
 				</form>
 			</div>
+			
+<jsp:include page="sidemenu.jsp" />
+
 		</div>
 		
 	</div>
