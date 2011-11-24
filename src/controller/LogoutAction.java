@@ -19,6 +19,8 @@ public class LogoutAction extends Action {
         HttpSession session = request.getSession(false);
         session.setAttribute("user",null);
         session.setAttribute("errors",null);
+        session.setAttribute("deletelist", null);
+        session.setAttribute("deletelistside", null);
 		request.setAttribute("message","You have logged out");
         return "homepage.jsp";
     }

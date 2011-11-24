@@ -71,6 +71,12 @@ public class RegisterAction extends Action {
 			 * After successful registration, redirectTo personal page.
 			 */
 	        HttpSession session = request.getSession(false);
+	        if( session.isNew()){
+        		request.setAttribute("message","Hi,Long time no see.");
+        	}else{
+        		//we could skip it out.
+        		request.setAttribute("message","Hi, Welcome Back.");
+        	}
 	        session.setAttribute("user",user);
 	        String redirectTo = (String) session.getAttribute("redirectTo");
 	        if (redirectTo != null) return redirectTo;            

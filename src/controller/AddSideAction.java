@@ -33,6 +33,7 @@ public class AddSideAction extends Action {
 	}
 	public String getName() { return "addSide.do"; }
 
+	@SuppressWarnings("unchecked")
 	public String perform(HttpServletRequest request) {
 	    //must be logged in for this one.
     	User user = (User) request.getSession().getAttribute("user");
@@ -47,6 +48,8 @@ public class AddSideAction extends Action {
     	 * */
 	
 		SideEffect[] SideEffectslist;
+		List<String> Dellistside = new ArrayList<String>();
+		String DelSide = null;
 		//error list for error mention function.
 		List<String> errors = new ArrayList<String>();
 		String button;
@@ -64,9 +67,28 @@ public class AddSideAction extends Action {
         	errors.addAll(form.getValidationErrors());
         	if (errors.size()!= 0) {
 		        request.setAttribute("errors",errors);
-		        return "addSide.jsp";
+		        return "logSide.jsp";
 		    }    
-        	String DelSide = (String) session.getAttribute("deletid");
+        	int AllNum = sideDAO.size();
+        	if(AllNum != 0){
+        	Dellistside = (List<String>) session.getAttribute("deletelistside");
+        	if(Dellistside != null){
+    			if(!Dellistside.isEmpty()){
+    				System.out.println("the Deletlistside size is " + Dellistside.size());
+    				DelSide = Dellistside.get(Dellistside.size()-1);
+    				System.out.println("the deside is " + DelSide);
+    				Dellistside.remove(Dellistside.size()-1);
+    				session.setAttribute("deletelistside", Dellistside);
+    			}else{
+    				System.out.println("The dellist is zero");
+    				DelSide = null;
+    				session.setAttribute("deletelistside", null);
+    			}
+    		}else{
+    			DelSide = null;
+    			session.setAttribute("deletelistside", null);
+    		}
+        	}
         	String NewSide;
         	//if user want some side effects  be deleted.
         	if(DelSide != null){
@@ -77,6 +99,7 @@ public class AddSideAction extends Action {
         		//AddSide.setAllNum(AllNum + 1);	
         		//create a new user.
         		sideDAO.create(AddSide);
+				session.setAttribute("deletelistside",Dellistside);
         	//if no scheduled medication be deleted.
         	}else{
         		int AllSize = sideDAO.size();
@@ -87,6 +110,7 @@ public class AddSideAction extends Action {
         			AddSide.setName(form.getName());
             		AddSide.setOwner(user.getEmailAddress());
             		sideDAO.create(AddSide);
+    				session.setAttribute("deletelistside",Dellistside);
         		}else{
         			AllSize = sideDAO.getLastId();
         			NewSide = Integer.toString(AllSize);
@@ -94,6 +118,7 @@ public class AddSideAction extends Action {
         			AddSide.setName(form.getName());
             		AddSide.setOwner(user.getEmailAddress());
             		sideDAO.create(AddSide);
+    				session.setAttribute("deletelistside",Dellistside);
         		}
         	}
         	
