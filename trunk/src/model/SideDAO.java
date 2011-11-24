@@ -51,6 +51,15 @@ public class SideDAO implements sideInterface {
 		}
 		return null;
 	}
+	public void Delete(int sideid)throws DAOException{
+		try{
+		    Transaction.begin();
+			factory.delete(sideid);
+		    Transaction.commit();
+		}catch (RollbackException e){
+			throw new DAOException(e);
+		}
+	}
 	public SideEffect[] getSideEffectsList(String UserName){
 		try{
 			SideEffect[] meds = factory.match(MatchArg.equals("owner",UserName));
