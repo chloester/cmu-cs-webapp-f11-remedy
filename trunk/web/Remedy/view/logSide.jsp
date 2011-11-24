@@ -15,7 +15,7 @@
 			<h1>Log Side Effect</h1>
 		</div>
 		<div class="row">
-			<div class="span16">
+			<div class="span11">
 				<form method="post" action="logSide.do">
 					<fieldset>
 						<legend>Log a side effect</legend>
@@ -26,7 +26,6 @@
 								<select class="medium" id="side" name="name" onclick="showSideEffect()">
 							
 									<c:forEach var="sideeffect" items="${sideeffectslist}">
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<option>${sideeffect.name}</option>
 									</c:forEach>
 							
@@ -103,6 +102,8 @@
 				</form>
 			</div>
 			
+<jsp:include page="sidemenu.jsp" />
+
 			<jsp:include page="addSideModal.jsp"/>
 			
 		</div>

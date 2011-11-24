@@ -5,7 +5,6 @@
 	<p style="font-size:medium; color:red">
 		<c:forEach var="sideeffects" items="${sideeffectslist}">
 			<form id="delmed" action="delMed.do">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			${sideeffects.owner}
 			<br/>
 			${sideeffects.name}
@@ -17,7 +16,6 @@
 </c:if>
 <c:if test="${!(empty message)}">
 	<p style="font-size:medium; color:red">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		${message}
 	</p>
 </c:if>

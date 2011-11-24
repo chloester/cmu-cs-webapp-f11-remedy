@@ -56,9 +56,9 @@
 			<div class="container">
 				<a class="brand" href="/Remedy/">Remedy<sup>+</sup></a>
 				<ul class="nav">
-					<li class="active"><a href="/Remedy/">Home</a></li>
-					<li><a href="viewMeds.do">My Medications</a></li>
-					<li><a href="viewSides.do">My Side Effects</a></li>
+					<li class="active"><a href="/Remedy/">Schedule</a></li>
+					<li><a href="viewMeds.do">Medications</a></li>
+					<li><a href="viewSides.do">Side Effects</a></li>
 				</ul>
 				<ul class="nav secondary-nav">
 					<li class="menu">
