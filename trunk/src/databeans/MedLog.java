@@ -6,7 +6,7 @@ public class MedLog {
 	private String name;
 	private String date;
 	private int    timeHr;
-	private int    timeMin;
+	private int timeMin;
 	private String timeAMPM;
 	
 	public MedLog(int id) {
@@ -14,13 +14,12 @@ public class MedLog {
 	}
 	public int    getMedId()	{ return medId;    }
 	public String getOwner()    { return owner;    }
-	public String getName() 	{ return name;      }
+	public String getName() 	{return name;      }
 	public String getDate()		{ return date;     }
 	public int    getTimeHr()	{ return timeHr;   }
 	public int    getTimeMin()	{ return timeMin;  }
 	public String getTimeAMPM() { return timeAMPM; }
 	
-	public void setMedId(int i)			{ medId = i;	}
 	public void setOwner(String o)		{ owner = o; 	}
 	public void setName(String name1)   { name = name1; }
 	public void setDate(String d)		{ date = d;     }
