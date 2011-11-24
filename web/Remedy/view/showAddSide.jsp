@@ -4,18 +4,22 @@
 <c:if test="${!(empty sideeffectslist)}">
 	<p style="font-size:medium; color:red">
 		<c:forEach var="sideeffects" items="${sideeffectslist}">
-			<form id="delmed" action="delMed.do">
+			<form id="${sideeffects.sideid}" action="delSide.do" method="Post">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+			<br/>
 			${sideeffects.owner}
 			<br/>
 			${sideeffects.name}
 			<br/>
 			<input type="submit" class="btn primary" name="button" value="Delete Sideeffect" />
+			<input type="hidden" name="sideid" value="${sideeffects.sideid}" />
 			</form>
 		</c:forEach>
 	</p>
 </c:if>
 <c:if test="${!(empty message)}">
 	<p style="font-size:medium; color:red">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		${message}
 	</p>
 </c:if>
