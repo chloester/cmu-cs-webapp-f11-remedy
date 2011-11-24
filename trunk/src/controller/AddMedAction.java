@@ -33,6 +33,7 @@ public class AddMedAction extends Action {
 	}
 	public String getName() { return "addMed.do"; }
 
+	@SuppressWarnings("unchecked")
 	public String perform(HttpServletRequest request) {
 	    //must be logged in for this one.
     	User user = (User) request.getSession().getAttribute("user");
@@ -47,6 +48,8 @@ public class AddMedAction extends Action {
     	 * */
 	
 		Medication[] Medicationlist_1;
+		List<String> Dellist = new ArrayList<String>();
+		String DelMed = null;
 		//error list for error mention function.
 		List<String> errors = new ArrayList<String>();
 		String button;
@@ -66,7 +69,26 @@ public class AddMedAction extends Action {
 		        request.setAttribute("errors",errors);
 		        return "addMed.jsp";
 		    }    
-        	String DelMed = (String) session.getAttribute("deletid");
+        	int AllNum = medDAO.size();
+        	if(AllNum != 0){
+        		Dellist = (List<String>) session.getAttribute("deletelist");
+        		if(Dellist != null){
+        			if(!Dellist.isEmpty()){
+        				System.out.println("the Deletlist size is " + Dellist.size());
+        				DelMed = Dellist.get(Dellist.size()-1);
+        				System.out.println("the demed is " + DelMed);
+        				Dellist.remove(Dellist.size()-1);
+        				session.setAttribute("deletelist", Dellist);
+        			}else{
+        				System.out.println("The dellist is zero");
+        				DelMed = null;
+        				session.setAttribute("deletelist", null);
+        			}
+        		}else{
+        			DelMed = null;
+        			session.setAttribute("deletelist", null);
+        		}
+        	}
         	String NewMed;
         	/*
         	 * For Multiple Selection options.
@@ -74,7 +96,7 @@ public class AddMedAction extends Action {
         	String[] DayCheckList = request.getParameterValues("dayChecks");
         	String DayCheckDL = null;
         	for(String daychecks : DayCheckList){
-        		       DayCheckDL = DayCheckDL + daychecks + ", ";
+        		       DayCheckDL = DayCheckDL + daychecks;
         	}
         	DayCheckDL = DayCheckDL.substring(4,DayCheckDL.length());
         	//if user want some medication schedule be deleted.
@@ -95,12 +117,15 @@ public class AddMedAction extends Action {
         		//AddMed.setAllNum(AllNum + 1);	
         		//create a new user.
         		medDAO.create(AddMed);
+				session.setAttribute("deletelist",Dellist);
         	//if no scheduled medication be deleted.
         	}else{
         		int AllSize = medDAO.size();
+        		//System.out.println("all size is " + Integer.toString(AllSize));
         		//initialization situation.
         		if(AllSize == 0){
         			NewMed = Integer.toString(AllSize);
+            		System.out.println("all size is " + NewMed);
         			AddMed = new Medication(Integer.parseInt(NewMed));
         			AddMed.setName(form.getName());
             		AddMed.setUsername(user.getEmailAddress());
@@ -114,6 +139,7 @@ public class AddMedAction extends Action {
             		AddMed.setDosage(Integer.parseInt(form.getDosage()));
             		AddMed.setDosageUnit(form.getDosageUnit());
             		medDAO.create(AddMed);
+    				session.setAttribute("deletelist", null);
         		}else{
         			AllSize = medDAO.getLastId();
         			NewMed = Integer.toString(AllSize);
@@ -130,8 +156,10 @@ public class AddMedAction extends Action {
             		AddMed.setDosage(Integer.parseInt(form.getDosage()));
             		AddMed.setDosageUnit(form.getDosageUnit());
             		medDAO.create(AddMed);
+    				session.setAttribute("deletelist", null);
         		}
         	}
+        	
         	
         	session.setAttribute("redirectto", null);
     		session.setAttribute("deleteid", null);
