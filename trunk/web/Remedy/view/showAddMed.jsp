@@ -22,7 +22,7 @@
 				<c:if test="${!(empty medicationlist)}">
 
 					<c:forEach var="medication" items="${medicationlist}">
-						<form id="delmed" action="delMed.do">
+						<form id="delmed" action="delMed.do" method="Post">
 							<div class="clearfix">
 								<h3>${medication.name} (${medication.purpose})</h3>
 								<p>
@@ -41,7 +41,8 @@
 									<br />
 									${medication.dosage} ${medication.dosageUnit}
 								</p>
-								<input type="submit" class="btn small danger" name="button" value="Delete" />
+								<input type="submit" class="btn small danger" name="button" value="Delete Medication" />
+								<input type="hidden" name="medid" value="${medication.medid}" />
 							</div>
 						</form>
 					</c:forEach>
