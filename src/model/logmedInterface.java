@@ -13,13 +13,13 @@ public interface logmedInterface {
     public abstract void create(MedLog AddLogMed) throws DAOException;
      /**
       * Gets the rows of Log medications from table using particular userName(emailaddress).
-      * @return the corresponding list of Medications in the table
+      * @return the corresponding list of Medicaitons in the table
       * @throws DAOException 
       */ 
      public MedLog[] getLogMedicationList(String userName) throws DAOException;
      /**
       * Gets the number of rows of medications from table using particular userName(emailaddress).
-      * @return the number of Medications with particular user in the table
+      * @return the number of Medicaitons with particular user in the table
       * @throws DAOException 
       */ 
      public int getLogMedNum(String userName) throws DAOException;/**

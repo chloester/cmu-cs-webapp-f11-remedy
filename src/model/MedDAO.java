@@ -1,5 +1,6 @@
 package model;
 
+
 import org.mybeans.dao.DAOException;
 import org.mybeans.factory.BeanFactory;
 import org.mybeans.factory.BeanFactoryException;
@@ -51,6 +52,15 @@ public class MedDAO implements medInterface {
 		}
 		return null;
 	}
+	public void Delete(int medid)throws DAOException{
+		try{
+		    Transaction.begin();
+			factory.delete(medid);
+		    Transaction.commit();
+		}catch (RollbackException e){
+			throw new DAOException(e);
+		}
+	}		
 	public Medication[] getMedicationList(String UserName){
 		try{
 			Medication[] meds = factory.match(MatchArg.equals("username",UserName));

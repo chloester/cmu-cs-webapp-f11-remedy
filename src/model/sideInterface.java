@@ -12,6 +12,12 @@ public interface sideInterface {
      */
     public abstract void create(SideEffect AddSide) throws DAOException;
     /**
+     * Delete the corresponding row in database using particular side effect id.
+     * @return void
+     * @throws DAOException 
+     */ 
+   public void Delete(int sideid) throws DAOException;       
+    /**
 	  * Gets the user row from the user table with particular sideEffect ID. 
 	  * @return all the row of particular side effects Name.
      *  @throws DAOException 
@@ -19,7 +25,7 @@ public interface sideInterface {
     public abstract  SideEffect lookup(int SideId) throws DAOException;    
      /**
       * Gets the rows of side effects from table using particular userName(emailaddress).
-      * @return the corresponding list of Medications in the table
+      * @return the corresponding list of Medicaitons in the table
       * @throws DAOException 
       */ 
      public SideEffect[] getSideEffectsList(String userName) throws DAOException;
