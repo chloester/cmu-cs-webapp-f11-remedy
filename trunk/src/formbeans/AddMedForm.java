@@ -7,6 +7,7 @@ import java.util.regex.Matcher;
 import org.mybeans.form.FormBean;
 
 public class AddMedForm extends FormBean{
+	private String medid;
 	private String name;
 	private String purpose;
 	private String freqSelect1;
@@ -23,6 +24,9 @@ public class AddMedForm extends FormBean{
 	private Matcher matcher;
 
 	//getters and setters.
+	public String getMedid() {
+		return medid;
+	}
 	public String getName() {
 		return name;
 	}
@@ -53,7 +57,9 @@ public class AddMedForm extends FormBean{
 	public String getDosageUnit() {
 		return dosageUnit;
 	}
-	
+	public void setMedid(String medid) {
+		this.medid = trimAndConvert(name,"<>\"");
+	}
 	public void setName(String name) {
 		this.name = trimAndConvert(name,"<>\"");
 	}
@@ -96,37 +102,28 @@ public class AddMedForm extends FormBean{
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
 		if( name==null|| name.length()==0){
-			errors.add("Please enter medication name.");
+			errors.add("Please enter medicaion Name");
+		}else if (name.length() >= 255) {
+			errors.add("Medication Name is too long");
+		}else if(purpose==null||purpose.length()==0){
+			errors.add("For better MDTracking, Purpose is required");
+		}else if(purpose.length() >= 20) {
+			errors.add("Purpose's length is 1-20, please re-enter.");
+		}else if(dayChecks==null||dayChecks.length()==0){
+			errors.add("Please select fill up the dayChecks");
+		}else if(freqSelect2==null||freqSelect2.length()==0){
+			errors.add("Please fill up the hours.");
+		}else if (dosage == null || dosage.length() == 0) {
+			errors.add("dosage is required");
+		}else if (!dosageValidator(dosage)){
+			errors.add("Please enter intergers.");
 		}
-		if (name.length() >= 255) {
-			errors.add("Medication name is too long.");
-		}
-		if(purpose==null||purpose.length()==0){
-			errors.add("Please enter a purpose.");
-		}
-		if(purpose.length() >= 30) {
-			errors.add("Purpose should not exceed 30 characters.");
-		}
-		if(dayChecks==null||dayChecks.length()==0){
-			errors.add("Please select at least one day.");
-		}
-		if (dosage == null || dosage.length() == 0) {
-			errors.add("Please enter a dosage.");
-		}
-		if (!dosageValidator(dosage)){
-			errors.add("Please enter a whole number.");
-		}
-		
-		if (errors.size() > 0) {
 			return errors;
 		}
-		
-		return errors;
-	}
-
-	private boolean dosageValidator(String dosage){
-		pattern = Pattern.compile(DOSAGE_PATTERN);
-		matcher = pattern.matcher(dosage);
+	
+		private boolean dosageValidator(String dosage){
+			pattern = Pattern.compile(DOSAGE_PATTERN);
+			matcher = pattern.matcher(dosage);
 		return matcher.matches();
-	}
+		}
 }
