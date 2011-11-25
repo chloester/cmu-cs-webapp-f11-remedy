@@ -118,6 +118,8 @@ public class AddMedAction extends Action {
         		//create a new user.
         		medDAO.create(AddMed);
 				session.setAttribute("deletelist",Dellist);
+				request.setAttribute("addmedform", null);
+				request.setAttribute("message","Successfully added " + form.getName());
         	//if no scheduled medication be deleted.
         	}else{
         		int AllSize = medDAO.size();
@@ -140,6 +142,9 @@ public class AddMedAction extends Action {
             		AddMed.setDosageUnit(form.getDosageUnit());
             		medDAO.create(AddMed);
     				session.setAttribute("deletelist", null);
+    				request.setAttribute("addmedform", null);
+    				request.setAttribute("message","Successfully added " + form.getName());
+    				
         		}else{
         			AllSize = medDAO.getLastId();
         			NewMed = Integer.toString(AllSize);
@@ -157,10 +162,9 @@ public class AddMedAction extends Action {
             		AddMed.setDosageUnit(form.getDosageUnit());
             		medDAO.create(AddMed);
     				session.setAttribute("deletelist", null);
-        		}
+    				request.setAttribute("addmedform", null);
+    				request.setAttribute("message","Successfully added " + form.getName());        		}
         	}
-        	
-        	
         	session.setAttribute("redirectto", null);
     		session.setAttribute("deleteid", null);
             session.setAttribute("user", user);
