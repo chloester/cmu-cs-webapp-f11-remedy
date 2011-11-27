@@ -39,11 +39,8 @@ public class Controller extends HttpServlet {
 		//for user deletion operation.
 		Action.add(new DelMedAction(model));
 		Action.add(new DelSideAction(model));
-        /* Hi chloe, you could define action here,
-         *  please indenify them separately according 
-         *  to functionality.
-         *  
-         */
+		//visualize graphs
+		Action.add(new VisualizeAction(model));
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	doGet(request,response);

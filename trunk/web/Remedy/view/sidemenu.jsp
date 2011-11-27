@@ -4,6 +4,5 @@
 		<li><a href="addMed.do">Add a new medication</a></li>
 		<li><a href="logMed.do">Log a medication</a></li>
 		<li><a href="logSide.do">Log a side effect</a></li>
-		<li><a href="#">Visualize interactions</a></li>
 	</ul>
 </div>
