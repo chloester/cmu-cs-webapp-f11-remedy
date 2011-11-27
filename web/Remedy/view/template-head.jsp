@@ -59,6 +59,7 @@
 					<li class="active"><a href="/Remedy/">Schedule</a></li>
 					<li><a href="viewMeds.do">Medications</a></li>
 					<li><a href="viewSides.do">Side Effects</a></li>
+					<li><a href="visualize.do">Visualize</a></li>
 				</ul>
 				<ul class="nav secondary-nav">
 					<li class="menu">
