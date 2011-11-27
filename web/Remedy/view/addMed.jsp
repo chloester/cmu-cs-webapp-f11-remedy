@@ -101,7 +101,7 @@
 						<div class="clearfix">
 							<label for="startTime">Starting at</label>
 							<div class="input">
-								<select class="mini" name="startHr" id="startTimeHour">
+								<select class="mini" name="startTimeHour" id="startTimeHour">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
@@ -115,7 +115,7 @@
 									<option>11</option>
 									<option>12</option>
 								</select> :
-								<select class="mini" name="startMin" id="startTimeMin">
+								<select class="mini" name="startTimeMin" id="startTimeMin">
 									<option>00</option>
 									<option>15</option>
 									<option>30</option>

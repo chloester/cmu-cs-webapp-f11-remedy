@@ -2,10 +2,9 @@
 <jsp:include page="error-list.jsp" />
 <h2>hi you are in the Side Effects schedule page!</h2>
 <c:if test="${!(empty sideeffectslist)}">
-	<p style="font-size:medium; color:red">
+	<p>
 		<c:forEach var="sideeffects" items="${sideeffectslist}">
 			<form id="${sideeffects.sideid}" action="delSide.do" method="Post">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
 			<br/>
 			${sideeffects.owner}
 			<br/>
@@ -18,8 +17,7 @@
 	</p>
 </c:if>
 <c:if test="${!(empty message)}">
-	<p style="font-size:medium; color:red">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<p>
 		${message}
 	</p>
 </c:if>
