@@ -96,7 +96,7 @@ public class AddMedAction extends Action {
         	String[] DayCheckList = request.getParameterValues("dayChecks");
         	String DayCheckDL = null;
         	for(String daychecks : DayCheckList){
-        		       DayCheckDL = DayCheckDL + daychecks;
+        		       DayCheckDL = DayCheckDL + daychecks + " ";
         	}
         	DayCheckDL = DayCheckDL.substring(4,DayCheckDL.length());
         	//if user want some medication schedule be deleted.
@@ -119,7 +119,7 @@ public class AddMedAction extends Action {
         		medDAO.create(AddMed);
 				session.setAttribute("deletelist",Dellist);
 				request.setAttribute("addmedform", null);
-				request.setAttribute("message","Successfully added " + form.getName());
+				request.setAttribute("message","Successfully added " + form.getName() + "!");
         	//if no scheduled medication be deleted.
         	}else{
         		int AllSize = medDAO.size();
@@ -143,7 +143,7 @@ public class AddMedAction extends Action {
             		medDAO.create(AddMed);
     				session.setAttribute("deletelist", null);
     				request.setAttribute("addmedform", null);
-    				request.setAttribute("message","Successfully added " + form.getName());
+    				request.setAttribute("message","Successfully added " + form.getName() + "!");
     				
         		}else{
         			AllSize = medDAO.getLastId();

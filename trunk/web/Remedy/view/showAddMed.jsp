@@ -10,12 +10,11 @@
 		<div class="page-header">
 			<h1>My Medications</h1>
 		</div>
-
 		<div class="row">
 			<div class="span11">
 
 				<c:if test="${!(empty message)}">
-					<p style="font-size:medium; color:red">
+					<p>
 						${message}
 					</p>
 				</c:if>
@@ -31,13 +30,13 @@
 										at any time
 									</c:if>
 									<c:if test="${medication.freqSelect2!=''}">
-										, every ${medication.freqSelect2} hour(s).
+										every ${medication.freqSelect2} hour(s).
 									</c:if>
 
 									<br />
 									On ${medication.dayChecks}
 									<br />
-									starting at ${medication.startTimeHour}:${medication.startTimeMin}${medication.startAMPM}
+									starting at ${medication.startTimeHour}:${medication.startTimeMin} ${medication.startAMPM}
 									<br />
 									${medication.dosage} ${medication.dosageUnit}
 								</p>
@@ -56,5 +55,7 @@
 
 			<jsp:include page="sidemenu.jsp" />
 		</div>
+		
+	</div>
 
 		<jsp:include page="template-foot.jsp" />
