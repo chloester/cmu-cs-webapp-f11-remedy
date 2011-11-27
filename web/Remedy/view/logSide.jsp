@@ -102,7 +102,7 @@
 				</form>
 			</div>
 			
-<jsp:include page="sidemenu.jsp" />
+			<jsp:include page="sidemenu.jsp" />
 
 			<jsp:include page="addSideModal.jsp"/>
 			

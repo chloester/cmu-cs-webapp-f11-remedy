@@ -19,29 +19,35 @@
 					</p>
 				</c:if>
 				<c:if test="${!(empty medicationlist)}">
+					
+					<p><a href="addMed.do">Add a new medication</a></p>
 
 					<c:forEach var="medication" items="${medicationlist}">
 						<form id="delmed" action="delMed.do" method="Post">
-							<div class="clearfix">
-								<h3>${medication.name} (${medication.purpose})</h3>
-								<p>
-									Take ${medication.freqSelect1} a day
-									<c:if test="${medication.freqSelect2==''}">
-										at any time
-									</c:if>
-									<c:if test="${medication.freqSelect2!=''}">
-										every ${medication.freqSelect2} hour(s).
-									</c:if>
+							<div class="row">
+								<div class="span9">
+									<h3>${medication.name} (${medication.purpose})</h3>
+									<p>
+										Take ${medication.freqSelect1} a day
+										<c:if test="${medication.freqSelect2==''}">
+											at any time
+										</c:if>
+										<c:if test="${medication.freqSelect2!=''}">
+											every ${medication.freqSelect2} hour(s).
+										</c:if>
 
-									<br />
-									On ${medication.dayChecks}
-									<br />
-									starting at ${medication.startTimeHour}:${medication.startTimeMin} ${medication.startAMPM}
-									<br />
-									${medication.dosage} ${medication.dosageUnit}
-								</p>
-								<input type="submit" class="btn small danger" name="button" value="Delete Medication" />
-								<input type="hidden" name="medid" value="${medication.medid}" />
+										<br />
+										On ${medication.dayChecks}
+										<br />
+										starting at ${medication.startTimeHour}:${medication.startTimeMin} ${medication.startAMPM}
+										<br />
+										${medication.dosage} ${medication.dosageUnit}
+									</p>
+								</div>
+								<div class="span2">
+									<input type="submit" class="btn small danger" name="button" value="Delete" />
+									<input type="hidden" name="medid" value="${medication.medid}" />
+								</div>
 							</div>
 						</form>
 					</c:forEach>
@@ -55,7 +61,7 @@
 
 			<jsp:include page="sidemenu.jsp" />
 		</div>
-		
+
 	</div>
 
-		<jsp:include page="template-foot.jsp" />
+	<jsp:include page="template-foot.jsp" />
