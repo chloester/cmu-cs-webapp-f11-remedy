@@ -120,7 +120,6 @@ public class AddSideAction extends Action {
         		}
         	}
         	
-        	session.setAttribute("redirectTo", null);
     		session.setAttribute("deleteid", null);
             session.setAttribute("user", user);
             String RedirectTo = (String) session.getAttribute("redirectTo");
