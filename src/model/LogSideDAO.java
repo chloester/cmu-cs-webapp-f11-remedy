@@ -52,6 +52,20 @@ public class LogSideDAO implements logsideInterface {
 		}
 		return null;
 	}
+	public SideEffectLog[] getLogSide(String user, String name){
+		try{
+			SideEffectLog[] sides = factory.match(MatchArg.and(MatchArg.equals("name",name), MatchArg.equals("owner", user)));
+			return sides;
+		}catch(RollbackException e){
+			try {
+				throw new DAOException(e);
+			} catch (DAOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		return null;
+	}
 	public int getLogSideNum(String UserName) throws DAOException{
 		try{
 			return factory.match(MatchArg.equals("owner",UserName)).length;
@@ -70,23 +84,23 @@ public class LogSideDAO implements logsideInterface {
 		try{
 			int Large;
 			Transaction.begin();
-		    //MyBookbean dbbookmark = getFactory().lookup(bookid);
-		    SideEffectLog[] sortedArray = factory.match();
-		    /*for ( MyBookbean check : sortedArray){
-		    	System.out.println("The sorted Array is sorted by count as " + check.getCount());
-		    }*/
-		    if(sortedArray != null){
-		    	int len = sortedArray.length;
-		    	Large = sortedArray[0].getSideId();
-		    	for(int i = 0; i < len ; i++){
-		    		int temp = sortedArray[i].getSideId();
-		    		if(temp>Large) Large = temp;
-		    	}
-		    }else{
-		    	Large = 0;
-		    }
-		    	Transaction.commit();
-		    	return Large;
+			//MyBookbean dbbookmark = getFactory().lookup(bookid);
+			SideEffectLog[] sortedArray = factory.match();
+			/*for ( MyBookbean check : sortedArray){
+				System.out.println("The sorted Array is sorted by count as " + check.getCount());
+				}*/
+				if(sortedArray != null){
+					int len = sortedArray.length;
+					Large = sortedArray[0].getSideId();
+					for(int i = 0; i < len ; i++){
+						int temp = sortedArray[i].getSideId();
+						if(temp>Large) Large = temp;
+					}
+				}else{
+					Large = 0;
+				}
+				Transaction.commit();
+				return Large;
 			}catch (RollbackException e) {
 				try {
 					throw new DAOException(e);
@@ -97,5 +111,5 @@ public class LogSideDAO implements logsideInterface {
 			}
 			return -1;
 		}
-}
+	}
 

@@ -55,6 +55,7 @@ public class ViewSidesAction extends Action {
 		session.setAttribute("user", user);
 		request.setAttribute("sideeffectslist", SideEffectsList);
 		request.setAttribute("sideeffectslog", sidelog);
+		session.setAttribute("redirectTo",redirectTo);
 		return "showAddSide.jsp";
 
 	}

@@ -3,9 +3,9 @@
 
 <%@ page import="databeans.User" %>
 <%
-	User user = (User) session.getAttribute("user");
-	if (user == null) {
-%>
+User user = (User) session.getAttribute("user");
+if (user == null) {
+	%>
 	<div class="topbar">
 		<div class="fill">
 			<div class="container">
@@ -16,13 +16,13 @@
 				</ul>
 				<form class="pull-right" id="loginform" method="post" action="login.do">
 					<input class="small" type="text" id="emailaddress" name="emailaddress" placeholder="Email" value="${loginform.emailaddress}">
-					<input class="small" type="password" name="password" placeholder="Password" value="${loginform.password}">
-					<button class="btn" type="submit" name="button" value="login">Sign in</button>
-					<button class="btn" type="submit" name="button" value="register">Register</button>
-				</form>
+						<input class="small" type="password" name="password" placeholder="Password" value="${loginform.password}">
+							<button class="btn" type="submit" name="button" value="login">Sign in</button>
+							<button class="btn" type="submit" name="button" value="register">Register</button>
+						</form>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
 <%
 	} else {
 %>
@@ -31,7 +31,7 @@
 			<div class="container">
 				<a class="brand" href="/Remedy/">Remedy<sup>+</sup></a>
 				<ul class="nav">
-					<li class="active"><a href="/Remedy/">Schedule</a></li>
+					<li><a href="/Remedy/">Schedule</a></li>
 					<li><a href="viewMeds.do">Medications</a></li>
 					<li><a href="viewSides.do">Side Effects</a></li>
 					<li><a href="visualize.do">Visualize</a></li>

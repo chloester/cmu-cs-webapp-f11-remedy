@@ -22,7 +22,7 @@
 									<h3>${sideeffects.name}</h3>
 								</div>
 								<div class="span2">
-									<input type="submit" class="btn small danger" name="button" value="Delete" />
+									<input type="submit" class="btn small danger" name="button" value="Delete " />
 									<input type="hidden" name="sideid" value="${sideeffects.sideid}" />
 								</div>
 							</div>
