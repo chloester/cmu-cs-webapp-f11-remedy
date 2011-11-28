@@ -43,8 +43,9 @@ public class DelMedAction extends Action {
 	 * */
 	Medication[] Medicationlist;
 	String button = request.getParameter("button");
+	String DelName = null;
 	if(button != null){
-		if(button.equals("Delete Medication")){
+		if(button.equals("Delete")){
 		try {
 			DelMedForm form = new DelMedForm();
 			form = formBeanFactory.create(request);	
@@ -54,6 +55,7 @@ public class DelMedAction extends Action {
 		}
 		//add deleted id into the delete list.
 		try {
+		    DelName = medDAO.getMedName(Integer.parseInt(form.getMedid())).getName();
 			medDAO.Delete(Integer.parseInt(form.getMedid()));
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
@@ -63,6 +65,7 @@ public class DelMedAction extends Action {
 			e.printStackTrace();
 		}
 		HttpSession session = request.getSession(false);
+		request.setAttribute("message","Successfully deleted " + DelName + ". ");
 		session.setAttribute("deletelist", Dellist);
 		} catch (FormBeanException e) {
 			// TODO Auto-generated catch block
