@@ -1,4 +1,5 @@
 <jsp:include page="template-head.jsp" />
+<jsp:include page="template-body.jsp" />
 
 <div class="container">
 
