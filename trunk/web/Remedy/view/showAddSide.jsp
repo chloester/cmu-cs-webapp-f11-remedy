@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="template-head.jsp" />
+<jsp:include page="template-body.jsp" />
 
 <div class="container">
 
@@ -12,10 +13,8 @@
 		</div>
 		<div class="row">
 			<div class="span11">
-				<c:if test="${!(empty sideeffectslist)}">
-					
+				<c:if test="${!(empty sideeffectslist)}">				
 					<p><a href="#" data-controls-modal="modal-from-dom-addSide" data-backdrop="true" data-keyboard="true" >Add a new side effect</a></p>
-
 					<c:forEach var="sideeffects" items="${sideeffectslist}">
 						<form id="delmed" action="delSide.do" method="Post">
 							<div class="row">
@@ -23,7 +22,7 @@
 									<h3>${sideeffects.name}</h3>
 								</div>
 								<div class="span2">
-									<input type="submit" class="btn small danger" name="button" value="Delete " />
+									<input type="submit" class="btn small danger" name="button" value="Delete" />
 									<input type="hidden" name="sideid" value="${sideeffects.sideid}" />
 								</div>
 							</div>
