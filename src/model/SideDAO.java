@@ -9,6 +9,7 @@ import org.mybeans.factory.MatchArg;
 import org.mybeans.factory.RollbackException;
 import org.mybeans.factory.Transaction;
 
+import databeans.Medication;
 import databeans.SideEffect;
 
 public class SideDAO implements sideInterface {
@@ -64,6 +65,19 @@ public class SideDAO implements sideInterface {
 		try{
 			SideEffect[] meds = factory.match(MatchArg.equals("owner",UserName));
 			return meds;
+		}catch(RollbackException e){
+			try {
+				throw new DAOException(e);
+			} catch (DAOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		return null;
+	}
+	public SideEffect getSideName(int Sideid){
+		try{
+			return factory.lookup(Sideid);
 		}catch(RollbackException e){
 			try {
 				throw new DAOException(e);

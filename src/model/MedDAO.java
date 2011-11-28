@@ -75,6 +75,19 @@ public class MedDAO implements medInterface {
 		}
 		return null;
 	}
+	public Medication getMedName(int Medid){
+		try{
+			return factory.lookup(Medid);
+		}catch(RollbackException e){
+			try {
+				throw new DAOException(e);
+			} catch (DAOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		return null;
+	}
 	public int getMedNum(String UserName) throws DAOException{
 		try{
 			return factory.match(MatchArg.equals("username",UserName)).length;
