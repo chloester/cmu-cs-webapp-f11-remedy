@@ -42,9 +42,10 @@ public class DelSideAction extends Action{
 	 * Delete the corresponding side effect, then show the side effect list.
 	 * */
 	SideEffect [] SideEffectlist;
+	String DelName = null;
 	String button = request.getParameter("button");
 	if(button != null){
-		if(button.equals("Delete Sideeffect")){
+		if(button.equals("Delete ")){
 		try {
 			DelSideForm form = new DelSideForm();
 			form = formBeanFactory.create(request);	
@@ -55,6 +56,9 @@ public class DelSideAction extends Action{
 		}
 		//add deleted id into the delete list.
 		try {
+			if(form.getSideid() != null){
+		    DelName = sideDAO.getSideName(Integer.parseInt(form.getSideid())).getName();
+			}
 			sideDAO.Delete(Integer.parseInt(form.getSideid()));
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
@@ -64,6 +68,7 @@ public class DelSideAction extends Action{
 			e.printStackTrace();
 		}
 		HttpSession session = request.getSession(false);
+		request.setAttribute("message","Successfully deleted " + DelName + ". ");
 		session.setAttribute("deletelistside", DellistSide);
 		} catch (FormBeanException e) {
 			// TODO Auto-generated catch block
