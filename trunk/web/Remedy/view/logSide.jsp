@@ -1,5 +1,6 @@
-<jsp:include page="template-head.jsp" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:include page="template-head.jsp" />
+<jsp:include page="template-body.jsp" />
 
 <%@ page import="databeans.User" %>
 <%
