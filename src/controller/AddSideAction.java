@@ -74,9 +74,7 @@ public class AddSideAction extends Action {
         	Dellistside = (List<String>) session.getAttribute("deletelistside");
         	if(Dellistside != null){
     			if(!Dellistside.isEmpty()){
-    				System.out.println("the Deletlistside size is " + Dellistside.size());
     				DelSide = Dellistside.get(Dellistside.size()-1);
-    				System.out.println("the deside is " + DelSide);
     				Dellistside.remove(Dellistside.size()-1);
     				session.setAttribute("deletelistside", Dellistside);
     			}else{
@@ -122,10 +120,10 @@ public class AddSideAction extends Action {
         		}
         	}
         	
-        	session.setAttribute("redirectto", null);
+        	session.setAttribute("redirectTo", null);
     		session.setAttribute("deleteid", null);
             session.setAttribute("user", user);
-            String RedirectTo = (String) session.getAttribute("redirectto");
+            String RedirectTo = (String) session.getAttribute("redirectTo");
             SideEffectslist = sideDAO.getSideEffectsList(user.getEmailAddress());
             if(RedirectTo != null){
             	request.setAttribute("sideeffectslist",SideEffectslist);
