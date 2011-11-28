@@ -2,6 +2,7 @@ package model;
 
 import org.mybeans.dao.DAOException;
 
+import databeans.Medication;
 import databeans.SideEffect;
 
 public interface sideInterface {
@@ -25,10 +26,16 @@ public interface sideInterface {
     public abstract  SideEffect lookup(int SideId) throws DAOException;    
      /**
       * Gets the rows of side effects from table using particular userName(emailaddress).
-      * @return the corresponding list of Medicaitons in the table
+      * @return the corresponding list of side effect  in the table
       * @throws DAOException 
       */ 
      public SideEffect[] getSideEffectsList(String userName) throws DAOException;
+     /**
+      * Gets the row of Side effect from table using particular Side effect ID
+      * @return Side effect with Side effect Id in the table
+      * @throws DAOException 
+      */ 
+     public SideEffect getSideName(int Sideid) throws DAOException;/**
      /**
       * Gets the number of rows of side effects from table using particular userName(emailaddress).
       * @return the number side effects with particular user in the table

@@ -29,7 +29,13 @@ public interface medInterface {
       * @throws DAOException 
       */ 
     public Medication[] getMedicationList(String userName) throws DAOException;
-     /**
+    /**
+     * Gets the row of medications from table using particular medication ID
+     * @return Medication with medication Id in the table
+     * @throws DAOException 
+     */ 
+    public Medication getMedName(int medid) throws DAOException;/**
+    /**
       * Gets the number of rows of medications from table using particular userName(emailaddress).
       * @return the number of Medicaitons with particular user in the table
       * @throws DAOException 

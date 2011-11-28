@@ -52,20 +52,6 @@ public class LogSideDAO implements logsideInterface {
 		}
 		return null;
 	}
-	public SideEffectLog[] getLogSide(String user, String name){
-		try{
-			SideEffectLog[] sides = factory.match(MatchArg.and(MatchArg.equals("name",name), MatchArg.equals("owner", user)));
-			return sides;
-		}catch(RollbackException e){
-			try {
-				throw new DAOException(e);
-			} catch (DAOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		}
-		return null;
-	}
 	public int getLogSideNum(String UserName) throws DAOException{
 		try{
 			return factory.match(MatchArg.equals("owner",UserName)).length;
