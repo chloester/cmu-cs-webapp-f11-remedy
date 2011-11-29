@@ -5,6 +5,26 @@
 <%
 	User user = (User) session.getAttribute("user");
 %>
+<script type="text/javascript">
+ function change(signal){
+	 var daycheck = $(".daycheck");
+	 var num = $(".daycheck").length;
+	 if(signal==0){
+	 if(daycheck[num-1].checked==false){
+	 	for (var i=0;i<num-1;i++){
+	 		daycheck[i].checked=false;
+	 	}
+	 }else{
+	 	for (var i=0;i<num-1;i++){
+	 		daycheck[i].checked=true;
+	 	}
+	 }
+	 }
+	 if(signal==1){
+		 daycheck[num-1].checked=false;
+	 }
+ }
+</script>
 
 <div class="container">
 	
@@ -62,43 +82,46 @@
 								 hour(s)
 							</div>
 						</div>
-
+              
 						<div class="clearfix">
 							<label for="days">Days</label>
 							<div class="input">
 								<ul class="inputs-list">
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Monday">
+										<input type="checkbox" class="daycheck" value="Monday" onclick="change(1)">
 										<span>Monday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Tuesday">
+										<input type="checkbox" class="daycheck" value="Tuesday" onclick="change(1)">
 										<span>Tuesday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Wednesday">
+										<input type="checkbox" class="daycheck" value="Wednesday" onclick="change(1)">
 										<span>Wednesday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Thursday">
+										<input type="checkbox" class="daycheck" value="Thursday" onclick="change(1)">
 										<span>Thursday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Friday">
+										<input type="checkbox" class="daycheck" value="Friday" onclick="change(1)">
 										<span>Friday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Saturday">
+										<input type="checkbox" class="daycheck" value="Saturday" onclick="change(1)">
 										<span>Saturday</span>
 									</label></li>
 									<li><label>
-										<input type="checkbox" name="dayChecks" value="Sunday">
+										<input type="checkbox" class="daycheck" value="Sunday" onclick="change(1)">
 										<span>Sunday</span>
 									</label></li>
+									<li><label>
+										<input type="checkbox" class="daycheck" value="Everyday" onclick="change(0)">
+										<span >Everyday</span>
+									</label>
 								</ul>
 							</div>
 						</div>
-						
 						<div class="clearfix">
 							<label for="startTime">Starting at</label>
 							<div class="input">
@@ -165,5 +188,5 @@
 		</div>
 		
 	</div>
-
+</div>
 <jsp:include page="template-foot.jsp" />
