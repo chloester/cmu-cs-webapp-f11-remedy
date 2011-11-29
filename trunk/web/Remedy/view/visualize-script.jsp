@@ -35,7 +35,7 @@ function drawChart() {
 			<c:if test="${medication.timeAMPM=='p.m.'}">
 				hour = ${medication.timeHr} == 12 ? 12 : (${medication.timeHr}+12);
 			</c:if>
-			rawdata.push([new Date(year, month-1, day, hour, ${medication.timeMin}), 10, "${medication.name}", "${medication.name}", null, undefined, undefined]);
+			rawdata.push([new Date(year, month-1, day, hour, ${medication.timeMin}), 1, "${medication.name}", "${medication.name}", null, undefined, undefined]);
 		</c:forEach>
 	</c:if>
 	<c:if test="${!(empty sideloglist)}">
@@ -53,7 +53,7 @@ function drawChart() {
 			<c:if test="${side.timeAMPM=='p.m.'}">
 				hour = ${side.timeHr} == 12 ? 12 : (${side.timeHr}+12);
 			</c:if>
-			rawdata.push([new Date(year, month-1, day, hour, ${side.timeMin}), 10, undefined, undefined, ${side.value}, undefined, undefined]);
+			rawdata.push([new Date(year, month-1, day, hour, ${side.timeMin}), null, undefined, undefined, ${side.value}, undefined, undefined]);
 		</c:forEach>
 	</c:if>
 
