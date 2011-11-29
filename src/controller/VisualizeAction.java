@@ -60,15 +60,8 @@ public class VisualizeAction extends Action {
 		}
 		
 		String button = request.getParameter("button");
-		String med = "";
-		String side = "";
-		if(button!=null) {
-			if(button.equals("Go")) {
-				// get med and side names from select menus
-				med = request.getParameter("med");
-				side = request.getParameter("side");
-			}
-		}
+		String med = request.getParameter("med");
+		String side = request.getParameter("side");
 		
 		// for dropdown menus
 		Medication[] medicationlist = medDAO.getMedicationList(user.getEmailAddress());

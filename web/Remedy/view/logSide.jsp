@@ -41,7 +41,6 @@
 							<label for="value">Rating</label>
 							<div class="input">
 								<select class="mini" id="value" name="value">
-									<option>0</option>
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
@@ -53,7 +52,7 @@
 									<option>9</option>
 									<option>10</option>
 								</select>
-								<span class="help-block">How strong is the side effect? 0 = none, 10 = highest</span>
+								<span class="help-block">How strong is the side effect? 1 = none, 10 = highest</span>
 							</div>
 						</div>
 						

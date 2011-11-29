@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="span16">
 				<div class="clearfix">
-					<form action="visualize.do" method="GET">
+					<form action="visualize.do" method="POST">
 						<div class="inline-inputs">
 							Show me how 
 							<select class="large" id="med" name="med" onclick="showMedication()">
@@ -43,7 +43,7 @@
 					</p>
 				</c:if>
 				
-				<div id='chart_div' style='width: 700px; height: 400px;'></div>
+				<div id='chart_div' style='width: 700px; height: 300px;'></div>
 			</div>
 		</div>
 		
@@ -53,7 +53,8 @@
 
 				<c:if test="${!(empty medloglist)}">
 					<c:forEach var="medication" items="${medloglist}">
-						<p>${medication.name} taken on ${medication.date} at ${medication.timeHr}:${medication.timeMin} ${medication.timeAMPM}</p>
+						<p>${medication.name} taken on ${medication.date} at ${medication.timeHr}:<c:if test="${medication.timeMin==0}">00</c:if><c:if test="${medication.timeMin!=0}">${medication.timeMin}</c:if>
+							 ${medication.timeAMPM}</p>
 					</c:forEach>
 				</c:if>
 
@@ -65,7 +66,8 @@
 
 				<c:if test="${!(empty sideloglist)}">
 					<c:forEach var="side" items="${sideloglist}">
-						<p>${side.name} (${side.value}) on ${side.date} at ${side.timeHr}:${side.timeMin} ${side.timeAMPM}</p>
+						<p>${side.name} (${side.value}) on ${side.date} at ${side.timeHr}:<c:if test="${side.timeMin==0}">00</c:if><c:if test="${side.timeMin!=0}">${side.timeMin}</c:if>
+							${side.timeAMPM}</p>
 					</c:forEach>
 				</c:if>
 
