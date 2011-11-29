@@ -1,33 +1,73 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<style>
+	table{width:auto;margin-bottom:0px;padding:0;font-size:13px;border-collapse:collapse;}
+	table th,table td{padding:0px !important;line-height:normal !important;text-align:left;}
+	table th{padding-top:0px !important;font-weight:bold;vertical-align:middle;}
+	table td{vertical-align:top;border-top:0px !important;}
+	table tbody th{border-top:0px !important;vertical-align:top;}
+	div #chart_div{margin-top:18px;margin-bottom:18px;}
+</style>
+
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 	google.load('visualization', '1', {packages: ['corechart']});
 </script>
 
-<script type="text/javascript">
-function drawVisualization() {
+<script type='text/javascript'>
+google.load('visualization', '1', {'packages':['annotatedtimeline']});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+	var rawdata = new Array();
+	
+	<c:if test="${!(empty medloglist)}">
+		<c:forEach var="medication" items="${medloglist}">
+			var datestring = "${medication.date}";
+			var firstLoc = datestring.indexOf("/");
+			var lastLoc = datestring.lastIndexOf("/");
+			var month = datestring.slice(0,firstLoc);
+			var day = datestring.slice(firstLoc+1,lastLoc);
+			var year = datestring.slice(lastLoc+1);
+			var hour;
+			<c:if test="${medication.timeAMPM=='a.m.'}">
+				hour = ${medication.timeHr} == 12 ? 0 : ${medication.timeHr};
+			</c:if>
+			<c:if test="${medication.timeAMPM=='p.m.'}">
+				hour = ${medication.timeHr} == 12 ? 12 : (${medication.timeHr}+12);
+			</c:if>
+			rawdata.push([new Date(year, month-1, day, hour, ${medication.timeMin}), 10, "${medication.name}", "${medication.name}", null, undefined, undefined]);
+		</c:forEach>
+	</c:if>
+	<c:if test="${!(empty sideloglist)}">
+		<c:forEach var="side" items="${sideloglist}">
+			var datestring = "${side.date}";
+			var firstLoc = datestring.indexOf("/");
+			var lastLoc = datestring.lastIndexOf("/");
+			var month = datestring.slice(0,firstLoc);
+			var day = datestring.slice(firstLoc+1,lastLoc);
+			var year = datestring.slice(lastLoc+1);
+			var hour;
+			<c:if test="${side.timeAMPM=='a.m.'}">
+				hour = ${side.timeHr} == 12 ? 0 : ${side.timeHr};
+			</c:if>
+			<c:if test="${side.timeAMPM=='p.m.'}">
+				hour = ${side.timeHr} == 12 ? 12 : (${side.timeHr}+12);
+			</c:if>
+			rawdata.push([new Date(year, month-1, day, hour, ${side.timeMin}), 10, undefined, undefined, ${side.value}, undefined, undefined]);
+		</c:forEach>
+	</c:if>
 
-	var rawdata = new Array(${arraysize});
-	var data = google.visualization.arrayToDataTable([
-		['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua  Guinea','Rwanda', 'Average'],
-		['2004/05', 165, 938, 522, 998, 450, 614.6],
-		['2005/06', 135, 1120, 599, 1268, 288, 682],
-		['2006/07', 157, 1167, 587, 807, 397, 623],
-		['2007/08', 139, 1110, 615, 968, 215, 609.4],
-		['2008/09', 136, 691, 629, 1026, 366, 569.6]
-		]);
+	var data = new google.visualization.DataTable();
+	data.addColumn('date', 'Date');
+	data.addColumn('number', '${medname}');
+	data.addColumn('string', 'title1');
+	data.addColumn('string', 'text1');
+	data.addColumn('number', '${sidename}');
+	data.addColumn('string', 'title2');
+	data.addColumn('string', 'text2');
+	data.addRows(rawdata);
 
-		var medname = "${medname}";
-		var sidename = "${sidename}";
-		var titlename = "Effects of " + medname + " on " + sidename;
-		// Create and draw the visualization.
-		var comboChart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-		comboChart.draw(data, {
-			title : titlename,
-			vAxis: {title: "Cups"},
-			hAxis: {title: "Month"},
-			seriesType: "bars",
-			series: {5: {type: "line"}}
-		});
+	var chart = new google.visualization.AnnotatedTimeLine(document.getElementById('chart_div'));
+	chart.draw(data, {displayAnnotations: true, max:10, min:0, dateFormat:'HH:mm MMMM dd, yyyy'});
 	}
-	google.setOnLoadCallback(drawVisualization);
 </script>
