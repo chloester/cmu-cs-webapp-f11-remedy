@@ -59,12 +59,14 @@ public class ScheduleAction extends Action {
 		User user = (User) request.getSession().getAttribute("user");
 
 		if(user == null){
-			session.setAttribute("user", user);
 			LoginForm form = new LoginForm();
 			form.setRedirect("/login.do");
 			request.setAttribute("loginform", form);
 			errors.add("Please login");
+			synchronized(session){
 			session.setAttribute("redirectTo",redirectTo);
+			session.setAttribute("user", user);
+			}
 			return "homepage.jsp";
 		}
 
@@ -109,7 +111,7 @@ public class ScheduleAction extends Action {
 		request.setAttribute("saturdayList",saturday);
 		request.setAttribute("sundayList",sunday);
 
-		session.setAttribute("redirectTo",redirectTo);
+		synchronized(session){session.setAttribute("redirectTo",redirectTo);}
 		return "haslogin.jsp";
 	}
 
