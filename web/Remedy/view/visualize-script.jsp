@@ -6,7 +6,8 @@
 	table th{padding-top:0px !important;font-weight:bold;vertical-align:middle;}
 	table td{vertical-align:top;border-top:0px !important;}
 	table tbody th{border-top:0px !important;vertical-align:top;}
-	div #chart_div{margin-top:18px;margin-bottom:18px;}
+	div #chart_div{margin-top:0px;margin-bottom:18px;}
+	h3 {margin-top:18px;}
 </style>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
