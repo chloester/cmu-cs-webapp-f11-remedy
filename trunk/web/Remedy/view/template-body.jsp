@@ -10,10 +10,9 @@ function changepage(){
 	var topbar = $(".top111");
 	signal = document.cookie;
 	topbar[signal-1].setAttribute("class","active");
-	//alert($(".top111")[1].value);
 }
 function clearCookie(){
-	alert(1);
+	//alert(1);
 	//var topbar = $(".top111");
 	//var num = topbar.length;
 	//for(var i = 0; i <num; i++ ){
@@ -53,10 +52,10 @@ if (user == null) {
 			<div class="container">
 				<a class="brand" onclick="changelink(1)" href="schedule.do?">Remedy<sup>+</sup></a>
 				<ul class="nav">
-					<li onclick="changelink(1)"  class="top111"  value="1"><a href="schedule.do?" >Schedule</a></li>
-					<li onclick="changelink(2)"  class="top111"  value="2"><a href="viewMeds.do?">Medications</a></li>
-					<li onclick="changelink(3)"  class="top111"  value="3"><a href="viewSides.do?">Side Effects</a></li>
-					<li onclick="changelink(4)"  class="top111"  value="4"><a href="visualize.do?">Visualize</a></li>
+					<li onclick="changelink(1)"	 class="top111"	 value="1"><a href="schedule.do?" >Schedule</a></li>
+					<li onclick="changelink(2)"	 class="top111"	 value="2"><a href="viewMeds.do?">Medications</a></li>
+					<li onclick="changelink(3)"	 class="top111"	 value="3"><a href="viewSides.do?">Side Effects</a></li>
+					<li onclick="changelink(4)"	 class="top111"	 value="4"><a href="visualize.do?">Visualize</a></li>
 				</ul>
 				<ul class="nav secondary-nav">
 					<li class="menu">

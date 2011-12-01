@@ -50,10 +50,10 @@ public class ViewSidesAction extends Action {
 			session.setAttribute("redirectTo",redirectTo);
 			return "homepage.jsp";
 		}
-		SideEffect[] SideEffectsList = sideDAO.getSideEffectsList(user.getEmailAddress());
+		SideEffect[] sideEffectsList = sideDAO.getSideEffectsList(user.getEmailAddress());
 		SideEffectLog[] sidelog = logSideDAO.getLogSideList(user.getEmailAddress());
 		session.setAttribute("user", user);
-		request.setAttribute("sideeffectslist", SideEffectsList);
+		request.setAttribute("sideeffectslist", sideEffectsList);
 		request.setAttribute("sideeffectslog", sidelog);
 		session.setAttribute("redirectTo",redirectTo);
 		return "showAddSide.jsp";

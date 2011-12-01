@@ -10,7 +10,7 @@ public interface medInterface {
      * @param user text to be added to the user list.
      * @throws DAOException 
      */
-    public abstract void create(Medication AddMed) throws DAOException;
+    public abstract void create(Medication addMed) throws DAOException;
     /**
 	  * Gets the user row from the user table with particular Medication Name. 
 	  * @return all the row of particular Medication Name.

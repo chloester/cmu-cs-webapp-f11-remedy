@@ -28,7 +28,7 @@ public class LogMedAction extends Action {
 	private LogMedDAO logmedDAO;
 	private MedDAO medDAO;
 	//create medication bean;
-	private MedLog AddLogMed;
+	private MedLog addLogMed;
 	private FormBeanFactory<AddLogForm> formBeanFactory = FormBeanFactory.getInstance(AddLogForm.class);
 
 	public LogMedAction(Model model) {
@@ -51,7 +51,7 @@ public class LogMedAction extends Action {
 			* */
 
 			//MedLog[] LogMedicationlist;
-		Medication[] Medicationlist;
+		Medication[] medicationlist;
 		//error list for error mention function.
 		List<String> errors = new ArrayList<String>();
 		String button;
@@ -69,74 +69,74 @@ public class LogMedAction extends Action {
 					errors.addAll(form.getValidationErrors());
 					if (errors.size()!= 0) {
 						request.setAttribute("errors",errors);
-						Medicationlist = medDAO.getMedicationList(user.getEmailAddress());
-						request.setAttribute("medicationlist", Medicationlist);
+						medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+						request.setAttribute("medicationlist", medicationlist);
 						return "logMed.jsp";
 					}    
-					String DelMed = (String) session.getAttribute("deletid");
-					String NewMed;
+					String delMed = (String) session.getAttribute("deletid");
+					String newMed;
 					/*
 						* For Multiple Selection options.
 						* */
-						/*String[] DayCheckList = request.getParameterValues("dayChecks");
-					String DayCheckDL = null;
-					for(String daychecks : DayCheckList){
-						DayCheckDL = DayCheckDL + daychecks;
+						/*String[] dayCheckList = request.getParameterValues("dayChecks");
+					String dayCheckDL = null;
+					for(String daychecks : dayCheckList){
+						dayCheckDL = dayCheckDL + daychecks;
 					}
-					DayCheckDL = DayCheckDL.substring(4,DayCheckDL.length());*/
+					dayCheckDL = dayCheckDL.substring(4,dayCheckDL.length());*/
 						//if user want some medication schedule be deleted.
-					if(DelMed != null){
-						NewMed = DelMed;
-						AddLogMed = new MedLog(Integer.parseInt(NewMed));
-						AddLogMed.setOwner(user.getEmailAddress());
-						AddLogMed.setName(form.getName());
-						AddLogMed.setDate(form.getDate());
-						AddLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
-						AddLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
-						AddLogMed.setTimeAMPM(form.getTimeAMPM());   
+					if(delMed != null){
+						newMed = delMed;
+						addLogMed = new MedLog(Integer.parseInt(newMed));
+						addLogMed.setOwner(user.getEmailAddress());
+						addLogMed.setName(form.getName());
+						addLogMed.setDate(form.getDate());
+						addLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
+						addLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+						addLogMed.setTimeAMPM(form.getTimeAMPM());   
 						//create a new user.
-						logmedDAO.create(AddLogMed);
+						logmedDAO.create(addLogMed);
 						//if no scheduled medication be deleted.
 					}else{
-						int AllSize = logmedDAO.size();
+						int allSize = logmedDAO.size();
 						//initialization situation.
-						if(AllSize == 0){
-							NewMed = Integer.toString(AllSize);
-							AddLogMed = new MedLog(Integer.parseInt(NewMed));
-							AddLogMed.setOwner(user.getEmailAddress());
-							AddLogMed.setName(form.getName());
-							AddLogMed.setDate(form.getDate());
-							AddLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
-							AddLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
-							AddLogMed.setTimeAMPM(form.getTimeAMPM());  
-							logmedDAO.create(AddLogMed);
+						if(allSize == 0){
+							newMed = Integer.toString(allSize);
+							addLogMed = new MedLog(Integer.parseInt(newMed));
+							addLogMed.setOwner(user.getEmailAddress());
+							addLogMed.setName(form.getName());
+							addLogMed.setDate(form.getDate());
+							addLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
+							addLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+							addLogMed.setTimeAMPM(form.getTimeAMPM());  
+							logmedDAO.create(addLogMed);
 						}else{
-							AllSize = logmedDAO.getLastId();
-							NewMed = Integer.toString(AllSize);
-							AddLogMed = new MedLog(Integer.parseInt(NewMed) + 1);
-							AddLogMed.setOwner(user.getEmailAddress());
-							AddLogMed.setName(form.getName());
-							AddLogMed.setDate(form.getDate());
-							AddLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
-							AddLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
-							AddLogMed.setTimeAMPM(form.getTimeAMPM());  
-							logmedDAO.create(AddLogMed);
+							allSize = logmedDAO.getLastId();
+							newMed = Integer.toString(allSize);
+							addLogMed = new MedLog(Integer.parseInt(newMed) + 1);
+							addLogMed.setOwner(user.getEmailAddress());
+							addLogMed.setName(form.getName());
+							addLogMed.setDate(form.getDate());
+							addLogMed.setTimeHr(Integer.parseInt(form.getTimeHr()));
+							addLogMed.setTimeMin(Integer.parseInt(form.getTimeMin()));
+							addLogMed.setTimeAMPM(form.getTimeAMPM());  
+							logmedDAO.create(addLogMed);
 						}
 					}
 
 					session.setAttribute("redirectto", null);
 					session.setAttribute("deleteid", null);
 					session.setAttribute("user", user);
-					String RedirectTo = (String) session.getAttribute("redirectto");
+					String redirectTo = (String) session.getAttribute("redirectto");
 					//LogMedicationlist = logmedDAO.getLogMedicationList(user.getEmailAddress());
-					Medicationlist = medDAO.getMedicationList(user.getEmailAddress());
-					if(RedirectTo != null){
+					medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+					if(redirectTo != null){
 						//request.setAttribute("logmedicationlist",LogMedicationlist);
-						request.setAttribute("medicationlist", Medicationlist);
-						return RedirectTo;
+						request.setAttribute("medicationlist", medicationlist);
+						return redirectTo;
 					}
 					//request.setAttribute("logmedicationlist", LogMedicationlist);
-					request.setAttribute("medicationlist", Medicationlist);
+					request.setAttribute("medicationlist", medicationlist);
 					return "logMed.jsp";
 				}catch(DAOException e1){
 					e1.printStackTrace();
@@ -145,12 +145,12 @@ public class LogMedAction extends Action {
 					e.printStackTrace();
 				}
 			}//if user did not log any new medication.
-			Medicationlist = medDAO.getMedicationList(user.getEmailAddress());
-			request.setAttribute("medicationlist", Medicationlist);
+			medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+			request.setAttribute("medicationlist", medicationlist);
 			return "logMed.jsp";
 		}else{
-			Medicationlist = medDAO.getMedicationList(user.getEmailAddress());
-			request.setAttribute("medicationlist", Medicationlist);
+			medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+			request.setAttribute("medicationlist", medicationlist);
 			return "logMed.jsp";
 		}
 	}
