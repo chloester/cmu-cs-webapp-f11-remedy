@@ -1,19 +1,19 @@
 <SideEffect_Catalog>
 <CapitalA>
-	<a>aaaa</a>
+	<a>Abdominal pain</a>
 	<a></a>
 </CapitalA>
 <CapitalB>
-	<b></b>
+	<b>Blurred vision</b>
 	<b></b>
 </CapitalB>
 <CapitalC>
-	<c></c>
+	<c>Constipation</c>
 	<c></c>
 </CapitalC>
 <CapitalD>
-	<d></d>
-	<d></d>
+	<d>Diarrhea</d>
+	<d>Dizziness</d>
 </CapitalD>
 <CapitalE>
 	<e></e>
@@ -40,19 +40,19 @@
 	<j></j>
 </CapitalJ>
 <CapitalK>
-	<k></k>
+	<k>Knee pain</k>
 	<k></k>
 </CapitalK>
 <CapitalL>
-	<l></l>
+	<l>Loss of appetite</l>
 	<l></l>
 </CapitalL>
 <CapitalM>
-	<m></m>
+	<m>Memory loss</m>
 	<m></m>
 </CapitalM>
 <CapitalN>
-	<n></n>
+	<n>Nausea</n>
 	<n></n>
 </CapitalN>
 <CapitalO>
@@ -60,7 +60,7 @@
 	<o></o>
 </CapitalO>
 <CapitalP>
-	<p></p>
+	<p>Palpitations</p>
 	<p></p>
 </CapitalP>
 <CapitalQ>
@@ -80,7 +80,7 @@
 	<t></t>
 </CapitalT>
 <CapitalU>
-	<u></u>
+	<u>UnCoordinated</u>
 	<u></u>
 </CapitalU>
 <CapitalV>
