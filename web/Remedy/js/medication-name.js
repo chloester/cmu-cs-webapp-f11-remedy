@@ -4,6 +4,8 @@ function ajaxmed(str){
 	var xmlDoc;
 	if(str.length == 0){
 		document.getElementById("medhint").innerHTML = "";
+		cleanSuggestResults("name");
+		return;
 	} 
 	if(window.XMLHttpRequest){
 		xmlhttp = new XMLHttpRequest();
@@ -110,8 +112,28 @@ function ajaxmed(str){
 		var x=xmlDoc.getElementsByTagName(str);
 	    for (var i=0;i<x.length;i++)
 	      {
-	      txt=txt + "<li>" +  x[i].childNodes[0].nodeValue + "<br/>" + "</li>";
+	    	var textE1 = document.createTextNode(x[i]);
+	    	var divE1 = document.createElement("div");
+	    	divE1.appendChild(textE1);
+	    	divE1.className = "medhint";
+	    	divE1.onmouseover = suggestOver;
+	    	divE1.onmouseout = suggestOut;
+	    	txt=txt + "<li>" +  x[i].childNodes[0].nodeValue + "<br/>" + "</li>";
 	      }
 	    document.getElementById("medhint").innerHTML=txt;
+	}
+	function cleanSuggestResults(elementId){
+		var divSuggestResults = document.getElementById(elementId);
+		while(divSuggestResults.hasChildNodes()){
+			divSuggestResults.removeChild(divSuggestResults.firstChild);
+		}
+	}
+	function suggestOver(){
+		document.body.style.cursor = 'pointer';
+		this.className = "suggest_list_div_over";
+	}
+	function suggestOut(){
+		document.body.style.cursor = 'default';
+		this.className = "suggest_list_div";
 	}
 }
