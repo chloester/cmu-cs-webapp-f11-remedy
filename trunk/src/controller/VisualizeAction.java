@@ -50,19 +50,21 @@ public class VisualizeAction extends Action {
 		User user = (User) request.getSession().getAttribute("user");
 
 		if(user == null){
-			session.setAttribute("user", user);
 			LoginForm form = new LoginForm();
 			form.setRedirect("/login.do");
 			request.setAttribute("loginform", form);
 			errors.add("please login");
+			synchronized(session){
 			session.setAttribute("redirectTo",redirectTo);
+			session.setAttribute("user", user);
+			}
 			return "homepage.jsp";
 		}
-
+		
 		String button = request.getParameter("button");
 		String med = request.getParameter("med");
 		String side = request.getParameter("side");
-
+		
 		// for dropdown menus
 		Medication[] medicationlist = medDAO.getMedicationList(user.getEmailAddress());
 		SideEffect[] sidelist = sideDAO.getSideEffectsList(user.getEmailAddress());
@@ -84,7 +86,8 @@ public class VisualizeAction extends Action {
 			}
 		}
 		int arraySize = medLength + sideLength;
-		session.setAttribute("user", user);
+		//SideEffectLog[] sidelog = logSideDAO.getLogSide(user.getEmailAddress());
+		synchronized(session){session.setAttribute("user", user);}
 		request.setAttribute("medicationlist", medicationlist);
 		request.setAttribute("sideeffectslist", sidelist);
 		request.setAttribute("medloglist", medlog);
