@@ -32,7 +32,7 @@
 							
 								</select>
 								<span class="help-inline">
-									<a href="#" class="btn danger" data-controls-modal="modal-from-dom-addSide" data-backdrop="true" data-keyboard="true" >Add a new side effect</a>
+									<a href="#" class="btn success" data-controls-modal="modal-from-dom-addSide" data-backdrop="true" data-keyboard="true" >Add a new side effect</a>
 								</span>
 							</div>
 						</div>

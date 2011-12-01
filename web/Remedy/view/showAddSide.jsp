@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="span11">
 				<c:if test="${!(empty sideeffectslist)}">				
-					<p><a href="#" data-controls-modal="modal-from-dom-addSide" data-backdrop="true" data-keyboard="true" >Add a new side effect</a></p>
+					<p><a href="#" class="btn success" data-controls-modal="modal-from-dom-addSide" data-backdrop="true" data-keyboard="true" >Add a new side effect</a></p>
 					<c:forEach var="sideeffects" items="${sideeffectslist}">
 						<form id="delmed" action="delSide.do" method="Post">
 							<div class="row">
