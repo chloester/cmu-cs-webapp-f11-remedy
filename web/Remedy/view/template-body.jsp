@@ -51,7 +51,7 @@ if (user == null) {
 	<div class="topbar" data-dropdown="dropdown">
 		<div class="fill">
 			<div class="container">
-				<a class="brand" href="/Remedy/">Remedy<sup>+</sup></a>
+				<a class="brand" onclick="changelink(1)" href="/Remedy/">Remedy<sup>+</sup></a>
 				<ul class="nav">
 					<li onclick="changelink(1)"  class="top111"  value="1"><a href="schedule.do?" >Schedule</a></li>
 					<li onclick="changelink(2)"  class="top111"  value="2"><a href="viewMeds.do?">Medications</a></li>
