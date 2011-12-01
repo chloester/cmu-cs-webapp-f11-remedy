@@ -11,7 +11,7 @@ public interface sideInterface {
      * @param create side effects object into table.
      * @throws DAOException 
      */
-    public abstract void create(SideEffect AddSide) throws DAOException;
+    public abstract void create(SideEffect addSide) throws DAOException;
     /**
      * Delete the corresponding row in database using particular side effect id.
      * @return void
