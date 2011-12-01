@@ -21,7 +21,7 @@ public class SideEffectLog {
 	public int 	  getTimeMin()	{ return timeMin;}
 	public String getTimeAMPM() { return timeAMPM; }
 	public int 	  getValue()	{ return value;  }
-	
+
 	public void setOwner(String o)		{ owner = o;   }
 	public void setName(String n)		{ name = n;    }
 	public void setDate(String d)		{ date = d;    }

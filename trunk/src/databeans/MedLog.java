@@ -8,7 +8,7 @@ public class MedLog {
 	private int    timeHr;
 	private int    timeMin;
 	private String timeAMPM;
-	
+
 	public MedLog(int id) {
 		this.medId = id;
 	}
@@ -19,7 +19,7 @@ public class MedLog {
 	public int    getTimeHr()	{ return timeHr;   }
 	public int    getTimeMin()	{ return timeMin;  }
 	public String getTimeAMPM() { return timeAMPM; }
-	
+
 	public void setOwner(String o)		{ owner = o; 	}
 	public void setName(String name1)   { name = name1; }
 	public void setDate(String d)		{ date = d;     }

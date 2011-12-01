@@ -15,6 +15,12 @@
 		<div class="row">
 			<div class="span16">
 				<div class="clearfix">
+					<c:if test="${!(empty message)}">
+						<p>
+							${message}
+						</p>
+					</c:if>
+					
 					<form action="visualize.do" method="POST">
 						<div class="inline-inputs">
 							Show me how 
@@ -37,12 +43,12 @@
 		</div>
 		<div class="row">
 			<div class="span16">
-				<c:if test="${!(empty message)}">
-					<p>
-						${message}
-					</p>
+				<c:if test="${(!(empty medname) && !(empty sidename))}">
+					<h3>${medname} and ${sidename}</h3>
 				</c:if>
-				
+				<c:if test="${((empty medname) && (empty sidename))}">
+					<h3>Currently showing all medications and side effects. Please select options above and click 'Go'</h3>
+				</c:if>
 				<div id='chart_div' style='width: 700px; height: 300px;'></div>
 			</div>
 		</div>
