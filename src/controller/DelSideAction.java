@@ -22,7 +22,7 @@ import model.Model;
 public class DelSideAction extends Action{
 	private SideDAO sideDAO;
 	private FormBeanFactory<DelSideForm> formBeanFactory = FormBeanFactory.getInstance(DelSideForm.class);
-	List<String> DellistSide = new ArrayList<String>();
+	List<String> delListSide = new ArrayList<String>();
 	
 	public DelSideAction(Model model){
 		sideDAO = model.getSideDAO();
@@ -41,15 +41,15 @@ public class DelSideAction extends Action{
 	/*
 	 * Delete the corresponding side effect, then show the side effect list.
 	 * */
-	SideEffect [] SideEffectlist;
-	String DelName = null;
+	SideEffect [] sideEffectlist;
+	String delName = null;
 	String button = request.getParameter("button");
 	if(button != null){
 		if(button.equals("Delete ")){
 		try {
 			DelSideForm form = new DelSideForm();
 			form = formBeanFactory.create(request);	
-			DellistSide.add(form.getSideid());
+			delListSide.add(form.getSideid());
 		if(!form.isPresent()){
 			System.out.println("form built wrong!");
 			return "showAddSide.jsp";
@@ -57,7 +57,7 @@ public class DelSideAction extends Action{
 		//add deleted id into the delete list.
 		try {
 			if(form.getSideid() != null){
-		    DelName = sideDAO.getSideName(Integer.parseInt(form.getSideid())).getName();
+		    delName = sideDAO.getSideName(Integer.parseInt(form.getSideid())).getName();
 			}
 			sideDAO.Delete(Integer.parseInt(form.getSideid()));
 		} catch (NumberFormatException e) {
@@ -68,23 +68,23 @@ public class DelSideAction extends Action{
 			e.printStackTrace();
 		}
 		HttpSession session = request.getSession(false);
-		request.setAttribute("message","Successfully deleted " + DelName + ". ");
-		synchronized(session){session.setAttribute("deletelistside", DellistSide);}
+		request.setAttribute("message","Successfully deleted " + delName + ". ");
+		synchronized(session){session.setAttribute("deletelistside", delListSide);}
 		} catch (FormBeanException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}else{
 		HttpSession session = request.getSession(false);
-		synchronized(session){session.setAttribute("deletelistside", DellistSide);}
-		SideEffectlist = sideDAO.getSideEffectsList(user.getEmailAddress());
-		request.setAttribute("sideeffectslist",SideEffectlist);
+		synchronized(session){session.setAttribute("deletelistside", delListSide);}
+		sideEffectlist = sideDAO.getSideEffectsList(user.getEmailAddress());
+		request.setAttribute("sideeffectslist",sideEffectlist);
 		return "showAddSide.jsp";
 	}
 	HttpSession session = request.getSession(false);
-	synchronized(session){session.setAttribute("deletelistside", DellistSide);}
-	SideEffectlist = sideDAO.getSideEffectsList(user.getEmailAddress());
-	request.setAttribute("sideeffectslist", SideEffectlist);
+	synchronized(session){session.setAttribute("deletelistside", delListSide);}
+	sideEffectlist = sideDAO.getSideEffectsList(user.getEmailAddress());
+	request.setAttribute("sideeffectslist", sideEffectlist);
 	return "showAddSide.jsp";
 	}
 	return button;

@@ -22,7 +22,7 @@ import model.Model;
 public class DelMedAction extends Action {
 	private MedDAO medDAO;
 	private FormBeanFactory<DelMedForm> formBeanFactory = FormBeanFactory.getInstance(DelMedForm.class);
-	List<String> Dellist = new ArrayList<String>();
+	List<String> delList = new ArrayList<String>();
 	
 	public DelMedAction(Model model){
 		medDAO = model.getMedDAO();
@@ -41,21 +41,21 @@ public class DelMedAction extends Action {
 	/*
 	 * Delete the corresponding Medication, then show the medication list.
 	 * */
-	Medication[] Medicationlist;
+	Medication[] medicationlist;
 	String button = request.getParameter("button");
-	String DelName = null;
+	String delName = null;
 	if(button != null){
 		if(button.equals("Delete")){
 		try {
 			DelMedForm form = new DelMedForm();
 			form = formBeanFactory.create(request);	
-			Dellist.add(form.getMedid());
+			delList.add(form.getMedid());
 		if(!form.isPresent()){
 			return "showAddMed.jsp";
 		}
 		//add deleted id into the delete list.
 		try {
-		    DelName = medDAO.getMedName(Integer.parseInt(form.getMedid())).getName();
+		    delName = medDAO.getMedName(Integer.parseInt(form.getMedid())).getName();
 			medDAO.Delete(Integer.parseInt(form.getMedid()));
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
@@ -65,23 +65,23 @@ public class DelMedAction extends Action {
 			e.printStackTrace();
 		}
 		HttpSession session = request.getSession(false);
-		request.setAttribute("message","Successfully deleted " + DelName + ". ");
-		synchronized(session){session.setAttribute("deletelist", Dellist);}
+		request.setAttribute("message","Successfully deleted " + delName + ". ");
+		synchronized(session){session.setAttribute("deletelist", delList);}
 		} catch (FormBeanException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}else{
 		HttpSession session = request.getSession(false);
-		synchronized(session){session.setAttribute("deletelist", Dellist);}
-		Medicationlist = medDAO.getMedicationList(user.getEmailAddress());
-		request.setAttribute("medicationlist",Medicationlist);
+		synchronized(session){session.setAttribute("deletelist", delList);}
+		medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+		request.setAttribute("medicationlist",medicationlist);
 		return "showAddMed.jsp";
 	}
 	HttpSession session = request.getSession(false);
-	synchronized(session){session.setAttribute("deletelist", Dellist);}
-	Medicationlist = medDAO.getMedicationList(user.getEmailAddress());
-	request.setAttribute("medicationlist", Medicationlist);
+	synchronized(session){session.setAttribute("deletelist", delList);}
+	medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+	request.setAttribute("medicationlist", medicationlist);
 	return "showAddMed.jsp";
 	}
 	return button;

@@ -25,7 +25,7 @@ import org.mybeans.form.FormBeanFactory;
 public class AddSideAction extends Action {
 	private SideDAO sideDAO;
 	//create medication bean;
-	private SideEffect AddSide;
+	private SideEffect addSide;
 	private FormBeanFactory<AddSideForm> formBeanFactory = FormBeanFactory.getInstance(AddSideForm.class);
 
 	public AddSideAction(Model model) {
@@ -47,9 +47,9 @@ public class AddSideAction extends Action {
     	 * if the user has already logged in.
     	 * */
 	
-		SideEffect[] SideEffectslist;
-		List<String> Dellistside = new ArrayList<String>();
-		String DelSide = null;
+		SideEffect[] sideEffectslist;
+		List<String> delListside = new ArrayList<String>();
+		String delSide = null;
 		//error list for error mention function.
 		List<String> errors = new ArrayList<String>();
 		String button;
@@ -69,66 +69,66 @@ public class AddSideAction extends Action {
 		        request.setAttribute("errors",errors);
 		        return "logSide.jsp";
 		    }    
-        	int AllNum = sideDAO.size();
-        	if(AllNum != 0){
-        	Dellistside = (List<String>) session.getAttribute("deletelistside");
-        	if(Dellistside != null){
-    			if(!Dellistside.isEmpty()){
-    				DelSide = Dellistside.get(Dellistside.size()-1);
-    				Dellistside.remove(Dellistside.size()-1);
-    				synchronized(session){session.setAttribute("deletelistside", Dellistside);}
+        	int allNum = sideDAO.size();
+        	if(allNum != 0){
+        	delListside = (List<String>) session.getAttribute("deletelistside");
+        	if(delListside != null){
+    			if(!delListside.isEmpty()){
+    				delSide = delListside.get(delListside.size()-1);
+    				delListside.remove(delListside.size()-1);
+    				synchronized(session){session.setAttribute("deletelistside", delListside);}
     			}else{
     				System.out.println("The dellist is zero");
-    				DelSide = null;
+    				delSide = null;
     				synchronized(session){session.setAttribute("deletelistside", null);}
     			}
     		}else{
-    			DelSide = null;
+    			delSide = null;
     			synchronized(session){session.setAttribute("deletelistside", null);}
     		}
         	}
-        	String NewSide;
+        	String newSide;
         	//if user want some side effects  be deleted.
-        	if(DelSide != null){
-        		NewSide = DelSide;
-        		AddSide = new SideEffect(Integer.parseInt(NewSide));
-        		AddSide.setName(form.getName());
-        		AddSide.setOwner(user.getEmailAddress());
-        		//AddSide.setAllNum(AllNum + 1);	
+        	if(delSide != null){
+        		newSide = delSide;
+        		addSide = new SideEffect(Integer.parseInt(newSide));
+        		addSide.setName(form.getName());
+        		addSide.setOwner(user.getEmailAddress());
+        		//addSide.setAllNum(allNum + 1);	
         		//create a new user.
-        		sideDAO.create(AddSide);
-        		synchronized(session){session.setAttribute("deletelistside",Dellistside);}
+        		sideDAO.create(addSide);
+        		synchronized(session){session.setAttribute("deletelistside",delListside);}
         	//if no scheduled medication be deleted.
         	}else{
-        		int AllSize = sideDAO.size();
+        		int allSize = sideDAO.size();
         		//initialization situation.
-        		if(AllSize == 0){
-        			NewSide = Integer.toString(AllSize);
-        			AddSide = new SideEffect(Integer.parseInt(NewSide));
-        			AddSide.setName(form.getName());
-            		AddSide.setOwner(user.getEmailAddress());
-            		sideDAO.create(AddSide);
-            		synchronized(session){session.setAttribute("deletelistside",Dellistside);}
+        		if(allSize == 0){
+        			newSide = Integer.toString(allSize);
+        			addSide = new SideEffect(Integer.parseInt(newSide));
+        			addSide.setName(form.getName());
+            		addSide.setOwner(user.getEmailAddress());
+            		sideDAO.create(addSide);
+            		synchronized(session){session.setAttribute("deletelistside",delListside);}
         		}else{
-        			AllSize = sideDAO.getLastId();
-        			NewSide = Integer.toString(AllSize);
-        			AddSide = new SideEffect(Integer.parseInt(NewSide) + 1);
-        			AddSide.setName(form.getName());
-            		AddSide.setOwner(user.getEmailAddress());
-            		sideDAO.create(AddSide);
-            		synchronized(session){session.setAttribute("deletelistside",Dellistside);}
+        			allSize = sideDAO.getLastId();
+        			newSide = Integer.toString(allSize);
+        			addSide = new SideEffect(Integer.parseInt(newSide) + 1);
+        			addSide.setName(form.getName());
+            		addSide.setOwner(user.getEmailAddress());
+            		sideDAO.create(addSide);
+            		synchronized(session){session.setAttribute("deletelistside",delListside);}
         		}
         	}
         	
     		session.setAttribute("deleteid", null);
             session.setAttribute("user", user);
-            String RedirectTo = (String) session.getAttribute("redirectTo");
-            SideEffectslist = sideDAO.getSideEffectsList(user.getEmailAddress());
-            if(RedirectTo != null){
-            	request.setAttribute("sideeffectslist",SideEffectslist);
-            	return RedirectTo;
+            String redirectTo = (String) session.getAttribute("redirectTo");
+            sideEffectslist = sideDAO.getSideEffectsList(user.getEmailAddress());
+            if(redirectTo != null){
+            	request.setAttribute("sideeffectslist",sideEffectslist);
+            	return redirectTo;
             }
-    		request.setAttribute("sideeffectslist", SideEffectslist);
+    		request.setAttribute("sideeffectslist", sideEffectslist);
     		return "logSide.jsp";
 	}catch(DAOException e1){
 		e1.printStackTrace();
