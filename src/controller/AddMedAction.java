@@ -41,13 +41,13 @@ public class AddMedAction extends Action {
     		LoginForm form = new LoginForm();
     		form.setRedirect("/addmed.do");
     		request.setAttribute("loginform", form);
-    		return "homePage.jsp";
+    		return "homepage.jsp";
     	}
     	/*
     	 * if the user has already logged in.
     	 * */
 	
-		Medication[] Medicationlist_1;
+		Medication[] medicationlist;
 		List<String> Dellist = new ArrayList<String>();
 		String DelMed = null;
 		//error list for error mention function.
@@ -169,12 +169,12 @@ public class AddMedAction extends Action {
     		session.setAttribute("deleteid", null);
             session.setAttribute("user", user);
             String RedirectTo = (String) session.getAttribute("redirectto");
-            Medicationlist_1 = medDAO.getMedicationList(user.getEmailAddress());
+            medicationlist = medDAO.getMedicationList(user.getEmailAddress());
             if(RedirectTo != null){
-            	request.setAttribute("medicationlist",Medicationlist_1);
+            	request.setAttribute("medicationlist",medicationlist);
             	return RedirectTo;
             }
-    		request.setAttribute("medicationlist", Medicationlist_1);
+    		request.setAttribute("medicationlist", medicationlist);
     		return "addMed.jsp";
 	}catch(DAOException e1){
 		e1.printStackTrace();
@@ -183,12 +183,12 @@ public class AddMedAction extends Action {
 		e.printStackTrace();
 	}
 	}//if user did not add any new medication.
-		Medicationlist_1 = medDAO.getMedicationList(user.getEmailAddress());
- 		request.setAttribute("medicationlist", Medicationlist_1);
+		medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+ 		request.setAttribute("medicationlist", medicationlist);
 		return "addMed.jsp";
 	}else{
-		Medicationlist_1 = medDAO.getMedicationList(user.getEmailAddress());
-		request.setAttribute("medicationlist", Medicationlist_1);
+		medicationlist = medDAO.getMedicationList(user.getEmailAddress());
+		request.setAttribute("medicationlist", medicationlist);
 		return "addMed.jsp";
 	}
 }

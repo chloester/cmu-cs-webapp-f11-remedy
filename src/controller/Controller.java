@@ -39,7 +39,8 @@ public class Controller extends HttpServlet {
 		//for user deletion operation.
 		Action.add(new DelMedAction(model));
 		Action.add(new DelSideAction(model));
-		//visualize graphs
+		//visualize schedule and graphs
+		Action.add(new ScheduleAction(model));
 		Action.add(new VisualizeAction(model));
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
