@@ -80,6 +80,7 @@ public class ScheduleAction extends Action {
 				ScheduleItem[] daily = new ScheduleItem[freq1];
 				// create array of start times
 				int[] times = new int[freq1];
+				System.out.println("Starting time and daily output for " + m.getName());
 				for(int j = 0; j < freq1; j++) {
 					times[j] = startHr+freq2*j;
 					// create schedule item
