@@ -16,158 +16,149 @@
 		<div class="page-header">
 			<h1>Welcome, <%=user.getFirstName()%>!</h1>
 		</div>
+		
 		<div class="row">
 			<div class="span11">
 				<h2>Your schedule</h2>
-				
+	
 				<div class="row">
 					<div class="span11">
-						Monday<br><br>
-						
-						<c:if test="${!(empty mondayList)}">
-							<c:forEach var="item" items="${mondayList}">
-								${item.time} : ${item.name}<br>
-							</c:forEach>
-						</c:if>
-						
-						Tuesday<br><br>
-						
-						<c:if test="${!(empty tuesdayList)}">
-							<c:forEach var="item" items="${tuesdayList}">
-								${item.time} : ${item.name}<br>
-							</c:forEach>
-						</c:if>
-						
-						Wednesday<br><br>
-						
-						<c:if test="${!(empty wednesdayList)}">
-							<c:forEach var="item" items="${wednesdayList}">
-								${item.time} : ${item.name}<br>
-							</c:forEach>
-						</c:if>
-						
-						Thursday<br><br>
-						
-						<c:if test="${!(empty thursdayList)}">
-							<c:forEach var="item" items="${thursdayList}">
-								${item.time} : ${item.name}<br>
-							</c:forEach>
-						</c:if>
-						
-						Friday<br><br>
-						
-						<c:if test="${!(empty fridayList)}">
-							<c:forEach var="item" items="${fridayList}">
-								${item.time} : ${item.name}<br>
-							</c:forEach>
-						</c:if>
-						
-						Saturday<br><br>
-						
-						<c:if test="${!(empty saturdayList)}">
-							<c:forEach var="item" items="${saturdayList}">
-								${item.time} : ${item.name}<br>
-							</c:forEach>
-						</c:if>
-						
-						Sunday<br><br>
-						
-						<c:if test="${!(empty sundayList)}">
-							<c:forEach var="item" items="${sundayList}">
-								${item.time} : ${item.name}<br>
-							</c:forEach>
-						</c:if>
-						
+						<h3>Monday</h3>
 					</div>
 				</div>
 				
+				<c:if test="${!(empty mondayList)}">
+					<c:forEach var="item" items="${mondayList}">
+						<div class="row">
+							<div class="span1">
+								${item.time}
+							</div>
+							<div class="span8">
+								${item.name}
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+		
 				<div class="row">
-					<div class="span11"><h3>Monday</h3></div>
-				</div>
-				<div class="row">
-					<div class="span1">
-						9:00a
-					</div>
-					<div class="span6">
-						Ibuprofen<br />
-						Multivitamin
-					</div>
-					<div class="span2">
-						<span class="label success">Taken</span><br />
-						<span class="label success">Taken</span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="span1">
-						12:00p
-					</div>
-					<div class="span6">
-						Ibuprofen 
-					</div>
-					<div class="span2">
-						<span class="label important">Missed</span>
+					<div class="span11">
+						<h3>Tuesday</h3>
 					</div>
 				</div>
+		
+				<c:if test="${!(empty tuesdayList)}">
+					<c:forEach var="item" items="${tuesdayList}">
+						<div class="row">
+							<div class="span1">
+								${item.time}
+							</div>
+							<div class="span8">
+								${item.name}
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+		
 				<div class="row">
-					<div class="span1">
-						3:00p
-					</div>
-					<div class="span6">
-						Ibuprofen
-					</div>
-					<div class="span2">
-						<span class="label warning">Due</span>
+					<div class="span11">
+						<h3>Wednesday</h3>
 					</div>
 				</div>
+		
+				<c:if test="${!(empty wednesdayList)}">
+					<c:forEach var="item" items="${wednesdayList}">
+						<div class="row">
+							<div class="span1">
+								${item.time}
+							</div>
+							<div class="span8">
+								${item.name}
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+		
 				<div class="row">
-					<div class="span11"><h3>Tuesday</h3></div>
-				</div>
-				<div class="row">
-					<div class="span1">
-						9:00a
-					</div>
-					<div class="span6">
-						Multivitamin 
-					</div>
-					<div class="span2">
-						<span class="label">Not yet taken</span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="span11"><h3>Wednesday</h3></div>
-				</div>
-				<div class="row">
-					<div class="span1">
-						9:00a
-					</div>
-					<div class="span6">
-						Multivitamin
-					</div>
-					<div class="span2">
-						<span class="label">Not yet taken</span>
+					<div class="span11">
+						<h3>Thursday</h3>
 					</div>
 				</div>
+		
+				<c:if test="${!(empty thursdayList)}">
+					<c:forEach var="item" items="${thursdayList}">
+						<div class="row">
+							<div class="span1">
+								${item.time}
+							</div>
+							<div class="span8">
+								${item.name}
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+		
 				<div class="row">
-					<div class="span11"><h3>Thursday</h3></div>
+					<div class="span11">
+						<h3>Friday</h3>
+					</div>
 				</div>
+		
+				<c:if test="${!(empty fridayList)}">
+					<c:forEach var="item" items="${fridayList}">
+						<div class="row">
+							<div class="span1">
+								${item.time}
+							</div>
+							<div class="span8">
+								${item.name}
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+		
 				<div class="row">
-					<div class="span1">
-						9:00a
-					</div>
-					<div class="span6">
-						Multivitamin
-					</div>
-					<div class="span2">
-						<span class="label">Not yet taken</span>
+					<div class="span11">
+						<h3>Saturday</h3>
 					</div>
 				</div>
+		
+				<c:if test="${!(empty saturdayList)}">
+					<c:forEach var="item" items="${saturdayList}">
+						<div class="row">
+							<div class="span1">
+								${item.time}
+							</div>
+							<div class="span8">
+								${item.name}
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+		
+				<div class="row">
+					<div class="span11">
+						<h3>Sunday</h3>
+					</div>
+				</div>
+		
+				<c:if test="${!(empty sundayList)}">
+					<c:forEach var="item" items="${sundayList}">
+						<div class="row">
+							<div class="span1">
+								${item.time}
+							</div>
+							<div class="span8">
+								${item.name}
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+
 			</div>
-
-<jsp:include page="sidemenu.jsp" />
-
+			
+			<jsp:include page="sidemenu.jsp" />
 		</div>
 		
 		<div class="row" style="margin-bottom:18px"></div>
-	</div>
 
 <jsp:include page="template-foot.jsp" />
