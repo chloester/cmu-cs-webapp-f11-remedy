@@ -7,8 +7,11 @@
 	<script src="js/bootstrap-dropdown.js"></script>
 	<script src="js/bootstrap-modal.js"></script>
 	<script src="js/bootstrap-alerts.js"></script>
+	<script src="js/bootstrap-popover.js"></script>
+	<script src="js/bootstrap-twipsy.js"></script>	
 	<script src="js/medication-name.js"></script>
 	<script src="js/sideeffect-name.js"></script>
+	<script src="js/user.js"></script>
 	<script>
 		$(function() {
 			var d = new Date();
