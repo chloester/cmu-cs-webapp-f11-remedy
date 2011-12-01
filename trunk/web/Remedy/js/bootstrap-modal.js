@@ -28,7 +28,6 @@
   var transitionEnd
 
   $(document).ready(function () {
-
     $.support.transition = (function () {
       var thisBody = document.body || document.documentElement
         , thisStyle = thisBody.style
