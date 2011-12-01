@@ -94,7 +94,7 @@
 						</div>
 						
 						<div class="actions">
-							<input type="submit" class="btn primary" name="button" value="Log Side Effects" />
+							<input type="submit" class="btn primary" name="button" value="Log side effect" />
 							<button type="reset" class="btn">Clear form</button>
 						</div>
 						

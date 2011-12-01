@@ -52,7 +52,7 @@ public class ScheduleAction extends Action {
 		friday = new ArrayList();
 		saturday = new ArrayList();
 		sunday = new ArrayList();
-		
+
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors",errors);
 		HttpSession session = request.getSession();
@@ -108,7 +108,7 @@ public class ScheduleAction extends Action {
 		request.setAttribute("fridayList",friday);
 		request.setAttribute("saturdayList",saturday);
 		request.setAttribute("sundayList",sunday);
-		
+
 		session.setAttribute("redirectTo",redirectTo);
 		return "haslogin.jsp";
 	}

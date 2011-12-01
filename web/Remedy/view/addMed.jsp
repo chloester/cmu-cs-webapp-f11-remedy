@@ -91,7 +91,7 @@
 								<ul class="inputs-list">
 									<li><label>
 										<input type="checkbox" class="daycheck" value="Everyday" onclick="change(0)">
-										<span >Everyday</span>
+										<span >Every day</span>
 									</label></li>
 									<li><label>
 										<input type="checkbox" name="dayChecks" class="daycheck" value="Monday" onclick="change(1)">

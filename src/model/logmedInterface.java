@@ -10,7 +10,7 @@ public interface logmedInterface {
      * @param Log medication object to be added to the user list.
      * @throws DAOException 
      */
-    public abstract void create(MedLog AddLogMed) throws DAOException;
+    public abstract void create(MedLog addLogMed) throws DAOException;
      /**
       * Gets the rows of Log medications from table using particular userName(emailaddress).
       * @return the corresponding list of Medicaitons in the table
