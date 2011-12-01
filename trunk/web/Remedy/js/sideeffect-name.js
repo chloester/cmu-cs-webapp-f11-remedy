@@ -109,9 +109,9 @@ function ajaxside(str){
 	function searchByCapital2(str){
 		var g;
 		var x=xmlDoc.getElementsByTagName(str);
-		alert(x.length);
-		for(g=0 ; g<x.length; g++){
-			txt=txt + "<li>" +  x[g].childNodes[0].nodeValue + "<br/>" + "</li>";
+		num = x.length - 1;
+		for(var g=0; g<num ; g++){
+			txt=txt + "<li>" +  x[0].childNodes[0].nodeValue + "<br/>" + "</li>";
 		}
 		 document.getElementById("sidehint").innerHTML=txt;
 	}
