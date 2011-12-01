@@ -53,7 +53,7 @@ if (user == null) {
 			<div class="container">
 				<a class="brand" href="/Remedy/">Remedy<sup>+</sup></a>
 				<ul class="nav">
-					<li onclick="changelink(1)"  class="top111"  value="1"><a href="/Remedy/" >Schedule</a></li>
+					<li onclick="changelink(1)"  class="top111"  value="1"><a href="schedule.do?" >Schedule</a></li>
 					<li onclick="changelink(2)"  class="top111"  value="2"><a href="viewMeds.do?">Medications</a></li>
 					<li onclick="changelink(3)"  class="top111"  value="3"><a href="viewSides.do?">Side Effects</a></li>
 					<li onclick="changelink(4)"  class="top111"  value="4"><a href="visualize.do?">Visualize</a></li>
