@@ -82,7 +82,7 @@
 					</fieldset>
 				</form>
 			</div>
-
+</div>
 <jsp:include page="sidemenu.jsp" />
 
 		</div>
