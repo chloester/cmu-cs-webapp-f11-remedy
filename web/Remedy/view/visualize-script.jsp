@@ -53,7 +53,7 @@ function drawChart() {
 			<c:if test="${side.timeAMPM=='p.m.'}">
 				hour = ${side.timeHr} == 12 ? 12 : (${side.timeHr}+12);
 			</c:if>
-			rawdata.push([new Date(year, month-1, day, hour, ${side.timeMin}), null, undefined, undefined, ${side.value}, undefined, undefined]);
+			rawdata.push([new Date(year, month-1, day, hour, ${side.timeMin}), 0, undefined, undefined, ${side.value}, undefined, undefined]);
 		</c:forEach>
 	</c:if>
 

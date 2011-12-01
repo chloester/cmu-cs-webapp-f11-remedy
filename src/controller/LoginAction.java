@@ -34,23 +34,24 @@ public class LoginAction extends Action {
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
         button = request.getParameter("button");
-        if(button == null){
-        	return "homepage.jsp";
+		User user = (User) request.getSession(true).getAttribute("user");
+        if(button == null && user != null){
+			errors.add("You are already logged in.");
+        	return "schedule.do";
         }
+		if(button == null) {
+			return "homepage.jsp";
+		}
         if(button.equals("login")){
         	try {
         		LoginForm form = formBeanFactory.create(request);
         		request.setAttribute("loginform",form);
         		
-        		/*Hi Chloe, I just create an error jsp for correcting, 
-        		  you could modify it  or simply replace it with other 
-        		  jsp page for server errors.
-        		*/
         		if (!form.isPresent()) {
         			return "error.jsp";
         		}
         		
-        		//Hi Chloe, you could modify here, direct registered people to your jsp file.
+        		// direct registered people to your jsp file.
         		User registeruser = (User) request.getSession(true).getAttribute("user");
         		if (registeruser != null) {
         			errors.add("You are already logged in.");

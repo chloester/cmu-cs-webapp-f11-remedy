@@ -10,8 +10,8 @@ public class ScheduleItem implements Comparable<ScheduleItem> {
 	
 	public int compareTo(ScheduleItem other) {
 		// order by time
-		if (sortTime < other.sortTime) return 1;
-		if (sortTime > other.sortTime) return -1;
+		if (sortTime < other.sortTime) return -1;
+		if (sortTime > other.sortTime) return 1;
 		return 0;
 	}
 	

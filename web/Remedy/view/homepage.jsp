@@ -28,5 +28,5 @@
 			<p><a class="btn" href="#">View details &raquo;</a></p>
 		</div>
 	</div>
-</div>
+
 	<jsp:include page="template-foot.jsp" />
