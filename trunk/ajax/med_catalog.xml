@@ -1,0 +1,201 @@
+<Medication_Catalog>
+<CapitalA>
+	<a>Antibiotics</a>
+	<a>Ampicillin</a>
+	<a>Ancef</a>
+	<a>Augmentin</a>
+	<a>Anezmet</a>
+	<a>Axid</a>
+	<a>Ativan</a>
+</CapitalA>
+<CapitalB>
+	<b>Baclofen</b>
+	<b>Bextra</b>
+	<b>Bctroban</b>
+	<b>Benzoyl peroxide</b>
+	<b>Bisoprolol</b>
+</CapitalB>
+<CapitalC>
+	<c>Cefotan</c>
+	<c>Cefotaxime</c>
+	<c>Ciprofloxacin</c>
+	<c>Clindamycin</c>
+	<c>Comazine</c>
+	<c>Codeine</c>
+	<c>Clinoril</c>
+	<c>Chloral Hydrate</c>
+	<c>Carafate</c>
+</CapitalC>
+<CapitalD>
+    <d>Diflucan</d>
+	<d>Darvocet N-100</d>
+	<d>Demerol</d>
+	<d>Dilaudid</d>
+	<d>Daypro</d>
+	<d>Dolobid</d>
+	<d>Diprivan</d>
+</CapitalD>
+<CapitalE>
+    <e>Ecotrin</e>
+	<e>Edecrin</e>
+	<e>Edluar</e>
+	<e>Effexor</e>
+	<e>Elavil</e>
+	<e>Elspar</e>
+</CapitalE>
+<CapitalF>
+    <f>Flexeril</f>
+	<f>Fentanyl</f>
+	<f>Feldene</f>
+	<f>Folate</f>
+	<f>Flum azenil</f>
+</CapitalF>
+<CapitalG>
+	<g>Gaviscon</g>
+	<g>Glauctabs</g>
+	<g>Glucose</g>
+	<g>Glucotrol</g>
+	<g>Grifulvin</g>
+</CapitalG>
+<CapitalH>
+	<h>Habitrol</h>
+	<h>Halcion</h>
+	<h>Haldol</h>
+	<h>Humira</h>
+	<h>Hyalgan</h>
+	<h>Hytrin</h>
+</CapitalH>
+<CapitalI>
+	<i>Imipenem</i>
+	<i>Bonnie Tyler</i>
+	<i>Dolly Pirton</i>
+	<i>Giry Moore</i>
+	<i>Eros Rimizzotti</i>
+	<i>Ibuprofen</i>
+	<i>Indocin</i>
+</CapitalI>
+<CapitalJ>
+	<j>Bob Dyljn</j>
+	<j>Bonnie Tyler</j>
+	<j>Dolly Pjrton</j>
+	<j>Gjry Moore</j>
+	<j>Eros Rjmjzzotti</j>
+</CapitalJ>
+<CapitalK>
+	<k>Keflex</k>
+	<k>Ketamine</k>
+	<k></k>
+	<k></k>
+	<k></k>
+</CapitalK>
+<CapitalL>
+	<l>Levaquin</l>
+	<l>Lortab</l>
+	<l>Librium</l>
+	<l></l>
+	<l></l>
+</CapitalL>
+<CapitalM>
+	<m>Morphine</m>
+	<m></m>
+	<m></m>
+	<m></m>
+	<m></m>
+</CapitalM>
+<CapitalN>
+	<n>Nafcillin</n>
+	<n>Nexium</n>
+	<n>Naprosyn</n>
+	<n>Nimbex</n>
+	<n>Narcan</n>
+</CapitalN>
+<CapitalO>
+	<o>Oruvail</o>
+	<o></o>
+	<o></o>
+	<o></o>
+	<o></o>
+</CapitalO>
+<CapitalP>
+	<p>Phenergan</p>
+	<p>Pepcid</p>
+	<p>Protonix</p>
+	<p>Percocet</p>
+	<p></p>
+</CapitalP>
+<CapitalQ>
+	<q>Bob Dylqn</q>
+	<q>Bonnie Tyler</q>
+	<q>Dolly Pqrton</q>
+	<q>Gqry Moore</q>
+	<q>Eros Rqmqzzotti</q>
+</CapitalQ>
+<CapitalR>
+	<r>Reglan</r>
+	<r>Robaxin</r>
+	<r>Relafen</r>
+	<r>Raniclor</r>
+	<r>Rebetron</r>
+</CapitalR>
+<CapitalS>
+	<s>Stadol</s>
+	<s>Succinylcholine</s>
+	<s></s>
+	<s></s>
+	<s></s>
+</CapitalS>
+<CapitalT>
+	<t>Tigan</t>
+	<t>Tagamet</t>
+	<t>Tolectin</t>
+	<t>Thiamine</t>
+	<t>Tylenol</t>
+</CapitalT>
+<CapitalU>
+	<u>Bob Dylun</u>
+	<u>Bonnie Tyler</u>
+	<u>Dolly Purton</u>
+	<u>Gury Moore</u>
+	<u>Eros Rumuzzotti</u>
+</CapitalU>
+<CapitalV>
+	<v>Vancomycin</v>
+	<v>Valium</v>
+	<v>Vioxx</v>
+	<v>Voltaren</v>
+	<v>Vecuronium</v>
+	<v>Valium</v>
+	<v>Versed</v>
+	<v>Vitamin K</v>
+	<v>Vitamin C</v>
+	<v>Vitamin B</v>
+</CapitalV>
+<CapitalW>
+	<w>Bob Dylwn</w>
+	<w>Bonnie Tyler</w>
+	<w>Dolly Pwrton</w>
+	<w>Gwry Moore</w>
+	<w>Eros Rwmwzzotti</w>
+</CapitalW>
+<CapitalX>
+	<x>Bob Dylxn</x>
+	<x>Bonnie Tyler</x>
+	<x>Dolly Pxrton</x>
+	<x>Gxry Moore</x>
+	<x>Eros Rxmxzzotti</x>
+</CapitalX>
+<CapitalY>
+	<y>Bob Dylyn</y>
+	<y>Bonnie Tyler</y>
+	<y>Dolly Pyrton</y>
+	<y>Gyry Moore</y>
+	<y>Eros Rymyzzotti</y>
+</CapitalY>
+<CapitalZ>
+	<z>Zofran</z>
+	<z>Zosyn</z>
+	<z>Zantac</z>
+	<z></z>
+	<z></z>
+</CapitalZ>
+</Medication_Catalog>
