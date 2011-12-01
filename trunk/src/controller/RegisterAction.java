@@ -42,7 +42,7 @@ public class RegisterAction extends Action {
 	        RegisterForm form = formBeanFactory.create(request);
 	        request.setAttribute("registerform",form);
 	        if (!form.isPresent()) {
-	            return "error.jsp";
+	            return "register.jsp";
 	        }
 	        /*
 	         * If there are something wrong with the user input,

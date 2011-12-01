@@ -32,7 +32,6 @@ if (user == null) {
 				<a class="brand" href="/Remedy/">Remedy<sup>+</sup></a>
 				<ul class="nav">
 					<li class="active"><a href="/Remedy/">Home</a></li>
-					<li><a href="#">Learn more</a></li>
 				</ul>
 				<form class="pull-right" id="loginform" method="post" action="login.do">
 					<input class="small" type="text" id="emailaddress" name="emailaddress" placeholder="Email" value="${loginform.emailaddress}">

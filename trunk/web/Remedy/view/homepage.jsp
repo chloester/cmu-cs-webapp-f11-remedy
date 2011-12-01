@@ -8,7 +8,7 @@
 	<div class="hero-unit">
 		<h1 class="brand">Remedy<sup>+</sup></h1>
 		<p>Helping you choose better medications.</p>
-		<p><a class="btn primary large" href="login.do">Sign up</a></p>
+		<p><a class="btn primary large" href="register.do">Sign up</a></p>
 	</div>
 
 	<div class="row">
