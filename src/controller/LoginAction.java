@@ -34,8 +34,8 @@ public class LoginAction extends Action {
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
         button = request.getParameter("button");
-		User user = (User) request.getSession(true).getAttribute("user");
-        if(button == null && user != null){
+		User registeruser = (User) request.getSession(true).getAttribute("user");
+        if(button == null && registeruser != null){
 			errors.add("You are already logged in.");
         	return "schedule.do";
         }
@@ -52,7 +52,7 @@ public class LoginAction extends Action {
         		}
         		
         		// direct registered people to your jsp file.
-        		User registeruser = (User) request.getSession(true).getAttribute("user");
+        		registeruser = (User) request.getSession(true).getAttribute("user");
         		if (registeruser != null) {
         			errors.add("You are already logged in.");
         			return "haslogin.jsp";
