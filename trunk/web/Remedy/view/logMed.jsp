@@ -32,7 +32,7 @@
 
 								</select>
 								<span class="help-inline">
-									<a data-placement="below" href="addMed.do" class="btn danger" rel="popover" data-content=" Forget the name? How about add a new one? " data-original-title="A title">Add a new medication</a>
+									<a data-placement="below" href="addMed.do" class="btn success" rel="popover" data-content=" Forget the name? How about add a new one? " data-original-title="A title">Add a new medication</a>
 								<script>
 									$(function () {
 										$("a[rel=popover]").popover({

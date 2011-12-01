@@ -21,7 +21,7 @@
 				</c:if>
 				<c:if test="${!(empty medicationlist)}">
 					
-					<p><a href="addMed.do">Add a new medication</a></p>
+					<p><a href="addMed.do" class="btn success">Add a new medication</a></p>
 
 					<c:forEach var="medication" items="${medicationlist}">
 						<form id="delmed" action="delMed.do" method="Post">
