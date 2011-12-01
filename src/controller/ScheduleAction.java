@@ -80,7 +80,6 @@ public class ScheduleAction extends Action {
 				ScheduleItem[] daily = new ScheduleItem[freq1];
 				// create array of start times
 				int[] times = new int[freq1];
-				System.out.println("Starting time and daily output for " + m.getName());
 				for(int j = 0; j < freq1; j++) {
 					times[j] = startHr+freq2*j;
 					// create schedule item
@@ -164,34 +163,28 @@ public class ScheduleAction extends Action {
 			for(int j = 0; j < times.length; j++) {
 				if(days[i].equals("Monday")) {
 					monday.add(times[j]);
-					return;
 				}
 				if(days[i].equals("Tuesday")) {
 					tuesday.add(times[j]);
-					return;
 				}
 				if(days[i].equals("Wednesday")) {
 					wednesday.add(times[j]);
-					return;
 				}
 				if(days[i].equals("Thursday")) {
 					thursday.add(times[j]);
-					return;
 				}
 				if(days[i].equals("Friday")) {
 					friday.add(times[j]);
-					return;
 				}
 				if(days[i].equals("Saturday")) {
 					saturday.add(times[j]);
-					return;
 				}
 				if(days[i].equals("Sunday")) {
 					sunday.add(times[j]);
-					return;
 				}
 			}
 		}
+		return;
 	}
 
 }
